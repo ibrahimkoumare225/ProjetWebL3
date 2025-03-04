@@ -42,17 +42,17 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
   - Ajout d'un "cœur" pour aimer une recette
 
 ## Technologies Utilisées
-- **Front-end** : HTML, CSS, JavaScript (framework à préciser selon autorisation)
-- **Back-end** : (à définir selon choix technologiques : Node.js, Python, PHP, etc.)
+- **Front-end** : HTML, CSS, Bootstrap JavaScript
+- **Back-end** : PHP
 - **Base de données** : JSON (initialement), possibilité d'évolution vers une BD relationnelle
 
 ## Installation et Exécution
 1. **Cloner le projet**
    ```bash
-   git clone https://github.com/votre-repo.git
-   cd gestion-recettes
+   git clone https://github.com/votre-repo.git](https://github.com/ibrahimkoumare225/ProjetWebL3
+   
    ```
-2. **Installer les dépendances** (si applicable)
+2. **Installer les dépendances**
    ```bash
    npm install  # ou autre gestionnaire de paquets
    ```
@@ -72,7 +72,7 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
 │   │── /pages         # Pages principales
 │   │── /services      # Gestion des appels API et données
 │── /data              # Fichier JSON contenant les recettes initiales
-│── server.js          # Backend (si applicable)
+│── server.js          # Backend 
 │── README.md          # Documentation du projet
 ```
 
@@ -81,12 +81,10 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
 - Créer une branche (`feature-nouvelle-fonctionnalite`)
 - Soumettre une Pull Request
 
-## Avertissement
-L'utilisation d'IA génératives pour générer du code est interdite conformément aux consignes du projet. Toute détection de code généré automatiquement entraînera une note de 0/20.
 
 ## Licence
 Ce projet est sous licence MIT. Voir `LICENSE` pour plus de détails.
 
 ---
-**Auteur(s) :** (Ajoutez vos noms ici)
+**Auteur(s) :** (IBRAHIM KOUMARE ET IRIS BESSALA LEONNE)
 
