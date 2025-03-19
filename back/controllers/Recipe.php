@@ -1,6 +1,6 @@
 <?php
 class Recipe {
-    private $file = "data/recipes.json";
+    private $file = "data/recipe.json";
 
     // 🔹 Récupérer toutes les recettes
     public function getAllRecipes() {
