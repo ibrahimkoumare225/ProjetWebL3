@@ -1,0 +1,14 @@
+[
+    {
+        "id": "652e5d4b",
+        "name": "Pizza Margherita",
+        "author": "Chef Luigi",
+        "description": "Une délicieuse pizza italienne avec de la mozzarella et du basilic."
+    },
+    {
+        "id": "98a7b123",
+        "name": "Tarte aux fraises",
+        "author": "Marie Dupont",
+        "description": "Une tarte sucrée avec une pâte sablée et des fraises fraîches."
+    }
+]
