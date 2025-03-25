@@ -4,7 +4,11 @@ class Recipe {
 
     // 🔹 Récupérer toutes les recettes
     public function getAllRecipes() {
-        return json_decode(file_get_contents($this->file), true);
+        $recipes = array();
+        if (file_exists($this->file)) {
+            $recipes = json_decode(file_get_contents($this->file), true);
+        }
+        return $recipes;
     }
 
     // 🔹 Ajouter une recette
@@ -30,7 +34,7 @@ class Recipe {
     }
 
     // 🔹 Supprimer une recette
-    public function deleteRecipe($id) {
+    public function deleteRecipe($id){
         $recipes = json_decode(file_get_contents($this->file), true);
         foreach ($recipes as $index => $recipe) {
             if ($recipe['id'] == $id) {

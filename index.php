@@ -1,9 +1,7 @@
 <?php
-// index.php
 require_once "controllers/Recipe.php";
-
-
 $controller = new Recipe();
+
 $method = $_SERVER["REQUEST_METHOD"];
 
 // 🔹 Récupérer toutes les recettes
