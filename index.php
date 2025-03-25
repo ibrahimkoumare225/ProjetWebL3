@@ -1,48 +1,49 @@
 <?php
-require_once "controllers/Recipe.php";
-$controller = new Recipe();
 
-$method = $_SERVER["REQUEST_METHOD"];
+require_once 'RecipeController.php';
 
-// 🔹 Récupérer toutes les recettes
-if ($method == "GET") {
-    echo json_encode($controller->getAllRecipes());
-}
+$controller = new RecetteController();
 
-// 🔹 Ajouter une recette
-elseif ($method == "POST") {
-    $data = json_decode(file_get_contents("php://input"), true);
-
-    // Vérification des champs
-    if (!isset($data['name']) || !isset($data['author']) || !isset($data['description'])) {
-        echo json_encode(["error" => "Les champs name, author et description sont requis."]);
-        exit;
+if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+    switch ($action) {
+        case 'getAll':
+            $controller->getAllRecettes();
+            break;
+        case 'get':
+            if (isset($_GET['id'])) {
+                $controller->getRecette($_GET['id']);
+            } else {
+                echo json_encode(["error" => "ID requis"]);
+            }
+            break;
+        case 'add':
+            if (isset($_POST['titre']) && isset($_POST['description'])) {
+                $controller->addRecette($_POST['titre'], $_POST['description']);
+            } else {
+                echo json_encode(["error" => "Titre et description requis"]);
+            }
+            break;
+        case 'update':
+            if (isset($_POST['id']) && isset($_POST['titre']) && isset($_POST['description'])) {
+                $controller->updateRecette($_POST['id'], $_POST['titre'], $_POST['description']);
+            } else {
+                echo json_encode(["error" => "ID, titre et description requis"]);
+            }
+            break;
+        case 'delete':
+            if (isset($_POST['id'])) {
+                $controller->deleteRecette($_POST['id']);
+            } else {
+                echo json_encode(["error" => "ID requis"]);
+            }
+            break;
+        default:
+            echo json_encode(["error" => "Action inconnue"]);
+            break;
     }
-
-    echo json_encode($controller->addRecipe($data));
+} else {
+    echo json_encode(["error" => "Aucune action spécifiée"]);
 }
 
-// 🔹 Modifier une recette (PUT)
-elseif ($method == "PUT") {
-    parse_str(file_get_contents("php://input"), $data);
-
-    if (!isset($data['id'])) {
-        echo json_encode(["error" => "L'ID de la recette est requis pour la modification."]);
-        exit;
-    }
-
-    echo json_encode($controller->updateRecipe($data['id'], $data));
-}
-
-// 🔹 Supprimer une recette (DELETE)
-elseif ($method == "DELETE") {
-    parse_str(file_get_contents("php://input"), $data);
-
-    if (!isset($data['id'])) {
-        echo json_encode(["error" => "L'ID de la recette est requis pour la suppression."]);
-        exit;
-    }
-
-    echo json_encode(["success" => $controller->deleteRecipe($data['id'])]);
-}
 ?>
