@@ -1,49 +1,43 @@
 <?php
+class Router
+{
+    private array $routes = []; 
 
-require_once 'RecetteController.php';
-
-$controller = new RecetteController();
-
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-    switch ($action) {
-        case 'getAll':
-            $controller->getAllRecettes();
-            break;
-        case 'get':
-            if (isset($_GET['id'])) {
-                $controller->getRecette($_GET['id']);
-            } else {
-                echo json_encode(["error" => "ID requis"]);
-            }
-            break;
-        case 'add':
-            if (isset($_POST['titre']) && isset($_POST['description'])) {
-                $controller->addRecette($_POST['titre'], $_POST['description']);
-            } else {
-                echo json_encode(["error" => "Titre et description requis"]);
-            }
-            break;
-        case 'update':
-            if (isset($_POST['id']) && isset($_POST['titre']) && isset($_POST['description'])) {
-                $controller->updateRecette($_POST['id'], $_POST['titre'], $_POST['description']);
-            } else {
-                echo json_encode(["error" => "ID, titre et description requis"]);
-            }
-            break;
-        case 'delete':
-            if (isset($_POST['id'])) {
-                $controller->deleteRecette($_POST['id']);
-            } else {
-                echo json_encode(["error" => "ID requis"]);
-            }
-            break;
-        default:
-            echo json_encode(["error" => "Action inconnue"]);
-            break;
+    
+    public function register(string $method, string $path, callable $handler): void
+    {
+        // On ajoute la route dans le tableau avec sa méthode HTTP, son chemin et sa fonction associée
+        $this->routes[] = [
+            'method' => strtoupper($method), 
+            'path' => $path,
+            'handler' => $handler 
+        ];
     }
-} else {
-    echo json_encode(["error" => "Aucune action spécifiée"]);
-}
 
-?>
+   
+    public function handleRequest(): void
+    {
+        // On récupère la méthode HTTP utilisée par l'utilisateur 
+        $method = $_SERVER['REQUEST_METHOD'];
+
+        // On récupère le chemin demandé 
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        // On définit les en-têtes pour les requêtes CORS
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+        header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+        // On cherche si une route correspond
+        foreach ($this->routes as $route) {
+            if ($route['method'] === $method && $route['path'] === $path) {
+                // Si on trouve une route qui correspond, on exécute la fonction associée
+                call_user_func($route['handler']);
+                return; 
+            }
+        }
+
+        http_response_code(404);
+        echo json_encode(['error' => 'Route not found']);
+    }
+}
