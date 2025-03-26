@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Cuisinier" },
+  { "id": 2, "name": "Chef" },
+  { "id": 3, "name": "Traducteur" },
+  { "id": 4, "name": "Administrateur" }
+]
