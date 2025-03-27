@@ -68,22 +68,78 @@ class AuthController
 	// TODO: Implement the handleLogin method
 	public function handleLogin(): void
 	{
-		// Hints:
-		// 1. Check if the request Content-Type is 'application/x-www-form-urlencoded'
-		// 2. Get the email and password from the POST data
-		// 3. Validate the email and password
-		// 4. Check if the user exists and the password is correct
-		// 5. Store the user session
-		// 6. Return a success message with HTTP status code 200
-		// Additional hints:
-		// If any error occurs, return an error message with the appropriate HTTP status code
-		// Make sure to set the Content-Type header to 'application/json' in the response
-		// You can use the getAllUsers method to get the list of registered users
-		// You can use the password_verify function to verify the password
-		// You can use the $_SESSION superglobal to store the user session
-		// You can use the json_encode function to encode an array as JSON
-		// You can use the http_response_code function to set the HTTP status code
+		// Définir le Content-Type en JSON
+		header("Content-Type: application/json");
+	
+		// Vérifier le type de contenu
+		if (!isset($_SERVER['CONTENT_TYPE']) || stripos($_SERVER['CONTENT_TYPE'], 'application/x-www-form-urlencoded') === false) {
+			http_response_code(400);
+			echo json_encode(['error' => 'Invalid Content-Type header']);
+			return;
+		}
+	
+		// Récupérer les données
+		$email = $_POST['email'] ?? null;
+		$password = $_POST['password'] ?? null;
+	
+		// Vérifier si les champs sont vides
+		if (!$email || !$password) {
+			http_response_code(400);
+			echo json_encode(['message' => 'Email et mot de passe requis']);
+			return;
+		}
+	
+		// Récupérer la liste des utilisateurs
+		$users = $this->getAllUsers();
+		$userFound = null;
+	
+		// Vérifier si l'utilisateur existe
+		foreach ($users as $user) {
+			if ($user['mail'] === $email) {
+				$userFound = $user;
+				break;
+			}
+		}
+	
+		if (!$userFound) {
+			http_response_code(404); // Utilisateur non trouvé
+			echo json_encode(['message' => 'Utilisateur non trouvé']);
+			return;
+		}
+	
+		// Vérifier le mot de passe
+		if (!password_verify($password, $userFound['password'])) {
+			http_response_code(401); // Unauthorized
+			echo json_encode(['message' => 'Mot de passe incorrect']);
+			return;
+		}
+	
+		// Démarrer la session si elle n'est pas active
+		if (session_status() === PHP_SESSION_NONE) {
+			session_start();
+		}
+	
+		// Stocker l'utilisateur en session
+		$_SESSION['user'] = [
+			'id' => $userFound['id_user'],
+			'email' => $userFound['mail'],
+			'role' => $userFound['role']
+		];
+	
+		// Réponse de succès
+		http_response_code(200);
+		echo json_encode([
+			'message' => 'Connexion réussie',
+			'user' => [
+				'id' => $userFound['id_user'],
+				'email' => $userFound['mail'],
+				'role' => $userFound['role']
+			]
+		]);
 	}
+	
+
+
 	public function handleLogout(): void
 	{
 		session_destroy(); // Clear session

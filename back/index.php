@@ -8,8 +8,8 @@ session_start(); // Start the session
 $router = new Router();
 $authController = new AuthController(__DIR__ . '/data/users.json');
 
-$router->register('POST', '/register', [$authController, 'handleRegister']);
-$router->register('POST', '/login', [$authController, 'handleLogin']);
+$router->register('POST', '/register', [$authController, 'handleRegister']);//OKI
+$router->register('POST', '/login', [$authController, 'handleLogin']);//OKI
 $router->register('POST', '/logout', [$authController, 'handleLogout']);
 
 
