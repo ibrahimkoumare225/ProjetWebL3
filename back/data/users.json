@@ -1,20 +1,10 @@
 [
     {
-        "id_user": "67e5931b1c422",
-        "mail": "test@example.com",
-        "password": "$2y$12$xMFqRpnGnojp6E33sLgZNeUWIZ9dkza0fxeJ6PoHhVq\/qqRnBDZIC",
-        "role": "cuisinier"
-    },
-    {
-        "id_user": "67e59c3a6e256",
-        "mail": "ikouma@gmail.com",
-        "password": "$2y$12$OZZZUAbvbTdJf8jZ27po8ukNIyC7QayEwgRjW6dDhGWdXCsq1zOW.",
-        "role": "cuisinier"
-    },
-    {
-        "id_user": "67e5a55d71f13",
+        "id_user": "67e5c0fc7468d",
+        "name": "Koumare",
+        "prenom": "Ibrahim",
         "mail": "ibrahimkoumare5@gmail.com",
-        "password": "$2y$12$sOIuNMSuTHoIiARSyiEHVeBQhTWJmg2YFs4jYIBZ29d8GouoBKm4i",
+        "password": "$2y$12$.HrPkRfUpFrzvxqYJ\/yJ2OFo.BMUbeXLyX3aB.9URkwFMJvTZenSy",
         "role": "cuisinier"
     }
 ]

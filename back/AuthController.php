@@ -7,7 +7,6 @@ class AuthController
 		$this->filePath = $filePath;
 	}
 // TODO: Implement the handleRegister method
-// TODO: Implement the handleRegister method
 	public function handleRegister(): void
 	{
 		header('Content-Type: application/json');
@@ -19,19 +18,31 @@ class AuthController
 		}
 
 		$idUtilisateur = uniqid();
+		$username = $_POST['name'] ?? '';
+		$userprename = $_POST['prenom'] ?? '';
 		$email = $_POST['email'] ?? '';
 		$password = $_POST['password'] ?? '';
 		$role = "cuisinier";
 
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			http_response_code(400);
-			echo json_encode(['message' => 'Invalid email : ']);
+			echo json_encode(['message' => 'email Invalid  : ']);
 			return;
 		}
 
 		if (strlen($password) < 8) {
 			http_response_code(400);
-			echo json_encode(['message' => 'Password must be at least 8 characters']);
+			echo json_encode(['message' => 'Le mot de passe doit comporter au moins 8 caractères.']);
+			return;
+		}
+		if (strlen($username) < 2) {
+			http_response_code(400);
+			echo json_encode(['message' => 'Le nom doit comporter au moins 2 caractères.']);
+			return;
+		}
+		if (strlen($userprename) < 2) {
+			http_response_code(400);
+			echo json_encode(['message' => 'Le prenom doit comporter au moins 2 caractères.']);
 			return;
 		}
 
@@ -51,6 +62,8 @@ class AuthController
 		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 		$user = [
 			"id_user" => $idUtilisateur,
+			"name" =>$username,
+			"prenom" =>$userprename,
 			"mail" => $email,
 			"password" => $hashedPassword,
 			"role" => $role,
@@ -61,7 +74,7 @@ class AuthController
 		file_put_contents($this->filePath, json_encode($users, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
 		http_response_code(201);
-		echo json_encode(['message' => 'User registered successfully',
+		echo json_encode(['message' => 'Utilisateur enregistré avec succès',
 						'redirect' => 'connexion.html']);
 
 	}
@@ -122,6 +135,8 @@ class AuthController
 		// Stocker l'utilisateur en session
 		$_SESSION['user'] = [
 			'id' => $userFound['id_user'],
+			'name' => $userFound['name'],
+			'prenom' => $userFound['prenom'],
 			'email' => $userFound['mail'],
 			'role' => $userFound['role']
 		];
@@ -132,6 +147,8 @@ class AuthController
 			'message' => 'Connexion réussie',
 			'user' => [
 				'id' => $userFound['id_user'],
+				'name'=> $userFound['name'],
+				'prename'=>$userFound['prenom'],
 				'email' => $userFound['mail'],
 				'role' => $userFound['role']
 			]
@@ -155,7 +172,7 @@ class AuthController
 
 		// Envoyer la réponse JSON
 		http_response_code(200);
-		echo json_encode(['message' => 'Logged out successfully']);
+		echo json_encode(['message' => 'Déconnexion réussie']);
 	}
 
 	public function validateAuth(): ?string
