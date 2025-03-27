@@ -10,5 +10,11 @@
         "mail": "ikouma@gmail.com",
         "password": "$2y$12$OZZZUAbvbTdJf8jZ27po8ukNIyC7QayEwgRjW6dDhGWdXCsq1zOW.",
         "role": "cuisinier"
+    },
+    {
+        "id_user": "67e5a55d71f13",
+        "mail": "ibrahimkoumare5@gmail.com",
+        "password": "$2y$12$sOIuNMSuTHoIiARSyiEHVeBQhTWJmg2YFs4jYIBZ29d8GouoBKm4i",
+        "role": "cuisinier"
     }
 ]

@@ -10,7 +10,7 @@ $authController = new AuthController(__DIR__ . '/data/users.json');
 
 $router->register('POST', '/register', [$authController, 'handleRegister']);//OKI
 $router->register('POST', '/login', [$authController, 'handleLogin']);//OKI
-$router->register('POST', '/logout', [$authController, 'handleLogout']);
+$router->register('GET', '/logout', [$authController, 'handleLogout']);//OKI
 
 
 $router->handleRequest();

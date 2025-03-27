@@ -142,16 +142,40 @@ class AuthController
 
 	public function handleLogout(): void
 	{
-		session_destroy(); // Clear session
+		// Vérifier si une session est active avant de la détruire
+		if (session_status() === PHP_SESSION_NONE) {
+			session_start();
+		}
+
+		// Vider les variables de session
+		$_SESSION = [];
+
+		// Détruire la session
+		session_destroy();
+
+		// Envoyer la réponse JSON
 		http_response_code(200);
 		echo json_encode(['message' => 'Logged out successfully']);
 	}
+
 	public function validateAuth(): ?string
 	{
-		return $_SESSION['user'] ?? null;
+		if (session_status() === PHP_SESSION_NONE) {
+			session_start();
+		}
+
+		return $_SESSION['user']['email'] ?? null;
 	}
+
 	private function getAllUsers(): array
 	{
-		return file_exists($this->filePath) ? json_decode(file_get_contents($this->filePath), true) ?? [] : [];
+		if (!file_exists($this->filePath)) {
+			return [];
+		}
+
+		$data = json_decode(file_get_contents($this->filePath), true);
+		
+		return is_array($data) ? $data : [];
 	}
+
 }
