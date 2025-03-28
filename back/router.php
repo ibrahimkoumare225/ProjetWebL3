@@ -9,7 +9,8 @@ class Router
 	/**
 	 * Register a new route
 	 */
-	public function register(string $method, string $path, callable $handler): void
+	
+ public function register(string $method, string $path, callable $handler): void
 	{
 		$this->routes[] = [
 			'method' => strtoupper($method),
