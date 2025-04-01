@@ -1,9 +1,12 @@
 [
     {
         "name": "Crock Pot Roast",
-        "nameFR":"Roti à la cocotte",
+        "nameFR": "Roti à la cocotte",
         "Author": "Unknown",
-        "Without": ["NoGluten","NoMilk"],
+        "Without": [
+            "NoGluten",
+            "NoMilk"
+        ],
         "ingredients": [
             {
                 "quantity": "1",
@@ -26,7 +29,7 @@
                 "type": "Condiments"
             },
             {
-                "quantity": "1/2 cup",
+                "quantity": "1\/2 cup",
                 "name": "water",
                 "type": "Drinks"
             }
@@ -53,7 +56,7 @@
                 "type": "Condiments"
             },
             {
-                "quantity": "1/2 verre",
+                "quantity": "1\/2 verre",
                 "name": "eau",
                 "type": "Boisson"
             }
@@ -76,14 +79,18 @@
             1,
             420
         ],
-        "imageURL": "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
-        "originalURL": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208"
+        "imageURL": "http:\/\/img.sndimg.com\/food\/image\/upload\/w_266\/v1\/img\/recipes\/27\/20\/8\/picVfzLZo.jpg",
+        "originalURL": "http:\/\/www.food.com\/recipe\/to-die-for-crock-pot-roast-27208"
     },
     {
         "name": "Roasted Asparagus",
         "nameFR": "Asperges roties",
         "Author": "Unknown",
-        "Without": ["NoGluten","NoMilk", "Vegan"],
+        "Without": [
+            "NoGluten",
+            "NoMilk",
+            "Vegan"
+        ],
         "ingredients": [
             {
                 "quantity": "1 lb",
@@ -91,12 +98,12 @@
                 "type": "Produce"
             },
             {
-                "quantity": "1 1/2 tbsp",
+                "quantity": "1 1\/2 tbsp",
                 "name": "olive oil",
                 "type": "Condiments"
             },
             {
-                "quantity": "1/2 tsp",
+                "quantity": "1\/2 tsp",
                 "name": "kosher salt",
                 "type": "Baking"
             }
@@ -125,14 +132,18 @@
             0,
             0
         ],
-        "imageURL": "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/50/84/7/picMcSyVd.jpg",
-        "originalURL": "http://www.food.com/recipe/roasted-asparagus-50847"
+        "imageURL": "http:\/\/img.sndimg.com\/food\/image\/upload\/w_266\/v1\/img\/recipes\/50\/84\/7\/picMcSyVd.jpg",
+        "originalURL": "http:\/\/www.food.com\/recipe\/roasted-asparagus-50847"
     },
     {
         "name": "Curried Lentils and Rice",
         "nameFR": "Lentilles et Riz au curry",
         "Author": "Unknown",
-        "Without": ["NoGluten","NoMilk", "Vegan"],
+        "Without": [
+            "NoGluten",
+            "NoMilk",
+            "Vegan"
+        ],
         "ingredients": [
             {
                 "quantity": "1 quart",
@@ -145,7 +156,7 @@
                 "type": "Misc"
             },
             {
-                "quantity": "1/2 cup",
+                "quantity": "1\/2 cup",
                 "name": "basmati rice",
                 "type": "Misc"
             },
@@ -174,13 +185,15 @@
             20,
             0
         ],
-        "imageURL": "http://dagzhsfg97k4.cloudfront.net/wp-content/uploads/2012/05/lentils3.jpg"
+        "imageURL": "http:\/\/dagzhsfg97k4.cloudfront.net\/wp-content\/uploads\/2012\/05\/lentils3.jpg"
     },
     {
         "name": "Big Night Pizza",
         "nameFR": "La pizza des grands soirs",
         "Author": "Unknown",
-        "Without": ["Vegetarian"],
+        "Without": [
+            "Vegetarian"
+        ],
         "ingredients": [
             {
                 "quantity": "5 teaspoons",
@@ -213,12 +226,12 @@
                 "type": "Misc"
             },
             {
-                "quantity": "1/4 cup",
+                "quantity": "1\/4 cup",
                 "name": "pizza sauce",
                 "type": "Misc"
             },
             {
-                "quantity": "3/4 cup",
+                "quantity": "3\/4 cup",
                 "name": "mozzarella cheese",
                 "type": "Dairy"
             }
@@ -241,13 +254,16 @@
             15,
             0
         ],
-        "imageURL": "http://upload.wikimedia.org/wikipedia/commons/c/c7/Spinach_pizza.jpg"
+        "imageURL": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/c\/c7\/Spinach_pizza.jpg"
     },
     {
         "name": "Cranberry and Apple Stuffed Acorn Squash Recipe",
         "nameFR": "Courge poivrée farcies aux cranberries et aux pommes",
         "Author": "Unknown",
-        "Without": ["NoGluten", "Vegetarian"],
+        "Without": [
+            "NoGluten",
+            "Vegetarian"
+        ],
         "ingredients": [
             {
                 "quantity": "2",
@@ -265,7 +281,7 @@
                 "type": "Produce"
             },
             {
-                "quantity": "1/2 cup",
+                "quantity": "1\/2 cup",
                 "name": "dried cranberries",
                 "type": "Produce"
             },
@@ -283,7 +299,7 @@
         "steps": [
             "Cut squash in half, remove seeds.",
             "Place squash in baking dish, cut-side down.",
-            "Pour 1/4-inch water into dish.",
+            "Pour 1\/4-inch water into dish.",
             "Bake for 30 minutes at 350 degrees F.",
             "In large bowl, combine remaining ingredients.",
             "Remove squash from oven, fill with mix.",
@@ -300,14 +316,16 @@
             30,
             0
         ],
-        "imageURL": "http://elanaspantry.com/wp-content/uploads/2008/10/acorn_squash_with_cranberry.jpg",
+        "imageURL": "http:\/\/elanaspantry.com\/wp-content\/uploads\/2008\/10\/acorn_squash_with_cranberry.jpg",
         "originalURL": ""
     },
     {
         "name": "Mic's Yorkshire Puds",
         "nameFR": "Yorkshire pudding  de Mickey",
         "Author": "Unknown",
-        "Without": [ "Vegetarian"],
+        "Without": [
+            "Vegetarian"
+        ],
         "ingredients": [
             {
                 "quantity": "200g",
@@ -335,7 +353,7 @@
             "Stir in eggs, one at a time.",
             "Whisk in milk until you have a smooth batter.",
             "Chill in the fridge for at least 30 minutes.",
-            "Heat oven to 220C/gas mark 7.",
+            "Heat oven to 220C\/gas mark 7.",
             "Pour the oil into the holes of a 8-hole muffin tin.",
             "Heat tin in the oven for 5 minutes.",
             "Ladle the batter mix into the tin.",
@@ -352,8 +370,8 @@
             0,
             30
         ],
-        "imageURL": "http://upload.wikimedia.org/wikipedia/commons/f/f9/Yorkshire_Pudding.jpg",
-        "originalURL": "https://fr.wikipedia.org/wiki/Yorkshire_pudding"
+        "imageURL": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/f9\/Yorkshire_Pudding.jpg",
+        "originalURL": "https:\/\/fr.wikipedia.org\/wiki\/Yorkshire_pudding"
     },
     {
         "name": "Old-Fashioned Oatmeal Cookies",
@@ -369,17 +387,17 @@
                 "type": "Drinks"
             },
             {
-                "quantity": "3/4 cup",
+                "quantity": "3\/4 cup",
                 "name": "shortening",
                 "type": "Baking"
             },
             {
-                "quantity": "1 1/2 cups",
+                "quantity": "1 1\/2 cups",
                 "name": "sugar",
                 "type": "Baking"
             },
             {
-                "quantity": "2 1/2 cups",
+                "quantity": "2 1\/2 cups",
                 "name": "flour",
                 "type": "Baking"
             },
@@ -399,12 +417,12 @@
                 "type": "Baking"
             },
             {
-                "quantity": "1/2 tsp.",
+                "quantity": "1\/2 tsp.",
                 "name": "baking powder",
                 "type": "Baking"
             },
             {
-                "quantity": "1/2 tsp.",
+                "quantity": "1\/2 tsp.",
                 "name": "cloves",
                 "type": "Baking"
             },
@@ -414,7 +432,7 @@
                 "type": "Baking"
             },
             {
-                "quantity": "1/2 cup",
+                "quantity": "1\/2 cup",
                 "name": "chopped nuts",
                 "type": "Baking"
             }
@@ -422,14 +440,14 @@
         "steps": [
             "Simmer raisins and water over medium heat until raisins are plump, about 15 minutes.",
             "Drain raisins, reserving the liquid.",
-            "Add enough water to reserved liquid to measure 1/2 cup.",
+            "Add enough water to reserved liquid to measure 1\/2 cup.",
             "Heat oven to 400°.",
             "Mix thoroughly shortening, sugar, eggs and vanilla.",
             "Stir in reserved liquid.",
             "Blend in remaining ingredients.",
             "Drop dough by rounded teaspoonfuls about 2 inches apart onto ungreased baking sheet.",
             "Bake 8 to 10 minutes or until light brown.",
-            "About 6 1/2 dozen cookies."
+            "About 6 1\/2 dozen cookies."
         ],
         "timers": [
             15,
@@ -443,19 +461,19 @@
             8,
             0
         ],
-        "imageURL": "http://s3.amazonaws.com/gmi-digital-library/65caecf7-a8f7-4a09-8513-2659cf92871e.jpg",
+        "imageURL": "http:\/\/s3.amazonaws.com\/gmi-digital-library\/65caecf7-a8f7-4a09-8513-2659cf92871e.jpg",
         "originalURL": "#"
     },
     {
         "name": "Blueberry Oatmeal Squares",
         "ingredients": [
             {
-                "quantity": "2-1/2 cups",
+                "quantity": "2-1\/2 cups",
                 "name": "rolled oats, (not instant)",
                 "type": "Baking"
             },
             {
-                "quantity": "1-1/4 cups",
+                "quantity": "1-1\/4 cups",
                 "name": "all-purpose flour",
                 "type": "Baking"
             },
@@ -465,7 +483,7 @@
                 "type": "Produce"
             },
             {
-                "quantity": "1/4 tsp",
+                "quantity": "1\/4 tsp",
                 "name": "salt",
                 "type": "Baking"
             },
@@ -475,7 +493,7 @@
                 "type": "Baking"
             },
             {
-                "quantity": "3/4 cup",
+                "quantity": "3\/4 cup",
                 "name": "packed brown sugar",
                 "type": "Baking"
             },
@@ -485,12 +503,12 @@
                 "type": "Produce"
             },
             {
-                "quantity": "1/2 cup",
+                "quantity": "1\/2 cup",
                 "name": "granulated sugar",
                 "type": "Baking"
             },
             {
-                "quantity": "1/3 cup",
+                "quantity": "1\/3 cup",
                 "name": "orange juice",
                 "type": "Produce"
             },
@@ -520,8 +538,8 @@
             0,
             0
         ],
-        "imageURL": "http://www.canadianliving.com/img/photos/biz/blueberry-oatmeal-squares5801359401371.jpg",
-        "originalURL": "http://www.canadianliving.com/food/blueberry_oatmeal_squares.php"
+        "imageURL": "http:\/\/www.canadianliving.com\/img\/photos\/biz\/blueberry-oatmeal-squares5801359401371.jpg",
+        "originalURL": "http:\/\/www.canadianliving.com\/food\/blueberry_oatmeal_squares.php"
     },
     {
         "name": "Curried chicken salad",
@@ -532,7 +550,7 @@
                 "type": "Meat"
             },
             {
-                "quantity": "1/2 cup",
+                "quantity": "1\/2 cup",
                 "name": "mayonnaise",
                 "type": "Baking"
             },
@@ -547,12 +565,12 @@
                 "type": "Produce"
             },
             {
-                "quantity": "1 1/2 tsp",
+                "quantity": "1 1\/2 tsp",
                 "name": "curry powder",
                 "type": "Baking"
             },
             {
-                "quantity": "1/4 tsp",
+                "quantity": "1\/4 tsp",
                 "name": "salt",
                 "type": "Baking"
             },
@@ -562,7 +580,7 @@
                 "type": "Produce"
             },
             {
-                "quantity": "1/4 cup",
+                "quantity": "1\/4 cup",
                 "name": "dried cranberries",
                 "type": "Produce"
             },
@@ -609,7 +627,35 @@
             0,
             0
         ],
-        "imageURL": "http://www.chatelaine.com/wp-content/uploads/2013/05/Curried-chicken-salad.jpg",
-        "originalURL": "http://www.chatelaine.com/recipe/stovetop-cooking-method/curried-chicken-salad/"
+        "imageURL": "http:\/\/www.chatelaine.com\/wp-content\/uploads\/2013\/05\/Curried-chicken-salad.jpg",
+        "originalURL": "http:\/\/www.chatelaine.com\/recipe\/stovetop-cooking-method\/curried-chicken-salad\/"
+    },
+    {
+        "id": 10,
+        "name": "Pancakes",
+        "nameFR": "Crêpes",
+        "Author": {
+            "id": "67e670f0e6b7e",
+            "name": "koumare",
+            "prenom": "ibrahim",
+            "email": "ibrahimkoumare5@ggmail.com",
+            "role": "cuisinier"
+        },
+        "Without": "Gluten",
+        "ingredients": [
+            "200g de farine",
+            "2 œufs",
+            "300ml de lait",
+            "1 cuillère à soupe de sucre",
+            "1 pincée de sel"
+        ],
+        "steps": [
+            "Mélanger les ingrédients secs.",
+            "Ajouter les œufs et le lait progressivement.",
+            "Faire cuire à feu moyen dans une poêle."
+        ],
+        "timers": [],
+        "imageURL": null,
+        "originalURL": null
     }
 ]

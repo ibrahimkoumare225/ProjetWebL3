@@ -6,5 +6,13 @@
         "mail": "ibrahimkoumare5@gmail.com",
         "password": "$2y$12$.HrPkRfUpFrzvxqYJ\/yJ2OFo.BMUbeXLyX3aB.9URkwFMJvTZenSy",
         "role": "cuisinier"
+    },
+    {
+        "id_user": "67e670f0e6b7e",
+        "name": "koumare",
+        "prenom": "ibrahim",
+        "mail": "ibrahimkoumare5@ggmail.com",
+        "password": "$2y$12$vLDQIjlnjAAn2LqvkYGU5OakDpVRmRurAbaQvYNLJVti7EBdf7AD6",
+        "role": "cuisinier"
     }
 ]
