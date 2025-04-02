@@ -14,5 +14,37 @@
         "mail": "ibrahimkoumare5@ggmail.com",
         "password": "$2y$12$vLDQIjlnjAAn2LqvkYGU5OakDpVRmRurAbaQvYNLJVti7EBdf7AD6",
         "role": "cuisinier"
+    },
+    {
+        "id_user": "67ec669d1bea1",
+        "name": "moyenga",
+        "prenom": "adama",
+        "mail": "amoyenga@gmail.fr",
+        "password": "$2y$12$tyrRqWsNgkNl5ZBRWHoYa.jmSimasYo\/rdn\/3fR6x7Dc7xKdTJXdO",
+        "role": "cuisinier"
+    },
+    {
+        "id_user": "67ed1cd0126cb",
+        "name": "moenga",
+        "prenom": "Harouna",
+        "mail": "hmoyenga@gmail.fr",
+        "password": "$2y$12$sdFxeRmSqV3RxmpSLqdUOeKNFTB2j7LpIC7mYirk79wtN78XY2nXS",
+        "role": "cuisinier"
+    },
+    {
+        "id_user": "67ed1f7d71732",
+        "name": "konate",
+        "prenom": "ibrahim",
+        "mail": "konate@gmail.com",
+        "password": "$2y$12$gkUSN5yugX.6.7ZY8\/sR4eHYb2MfLgVn2zi5fqh5f4SSt3EhuQeS2",
+        "role": "cuisinier"
+    },
+    {
+        "id_user": "67ed217f38048",
+        "name": "Besala",
+        "prenom": "leonne",
+        "mail": "leonnebessala@gmail.com",
+        "password": "$2y$12$JO9.co2uF3AuLhEfAb\/2G.JU1CeKzNZ7T3YFkCenOMc3sejtHPzta",
+        "role": "cuisinier"
     }
 ]
