@@ -1,183 +1,250 @@
 const webServerAddress = "http://localhost:8000"; // Adresse du serveur
 
-// Récupération du formulaire d'inscription
-const register = document.getElementById("inscription");
-
-if (register) {
-  register.addEventListener("submit", async (event) => {
-    event.preventDefault(); // Empêche le rechargement de la page
-    const userData = await inscription(event); // Envoie les données et attend la réponse
+// Gestion de l'inscription
+document
+  .getElementById("inscription")
+  ?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await inscription(event);
   });
-}
 
-// Récupération du formulaire de connexion
-const login = document.getElementById("connexion");
-
-if (login) {
-  login.addEventListener("submit", async (event) => {
-    event.preventDefault(); // Empêche le rechargement de la page
-    const userData = await connexion(event); // Envoie les données et attend la réponse
-  });
-}
-
-// Fonction d'inscription
 async function inscription(event) {
-  event.preventDefault(); // Empêche le rechargement de la page
-
   const body = new URLSearchParams(new FormData(event.target));
-
   try {
     const response = await fetch(`${webServerAddress}/register`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body,
     });
-
-    const result = await response.json(); // Convertir la réponse en JSON
-
+    const result = await response.json();
     if (response.ok) {
-      console.log("Inscription réussie:", result);
-      alert(result.message); // Affiche un message de confirmation
-
-      // Vérifier si une redirection est fournie et valide
-      if (result.redirect && typeof result.redirect === "string") {
-        console.log("Redirection vers:", result.redirect);
-        window.location.href = result.redirect; // Redirection vers connexion.html
-      }
-    } else {
-      console.error("Échec de l'inscription:", result);
       alert(result.message);
+      if (result.redirect) window.location.href = result.redirect;
+    } else {
+      alert(result.error || "Erreur lors de l'inscription");
     }
   } catch (error) {
-    console.error("Erreur lors de l'inscription:", error);
+    console.error("Erreur d'inscription:", error);
   }
 }
 
-// Fonction de connexion
+// Gestion de la connexion
+document
+  .getElementById("connexion")
+  ?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await connexion(event);
+  });
+
 async function connexion(event) {
-  const body = new URLSearchParams(new FormData(event.target)); // Récupération et encodage des données du formulaire
-
-  console.log("Données envoyées:", body.toString());
-
+  const body = new URLSearchParams(new FormData(event.target));
   try {
-    console.log("Envoi de la requête à:", `${webServerAddress}/login`);
     const response = await fetch(`${webServerAddress}/login`, {
-      // Envoi de la requête au serveur
       method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body,
     });
-
-    console.log("Statut de la réponse HTTP:", response.status);
-    const text = await response.text(); // Lire la réponse brute du serveur
-    console.log("Réponse brute du serveur:", text);
-
+    const result = await response.json();
     if (response.ok) {
-      const userData = JSON.parse(text); // Conversion de la réponse en JSON
-      console.log("Connexion réussie:", userData);
-      window.location.href = userData.redirect; // Redirection vers index.html après connexion
-
-      return userData;
+      window.location.href = result.redirect;
     } else {
-      console.error(
-        "Échec de la connexion:",
-        response.status,
-        response.statusText
-      );
+      alert(result.error || "Erreur de connexion");
     }
   } catch (error) {
-    console.error("Erreur lors de la connexion:", error);
+    console.error("Erreur de connexion:", error);
   }
 }
 
-// Fonction de déconnexion
-async function loggoutUser() {
-  try {
-    const response = await fetch(`${webServerAddress}/logout`, {
-      // Envoi de la requête de déconnexion
-      method: "POST",
-    });
-
-    if (response.ok) {
-      const result = await response.json(); // Conversion de la réponse en JSON
-      console.log("Déconnexion réussie", result);
-      window.location.href = result.redirect; // Redirection après déconnexion
-      return result;
-    } else {
-      console.error(
-        "Échec de la déconnexion:",
-        response.status,
-        response.statusText
-      );
-    }
-  } catch (error) {
-    console.error("Erreur lors de la déconnexion:", error);
-  }
-}
-
-//RECETTES
-const formRecette = document.getElementById("addRecette");
-if (formRecette) {
-  console.log("requête envoyée");
-  formRecette.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const recette = await sendRecette(event);
-  });
-}
-
-const button1 = document.getElementById("get-recipes");
-
-if (button1) {
-  button1.addEventListener("click", async () => {
-    const recipes = await getRecette();
-    await afficherRecette(recipes);
-  });
-}
-
-const searchRecipe = document.querySelector(".search-input");
-if (searchRecipe) {
-  searchRecipe.addEventListener("input", async function (event) {
-    const searchTerm = event.target.value.trim(); // Récupère la valeur
-    if (searchTerm.length > 0) {
-      console.log("Texte recherché :", searchTerm);
-      const recettes = await getRecettesByLettre(searchTerm);
-      console.log("Recettes filtrées :", recettes);
-      await afficherRecette(recettes);
-    } else {
-      const recipes = await getRecette();
-      await afficherRecette(recipes);
-    }
-  });
-}
-const detailRecette = document.getElementById("recette-list");
-detailRecette.addEventListener("click", async (event) => {
-  let target = event.target;
-
-  // Vérifie si on clique sur une image ou un titre
-  if (target.tagName === "IMG" || target.tagName === "H2") {
-    const nomRecette = target
-      .closest(".recette-card")
-      .querySelector("h2")
-      .textContent.trim();
-
-    try {
-      const recette = await getRecettesByNom(nomRecette); // Récupération des données
-      console.log("test recette : ", recette);
-      await afficherDetailRecette(recette);
-      await openModale();
-    } catch (error) {
-      console.error("Erreur lors de la récupération de la recette :", error);
-    }
-  }
+// Gestion de la récupération des recettes
+// Initialisation Materialize
+// Initialisation Materialize
+document.addEventListener("DOMContentLoaded", function () {
+  M.AutoInit();
 });
 
-const btnAddRecette = document.getElementById("ajouterRecette");
-if (btnAddRecette) {
-  btnAddRecette.addEventListener("click", async (event) => {
-    await afficherFormulaire();
+// Gestion des recettes
+document.getElementById("get-recipes")?.addEventListener("click", async () => {
+  const recipes = await getRecettes();
+  afficherRecettes(recipes);
+});
+
+async function getRecettes() {
+  try {
+    const response = await fetch(`${webServerAddress}/recipes`);
+    return await response.json();
+  } catch (error) {
+    console.error("Erreur lors de la récupération des recettes:", error);
+    return [];
+  }
+}
+
+function afficherRecettes(recipes) {
+  const container = document.getElementById("recette-list");
+  container.innerHTML = "";
+
+  recipes.forEach((recipe) => {
+    const card = `
+          <div class="col s12 m6 l4">
+              <div class="card hoverable">
+                  <div class="card-image waves-effect waves-light">
+                      <img src="${
+                        recipe.imageURL || "https://via.placeholder.com/300x200"
+                      }" class="activator responsive-img" style="width: 266px; height: 200px; object-fit: cover;">
+                  </div>
+                  <div class="card-content">
+                      <span class="card-title truncate">${
+                        recipe.nameFR || recipe.name
+                      }</span>
+                      <div class="row valign-wrapper stats-container" style="margin: 15px 0">
+                          ${getStatsHTML(recipe)}
+                      </div>
+                      <div class="row valign-wrapper" style="margin-top: 10px;">
+                          <div class="col s8">
+                              <span class="grey-text">
+                                  <i class="material-icons tiny">person</i>
+                                  ${recipe.Author?.name || "Auteur inconnu"}
+                                  <span class="teal-text">${
+                                    recipe.Author?.role
+                                      ? `${recipe.Author.role}`
+                                      : ""
+                                  }</span>
+                              </span>
+                          </div>
+                          <div class="col s4 right-align">
+                              <a class="waves-effect waves-teal btn-flat heart-btn" data-likes="${
+                                recipe.likes || 0
+                              }">
+                                  <i class="material-icons">favorite_border</i>
+                                  <span class="likes-count">${
+                                    recipe.likes || 0
+                                  }</span>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-action">
+                      <div class="row valign-wrapper" style="margin-bottom: 0;">
+                          <div class="col s6">
+                              <a class="waves-effect waves-light btn-small teal detail-btn" 
+                                 href="#detail-modal" 
+                                 data-recipe='${JSON.stringify(recipe)}'>
+                                  <i class="material-icons left">info</i>Détail
+                              </a>
+                          </div>
+                          <div class="col s6 right-align">
+                              <a class="waves-effect waves-light btn-small grey">
+                                  <i class="material-icons left">comment</i>Commenter
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      `;
+
+    container.insertAdjacentHTML("beforeend", card);
   });
+
+  initCardInteractions();
+}
+
+function getStatsHTML(recipe) {
+  return `
+      <div class="col s4 center">
+      </div>
+      <div class="col s4 center">
+      </div>
+      <div class="col s4 center">
+      </div>
+  `;
+}
+
+function initCardInteractions() {
+  // Gestion des favoris
+  document.querySelectorAll(".heart-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const icon = btn.querySelector("i");
+      const likesCount = btn.nextElementSibling;
+      let currentLikes = parseInt(btn.dataset.likes);
+
+      if (icon.textContent === "favorite_border") {
+        icon.textContent = "favorite";
+        currentLikes++;
+      } else {
+        icon.textContent = "favorite_border";
+        currentLikes--;
+      }
+
+      btn.dataset.likes = currentLikes;
+      likesCount.textContent = currentLikes;
+
+      // Envoyer la mise à jour au serveur
+      fetch(`${webServerAddress}/like`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          recipeId: btn.closest(".card").dataset.id,
+          action: icon.textContent === "favorite" ? "like" : "unlike",
+        }),
+      });
+    });
+  });
+
+  // Gestion des modals
+  document.querySelectorAll(".detail-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const recipe = JSON.parse(btn.dataset.recipe);
+      showDetailsModal(recipe);
+    });
+  });
+}
+
+function showDetailsModal(recipe) {
+  const modalContent = document.querySelector("#detail-modal .modal-content");
+  modalContent.innerHTML = `
+      <h4>${recipe.nameFR || recipe.name}</h4>
+      <div class="row">
+          <div class="col s12 m6">
+              <h5>Ingrédients</h5>
+              <ul class="collection">
+                  ${
+                    recipe.ingredients
+                      ?.map(
+                        (ing) => `
+                      <li class="collection-item">${ing.quantity} ${ing.name}</li>
+                  `
+                      )
+                      .join("") ||
+                    "<li class='collection-item'>Aucun ingrédient</li>"
+                  }
+              </ul>
+          </div>
+          <div class="col s12 m6">
+              <h5>Étapes de préparation</h5>
+              <ol class="collection">
+                  ${
+                    recipe.stepsFR
+                      ?.map(
+                        (step, index) => `
+                      <li class="collection-item">${step} 
+                          ${
+                            recipe.timers?.[index]
+                              ? `<span class="teal-text">(${recipe.timers[index]} min)</span>`
+                              : ""
+                          }
+                      </li>
+                  `
+                      )
+                      .join("") ||
+                    "<li class='collection-item'>Aucune étape</li>"
+                  }
+              </ol>
+          </div>
+      </div>
+  `;
+  M.Modal.getInstance(document.querySelector("#detail-modal")).open();
 }

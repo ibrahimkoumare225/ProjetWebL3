@@ -1,24 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="fr">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"/>
-  </head>
-  <body>
+    <title>RecetteApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    
+</head>
+<body>
     <nav>
-      <div class="nav-wrapper teal">
-        <a href="#" class="brand-logo center">
-          <i class="material-icons">local_dining</i> RecetteApp
-        </a>
-      </div>
+        <div class="nav-wrapper teal">
+            <a href="#" class="brand-logo center">
+                <i class="material-icons">local_dining</i> RecetteApp
+            </a>
+        </div>
     </nav>
 
-    <!-- Inclure Materialize JS -->
+    <div class="container">
+        <div class="section">
+            <div class="center">
+                <button id="get-recipes" class="btn-large waves-effect waves-light teal">
+                    <i class="material-icons left large">file_download</i>
+                    Récupérer les recettes
+                </button>
+            </div>
+        </div>
+
+        <div class="row" id="recette-list"></div>
+    </div>
+
+    <!-- Modals Materialize -->
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <h4 id="detail-title"></h4>
+            <div class="row">
+                <div class="col s12 m6">
+                    <h5>Ingrédients</h5>
+                    <ul id="detail-ingredients" class="collection"></ul>
+                </div>
+                <div class="col s12 m6">
+                    <h5>Étapes</h5>
+                    <ol id="detail-steps" class="collection"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="comment-modal" class="modal">
+        <div class="modal-content">
+            <h4>Commentaires</h4>
+            <div id="comments-content" class="collection"></div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
