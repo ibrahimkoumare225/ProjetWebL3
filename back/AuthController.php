@@ -52,7 +52,7 @@ class AuthController
 			if ($user['mail'] === $email) {  
 				http_response_code(400);
 				echo json_encode([
-					'message' => 'Email already registered',
+					'message' => 'Email déjà enregistré',
 					'redirect' => 'connexion.html'
 				]);
 				return;
@@ -75,7 +75,8 @@ class AuthController
 
 		http_response_code(201);
 		echo json_encode(['message' => 'Utilisateur enregistré avec succès',
-						'redirect' => 'connexion.html']);
+						'redirect' => 'connexion.html'
+											]);
 
 	}
 	// TODO: Implement the handleLogin method
@@ -150,8 +151,9 @@ class AuthController
 				'name'=> $userFound['name'],
 				'prename'=>$userFound['prenom'],
 				'email' => $userFound['mail'],
-				'role' => $userFound['role']
-			]
+				'role' => $userFound['role'],
+			],
+			'redirect' => 'index.html'
 		]);
 	}
 	
