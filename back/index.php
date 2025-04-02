@@ -28,4 +28,15 @@ $router->register('DELETE', '/recipe/{id}', function ($id) use ($recipeControlle
 $router->register('PUT', '/recipes/{id}', function ($id) use ($recipeController) {
     $recipeController->updateRecipe((int)$id); // Modifier une recette par ID
 });
+
+// Routes pour les commentaires
+$router->register('POST', '/comments', [$commentController, 'addComment']);
+$router->register('DELETE', '/comments/{id}', function ($id) use ($commentController) {
+    $commentController->deleteComment((int)$id);
+});
+$router->register('PUT', '/comments/{id}', function ($id) use ($commentController) {
+    $commentController->updateComment((int)$id);
+});
+$router->register('GET', '/comments', [$commentController, 'getAllComments']);
+
 $router->handleRequest();
