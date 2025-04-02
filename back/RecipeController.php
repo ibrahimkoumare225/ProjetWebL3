@@ -158,7 +158,7 @@ class RecipeController
     }
 
     // Charger toutes les recettes depuis le fichier JSON
-    private function getAllRecipes(): array
+    public function getAllRecipes(): array
     {
         if (!file_exists($this->filePath)) {
             return [];
