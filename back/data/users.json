@@ -1,50 +1,18 @@
 [
     {
-        "id_user": "67e5c0fc7468d",
-        "name": "Koumare",
-        "prenom": "Ibrahim",
-        "mail": "ibrahimkoumare5@gmail.com",
-        "password": "$2y$12$.HrPkRfUpFrzvxqYJ\/yJ2OFo.BMUbeXLyX3aB.9URkwFMJvTZenSy",
-        "role": "cuisinier"
-    },
-    {
-        "id_user": "67e670f0e6b7e",
+        "id_user": "67efeed2002d8",
         "name": "koumare",
         "prenom": "ibrahim",
-        "mail": "ibrahimkoumare5@ggmail.com",
-        "password": "$2y$12$vLDQIjlnjAAn2LqvkYGU5OakDpVRmRurAbaQvYNLJVti7EBdf7AD6",
-        "role": "cuisinier"
+        "mail": "ibrahimkoumare5@gmail.com",
+        "password": "$2y$12$QB4I2YaSrfHBOFC0\/PlsVutuJX96gsc5XgpIBa5o4smpY0F0L0yQO",
+        "role": "admin"
     },
     {
-        "id_user": "67ec669d1bea1",
-        "name": "moyenga",
+        "id_user": "67eff2cfd2f36",
+        "name": "Moyenga",
         "prenom": "adama",
-        "mail": "amoyenga@gmail.fr",
-        "password": "$2y$12$tyrRqWsNgkNl5ZBRWHoYa.jmSimasYo\/rdn\/3fR6x7Dc7xKdTJXdO",
-        "role": "cuisinier"
-    },
-    {
-        "id_user": "67ed1cd0126cb",
-        "name": "moenga",
-        "prenom": "Harouna",
-        "mail": "hmoyenga@gmail.fr",
-        "password": "$2y$12$sdFxeRmSqV3RxmpSLqdUOeKNFTB2j7LpIC7mYirk79wtN78XY2nXS",
-        "role": "cuisinier"
-    },
-    {
-        "id_user": "67ed1f7d71732",
-        "name": "konate",
-        "prenom": "ibrahim",
-        "mail": "konate@gmail.com",
-        "password": "$2y$12$gkUSN5yugX.6.7ZY8\/sR4eHYb2MfLgVn2zi5fqh5f4SSt3EhuQeS2",
-        "role": "cuisinier"
-    },
-    {
-        "id_user": "67ed217f38048",
-        "name": "Besala",
-        "prenom": "leonne",
-        "mail": "leonnebessala@gmail.com",
-        "password": "$2y$12$JO9.co2uF3AuLhEfAb\/2G.JU1CeKzNZ7T3YFkCenOMc3sejtHPzta",
+        "mail": "amoyenga@gmail.com",
+        "password": "$2y$12$9ZY0QPxGmwzOhil6bn7ZiOrO6gO9PAZtBbOGUhyZ8i\/uDs5CJB6ne",
         "role": "cuisinier"
     }
 ]

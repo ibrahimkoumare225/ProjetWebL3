@@ -1,0 +1,4 @@
+[04-Apr-2025 22:55:24 UTC] PHP Warning:  Undefined array key "id_user" in C:\xampp\htdocs\ProjetWebL3\back\RecipeController.php on line 114
+[04-Apr-2025 22:55:24 UTC] PHP Warning:  http_response_code(): Cannot set response code - headers already sent (output started at C:\xampp\htdocs\ProjetWebL3\back\RecipeController.php:114) in C:\xampp\htdocs\ProjetWebL3\back\RecipeController.php on line 131
+[04-Apr-2025 22:59:55 UTC] PHP Warning:  Undefined array key "id_user" in C:\xampp\htdocs\ProjetWebL3\back\RecipeController.php on line 114
+[04-Apr-2025 22:59:55 UTC] PHP Warning:  http_response_code(): Cannot set response code - headers already sent (output started at C:\xampp\htdocs\ProjetWebL3\back\RecipeController.php:114) in C:\xampp\htdocs\ProjetWebL3\back\RecipeController.php on line 131

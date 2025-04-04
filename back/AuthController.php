@@ -74,9 +74,11 @@ class AuthController
 		file_put_contents($this->filePath, json_encode($users, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
 		http_response_code(201);
-		echo json_encode(['message' => 'Utilisateur enregistré avec succès',
-						'redirect' => 'connexion.html'
-											]);
+		// Après l'enregistrement réussi
+		echo json_encode([
+			'message' => 'Utilisateur enregistré avec succès',
+			'redirect' => 'http://localhost:3000/connexion.html' // URL complète
+]);
 
 	}
 	// TODO: Implement the handleLogin method
@@ -144,38 +146,55 @@ class AuthController
 	
 		// Réponse de succès
 		http_response_code(200);
-		echo json_encode([
-			'message' => 'Connexion réussie',
-			'user' => [
-				'id' => $userFound['id_user'],
-				'name'=> $userFound['name'],
-				'prename'=>$userFound['prenom'],
-				'email' => $userFound['mail'],
-				'role' => $userFound['role'],
-			],
-			'redirect' => 'index.html'
-		]);
+		 echo json_encode([
+        'message' => 'Connexion réussie',
+        'user' => [
+            'id_user' => $userFound['id_user'], 
+            'name' => $userFound['name'],
+            'prenom' => $userFound['prenom'],
+            'email' => $userFound['mail'], 
+            'role' => $userFound['role']
+        ],
+        'redirect' => 'index.html'
+    ]);
 	}
 	
 
 
 	public function handleLogout(): void
-	{
-		// Vérifier si une session est active avant de la détruire
-		if (session_status() === PHP_SESSION_NONE) {
-			session_start();
-		}
+{
+    // Ajouter les headers CORS
+    header('Access-Control-Allow-Origin: http://localhost:3000');
+    header('Access-Control-Allow-Credentials: true');
+    header('Content-Type: application/json');
 
-		// Vider les variables de session
-		$_SESSION = [];
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
-		// Détruire la session
-		session_destroy();
+    $_SESSION = [];
+    
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(
+            session_name(), 
+            '', 
+            time() - 42000,
+            $params["path"], 
+            $params["domain"], 
+            $params["secure"], 
+            $params["httponly"]
+        );
+    }
 
-		// Envoyer la réponse JSON
-		http_response_code(200);
-		echo json_encode(['message' => 'Déconnexion réussie']);
-	}
+    if (session_destroy()) {
+        http_response_code(200);
+        echo json_encode(['message' => 'Déconnexion réussie']);
+    } else {
+        http_response_code(500);
+        echo json_encode(['message' => 'Erreur lors de la destruction de la session']);
+    }
+}
 
 	public function validateAuth(): ?string
 	{

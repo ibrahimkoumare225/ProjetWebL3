@@ -1,60 +1,236 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RecetteApp</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    
-</head>
-<body>
-    <nav>
-        <div class="nav-wrapper teal">
-            <a href="#" class="brand-logo center">
-                <i class="material-icons">local_dining</i> RecetteApp
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="teal">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">
+          <i class="material-icons">local_dining</i> RecetteApp
+        </a>
+        <!-- Bouton de déconnexion à droite -->
+        <ul class="right">
+          <li>
+            <a href="#!" id="logout-btn" class="btn-floating btn-small red" title="Déconnexion">
+              <i class="material-icons">logout</i>
             </a>
-        </div>
+          </li>
+        </ul>
+      </div>
     </nav>
 
+    <div class="container" style="margin-top: 100px">
+      <div class="divider"></div>
+
+      <div class="row valign-wrapper" style="margin-top: 10px">
+        <div class="col s6">
+          <h5 class="black-text"><strong>Liste des recettes</strong></h5>
+        </div>
+
+        <div class="col s6 right-align">
+          <a class="btn orange waves-effect waves-light">
+            <i class="material-icons left">assignment_ind</i>Rôles
+          </a>
+          <a class="btn blue waves-effect waves-light" id="recette-add">
+            <i class="material-icons left">add</i> Add
+          </a>
+
+          <a class="btn teal waves-effect waves-light">
+            <i class="material-icons left">dashboard</i> Admin
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row valign-wrapper" style="margin-top: 10px">
+        <div class="col s6 valign-wrapper">
+          <label style="margin-right: 10px">Show</label>
+          <select
+            id="entries-select"
+            class="browser-default"
+            style="width: auto; display: inline-block"
+          >
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select>
+          <label style="margin-left: 10px">entries</label>
+        </div>
+
+        <div class="col s6" style="text-align: right">
+          <label for="search" style="margin-right: 10px">Rechercher</label>
+          <input
+            id="search"
+            type="text"
+            class="browser-default"
+            style="width: 200px; display: inline-block"
+          />
+        </div>
+      </div>
+    </div>
+
     <div class="container">
-        <div class="section">
-            <div class="center">
-                <button id="get-recipes" class="btn-large waves-effect waves-light teal">
-                    <i class="material-icons left large">file_download</i>
-                    Récupérer les recettes
-                </button>
+      <!-- Barre de contrôle -->
+      <div class="row valign-wrapper"></div>
+
+      <!-- Liste des recettes -->
+      <div class="row" id="recette-list"></div>
+    </div>
+
+    <!-- Modal Détails -->
+    <div id="detail-modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4 class="teal-text"></h4>
+        <div class="row">
+          <div class="col s12 m6">
+            <h5>Ingrédients</h5>
+            <ul class="collection"></ul>
+          </div>
+          <div class="col s12 m6">
+            <h5>Étapes</h5>
+            <ol class="collection"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Ajout -->
+    <div id="add-modal" class="modal">
+      <div class="modal-content">
+        <h4>Nouvelle Recette</h4>
+        <form id="add-form">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="add-name" type="text" class="validate" required />
+              <label for="add-name">Nom (anglais)</label>
             </div>
-        </div>
-
-        <div class="row" id="recette-list"></div>
-    </div>
-
-    <!-- Modals Materialize -->
-    <div id="detail-modal" class="modal">
-        <div class="modal-content">
-            <h4 id="detail-title"></h4>
-            <div class="row">
-                <div class="col s12 m6">
-                    <h5>Ingrédients</h5>
-                    <ul id="detail-ingredients" class="collection"></ul>
-                </div>
-                <div class="col s12 m6">
-                    <h5>Étapes</h5>
-                    <ol id="detail-steps" class="collection"></ul>
-                </div>
+            <div class="input-field col s6">
+              <input id="add-nameFR" type="text" class="validate" required />
+              <label for="add-nameFR">Nom (français)</label>
             </div>
-        </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea
+                id="add-ingredients"
+                class="materialize-textarea"
+              ></textarea>
+              <label for="add-ingredients"
+                >Ingrédients (un par ligne, format "quantité nom")</label
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="add-steps" class="materialize-textarea"></textarea>
+              <label for="add-steps"
+                >Étapes de préparation (une par ligne)</label
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="add-imageURL" type="text" class="validate" />
+              <label for="add-imageURL">URL de l'image</label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn waves-effect waves-light">
+              Ajouter
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <div id="comment-modal" class="modal">
-        <div class="modal-content">
-            <h4>Commentaires</h4>
-            <div id="comments-content" class="collection"></div>
-        </div>
+    <!-- Modal Édition -->
+    <div id="edit-modal" class="modal">
+      <div class="modal-content">
+        <h4>Modifier la Recette</h4>
+        <form id="edit-form">
+          <input type="hidden" id="edit-id" />
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="edit-name" type="text" class="validate" required />
+              <label for="edit-name">Nom (anglais)</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="edit-nameFR" type="text" class="validate" required />
+              <label for="edit-nameFR">Nom (français)</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea
+                id="edit-ingredients"
+                class="materialize-textarea"
+              ></textarea>
+              <label for="edit-ingredients"
+                >Ingrédients (un par ligne, format "quantité nom")</label
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="edit-steps" class="materialize-textarea"></textarea>
+              <label for="edit-steps"
+                >Étapes de préparation (une par ligne)</label
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="edit-imageURL" type="text" class="validate" />
+              <label for="edit-imageURL">URL de l'image</label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn waves-effect waves-light">
+              Sauvegarder
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
+    <!-- Modal Suppression -->
+    <div id="delete-modal" class="modal">
+      <div class="modal-content">
+        <h4>Confirmer la suppression</h4>
+        <p>Êtes-vous sûr de vouloir supprimer cette recette ?</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close btn-flat">Annuler</a>
+        <a
+          href="#!"
+          class="modal-close btn red waves-effect waves-light"
+          id="confirm-delete"
+          >Supprimer</a
+        >
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,7 +1,33 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
+ini_set('session.cookie_samesite', 'None');
+ini_set('session.cookie_secure', 0); // 0 en HTTP local
+session_set_cookie_params([
+    'lifetime' => 86400,
+    'path' => '/',
+    'domain' => 'localhost',
+    'secure' => false, // Désactivé pour HTTP local
+    'httponly' => true,
+    'samesite' => 'None'
+]);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/error.log');
+// Remplacer les headers existants par :
+header("Access-Control-Allow-Origin: http://localhost:3000");
+header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Expose-Headers: *");
+
+// Gestion OPTIONS (avant tout code métier)
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header("HTTP/1.1 204 No Content");
+    exit();
+}
+
+// Début de session après les headers
+session_start();
+
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -11,7 +37,6 @@ require_once 'AuthController.php';
 require_once 'RecipeController.php';
 require_once 'CommentController.php';
 
-session_start(); // Start the session
 
 $router = new Router();
 $authController = new AuthController(__DIR__ . '/data/users.json');
@@ -22,7 +47,7 @@ $commentController = new CommentController(__DIR__ . '/data/recipe.json',__DIR__
 
 $router->register('POST', '/register', [$authController, 'handleRegister']);//OKI
 $router->register('POST', '/login', [$authController, 'handleLogin']);//OKI
-$router->register('GET', '/logout', [$authController, 'handleLogout']);//OKI
+$router->register('POST', '/logout', [$authController, 'handleLogout']);//OKI
 
 
 
@@ -30,11 +55,11 @@ $router->register('GET', '/logout', [$authController, 'handleLogout']);//OKI
 
 $router->register('GET', '/recipes', [$recipeController, 'getRecipes']); //OKI
 $router->register('POST', '/recipes', [$recipeController, 'addRecipe']); // OKI
-$router->register('DELETE', '/recipe/{id}', function ($id) use ($recipeController) {
-    $recipeController->deleteRecipe((int)$id); // Supprimer une recette par ID
+$router->register('DELETE', '/recipes/{id}', function ($id) use ($recipeController) {
+    $recipeController->deleteRecipe((int)$id);
 });
 $router->register('PUT', '/recipes/{id}', function ($id) use ($recipeController) {
-    $recipeController->updateRecipe((int)$id); // Modifier une recette 
+    $recipeController->updateRecipe((int)$id);
 });
 
 // Routes pour les commentaires
