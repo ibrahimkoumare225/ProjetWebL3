@@ -1,49 +1,75 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 class Router
 {
-	private array $routes = [];
+    private array $routes = [];
 
-	/**
-	 * Register a new route
-	 */
-	
- public function register(string $method, string $path, callable $handler): void
-	{
-		$this->routes[] = [
-			'method' => strtoupper($method),
-			'path' => $path,
-			'handler' => $handler,
-		];
-	}
+    public function register(string $method, string $path, callable $handler): void
+    {
+        $this->routes[] = [
+            'method' => strtoupper($method),
+            'path' => $path,
+            'handler' => $handler,
+            'pattern' => $this->createPattern($path)
+        ];
+    }
 
-	/**
-	 * Handle the incoming request
-	 */
-	public function handleRequest(): void
-	{
-		// Get the HTTP method and path of the request
-		$method = $_SERVER['REQUEST_METHOD'];
-		$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    public function handleRequest(): void
+    {
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $path = $this->sanitizePath($path);
+        $method = $_SERVER['REQUEST_METHOD'];
 
-		// Set the CORS headers
-		header("Access-Control-Allow-Origin: *");
-		header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-		header("Access-Control-Allow-Headers: Content-Type, Authorization");
+        $this->handleCorsPreflight();
 
-		foreach ($this->routes as $route) {
-			if ($route['method'] === $method && $route['path'] === $path) {
-				// If a route matches the request, call the handler
-				call_user_func($route['handler']);
-				return;
-			}
-		}
+        foreach ($this->routes as $route) {
+            if ($this->isMatchingRoute($route, $path, $method)) {
+                $params = $this->extractParams($route['pattern'], $path);
+                call_user_func_array($route['handler'], $params);
+                return;
+            }
+        }
 
-		// If no route was found, return a 404
-		http_response_code(404);
-		echo json_encode(['error' => 'Route not found']);
-	}
+        $this->sendNotFoundResponse($path);
+    }
+
+    private function createPattern(string $path): string
+    {
+        $pattern = str_replace('/', '\/', $path);
+        return '/^' . preg_replace('/\{(\w+)\}/', '(?<$1>[^\/]+)', $pattern) . '$/';
+    }
+
+    private function isMatchingRoute(array $route, string $path, string $method): bool
+    {
+        return $route['method'] === $method && preg_match($route['pattern'], $path);
+    }
+
+    private function extractParams(string $pattern, string $path): array
+    {
+        preg_match($pattern, $path, $matches);
+        return array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+    }
+
+    private function sanitizePath(string $path): string
+    {
+        return str_replace('/back', '', $path);
+    }
+
+    private function handleCorsPreflight(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            header("HTTP/1.1 204 No Content");
+            exit();
+        }
+    }
+
+    private function sendNotFoundResponse(string $path): void
+    {
+        http_response_code(404);
+        echo json_encode([
+            'error' => 'Route non trouvée',
+            'requested_path' => $path,
+            'available_routes' => array_column($this->routes, 'path')
+        ]);
+    }
 }
 ?>

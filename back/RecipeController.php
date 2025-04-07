@@ -1,177 +1,280 @@
 <?php
+// Active l'affichage de toutes les erreurs (utile en développement)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+/**
+ * Contrôleur chargé de la gestion des recettes (CRUD) à partir d'un fichier JSON.
+ */
 class RecipeController
 {
     private string $filePath;
 
+    /**
+     * Constructeur de la classe, prend en paramètre le chemin du fichier JSON.
+     */
     public function __construct(string $filePath)
     {
         $this->filePath = $filePath;
     }
 
-    // Récupérer toutes les recettes
-    public function getRecipes(): void
+    /**
+     * Gère les requêtes HTTP liées aux recettes.
+     * Route localement les actions GET, POST, PUT, DELETE.
+     */
+    public function handleRequest(): void
     {
-        header('Content-Type: application/json');
+        ob_start(); // Démarre la temporisation de sortie
+        $method = $_SERVER['REQUEST_METHOD'];
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-        $recipes = $this->getAllRecipes();
-        echo json_encode($recipes);
+        try {
+            preg_match('/\/recipes\/(\d+)$/', $path, $matches);
+            $id = $matches[1] ?? null;
+
+            switch (true) {
+                case $method === 'GET' && preg_match('/\/recipes$/', $path):
+                    $this->getRecipes();
+                    break;
+                case $method === 'POST' && $path === '/recipes':
+                    $this->addRecipe();
+                    break;
+                case $method === 'PUT' && preg_match('/\/recipes\/\d+$/', $path):
+                    $this->updateRecipe((int)$id);
+                    break;
+                case $method === 'DELETE' && preg_match('/\/recipes\/\d+$/', $path):
+                    $this->deleteRecipe((int)$id);
+                    break;
+                default:
+                    http_response_code(404);
+                    echo json_encode(['error' => 'Endpoint non trouvé']);
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => $e->getMessage()]);
+        }
+        ob_end_flush();
     }
 
-    // Ajouter une nouvelle recette
-    public function addRecipe(): void
+    /**
+     * Vérifie si l'utilisateur est authentifié via la session.
+     * Retourne les infos de l'utilisateur s'il est connecté.
+     */
+    private function checkAuth(): array
     {
-        header('Content-Type: application/json');
-
-        // Vérifier le type de contenu
-        if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
-            http_response_code(400);
-            echo json_encode(['error' => 'Invalid Content-Type header']);
-            return;
-        }
-
-        // Récupérer les données JSON
-        $input = json_decode(file_get_contents('php://input'), true);
-
-        // Vérifier les champs obligatoires
-        if (!isset($input['name'], $input['nameFR'], $input['Without'], $input['ingredients'], $input['steps'])) {
-            http_response_code(400);
-            echo json_encode(['error' => 'Invalid input. Missing required fields.']);
-            return;
-        }
-
-        // Vérifier si l'utilisateur est connecté
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-        if (!isset($_SESSION['user'])) {
+        if (empty($_SESSION['user'])) {
             http_response_code(401);
-            echo json_encode(['error' => 'Unauthorized. Please log in to add a recipe.']);
-            return;
+            echo json_encode(['error' => 'Authentification requise']);
+            exit;
         }
 
-        // Récupérer l'auteur depuis la session
-        $author = [
-            'id' => $_SESSION['user']['id'],
-            'name' => $_SESSION['user']['name'],
-            'prenom' => $_SESSION['user']['prenom'],
-            'email' => $_SESSION['user']['email'],
-            'role' => $_SESSION['user']['role'] // Inclure le rôle de l'utilisateur
-        ];
+        return $_SESSION['user'];
+    }
 
-        // Charger les recettes existantes
+    /**
+     * Vérifie si l'utilisateur courant est propriétaire de la recette
+     * ou s'il a un rôle administrateur.
+     */
+    private function checkRecipeOwnership(array $recipe): void
+    {
+        $user = $this->checkAuth();
+        $authorId = $recipe['Author']['id'] ?? null;
+        $userId = $user['id'] ?? null;
+
+        if ($user['role'] !== 'admin' && (int)$userId !== (int)$authorId) {
+            http_response_code(403);
+            echo json_encode(['error' => 'Action réservée à l\'auteur ou administrateur']);
+            exit;
+        }
+    }
+     /**
+     * Vérifie si l'utilisateur courant a un rôle chef
+     * ou s'il a un rôle administrateur.
+     */
+    private function checkIfCanAddRecipe(): array
+    {
+        $user = $this->checkAuth();
+    
+        if (!in_array($user['role'], ['admin', 'chef'])) {
+            http_response_code(403);
+            echo json_encode(['error' => 'Seuls les administrateurs ou chefs peuvent ajouter une recette']);
+            exit;
+        }
+    
+        return $user;
+    }
+    
+
+    /**
+     * Retourne toutes les recettes sous forme de JSON.
+     */
+    public function getRecipes(): void
+    {
+        header('Content-Type: application/json');
+        try {
+            $recipes = $this->getAllRecipes();
+            echo json_encode($recipes);
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => $e->getMessage()]);
+        }
+    }
+
+    /**
+     * Ajoute une nouvelle recette en validant les champs requis.
+     */
+    public function addRecipe(): void
+    {
+        header('Content-Type: application/json');
+    
+        // Vérifie l'authentification et les autorisations, retourne les infos utilisateur
+        $user = $this->checkIfCanAddRecipe();
+    
+        // Vérifie le type de contenu attendu
+        if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
+            http_response_code(400);
+            echo json_encode(['error' => 'Content-Type doit être application/json']);
+            return;
+        }
+    
+        // Récupère les données envoyées dans le corps de la requête
+        $input = json_decode(file_get_contents('php://input'), true);
+    
+        // Liste des champs requis pour une recette
+        $requiredFields = ['name', 'nameFR', 'ingredients', 'stepsFR'];
+        foreach ($requiredFields as $field) {
+            if (empty($input[$field])) {
+                http_response_code(400);
+                echo json_encode(['error' => "Le champ $field est requis"]);
+                return;
+            }
+        }
+    
+        // Charge toutes les recettes existantes
         $recipes = $this->getAllRecipes();
-
-        // Créer une nouvelle recette
+    
+        // Prépare la nouvelle recette à ajouter
         $newRecipe = [
             'id' => count($recipes) + 1,
             'name' => $input['name'],
             'nameFR' => $input['nameFR'],
-            'Author' => $author,
-            'Without' => $input['Without'], // Restrictions alimentaires
-            'ingredients' => $input['ingredients'], // Liste des ingrédients
-            'steps' => $input['steps'], // Étapes de préparation
-            'timers' => $input['timers'] ?? [], // Timers (facultatif)
-            'imageURL' => $input['imageURL'] ?? null, // URL de l'image (facultatif)
-            'originalURL' => $input['originalURL'] ?? null // URL originale (facultatif)
+            'Author' => [
+                'id' => $user['id'],
+                'name' => $user['name'],
+                'prenom' => $user['prenom'],
+                'email' => $user['email'],
+                'role' => $user['role']
+            ],
+            'ingredients' => $input['ingredients'],
+            'stepsFR' => $input['stepsFR'],
+            'imageURL'=> $input['imageURL'] ?? '', // pour éviter des erreurs si imageURL est manquant
+            'createdAt' => date('Y-m-d H:i:s'),
+            'updatedAt' => date('Y-m-d H:i:s'),
+            'likes' => 0
         ];
-
-        // Ajouter la recette à la liste
+    
+        // Ajoute la nouvelle recette à la liste
         $recipes[] = $newRecipe;
-
-        // Sauvegarder les recettes
+    
+        // Sauvegarde la liste des recettes mise à jour
         $this->saveRecipes($recipes);
-
+    
+        // Répond avec un statut 201 (créé) et la recette ajoutée
         http_response_code(201);
-        echo json_encode(['message' => 'Recette ajoutée avec succès', 'recipe' => $newRecipe]);
+        echo json_encode($newRecipe);
     }
+    
 
-    // Supprimer une recette par ID
+    /**
+     * Supprime une recette en fonction de son ID.
+     * L'utilisateur doit être l'auteur ou admin.
+     */
     public function deleteRecipe(int $id): void
     {
         header('Content-Type: application/json');
-
         $recipes = $this->getAllRecipes();
-        $filteredRecipes = array_filter($recipes, fn($recipe) => $recipe['id'] !== $id);
-
-        if (count($recipes) === count($filteredRecipes)) {
-            http_response_code(404);
-            echo json_encode(['error' => 'Recette non trouvée']);
-            return;
-        }
-
-        $this->saveRecipes(array_values($filteredRecipes));
-
-        http_response_code(200);
-        echo json_encode(['message' => 'Recette supprimée avec succès']);
-    }
-
-    // Modifier une recette par ID
-    public function updateRecipe(int $id): void
-    {
-        header('Content-Type: application/json');
-
-        // Vérifier le type de contenu
-        if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
-            http_response_code(400);
-            echo json_encode(['error' => 'Invalid Content-Type header']);
-            return;
-        }
-
-        // Récupérer les données JSON
-        $input = json_decode(file_get_contents('php://input'), true);
-
-        if (!isset($input['name'], $input['nameFR'], $input['Without'], $input['ingredients'], $input['steps'])) {
-            http_response_code(400);
-            echo json_encode(['error' => 'Invalid input. Missing required fields.']);
-            return;
-        }
-
-        $recipes = $this->getAllRecipes();
-        $recipeFound = false;
-
-        foreach ($recipes as &$recipe) {
+        
+        foreach ($recipes as $key => $recipe) {
             if ($recipe['id'] === $id) {
-                $recipe['name'] = $input['name'];
-                $recipe['nameFR'] = $input['nameFR'];
-                $recipe['Without'] = $input['Without'];
-                $recipe['ingredients'] = $input['ingredients'];
-                $recipe['steps'] = $input['steps'];
-                $recipe['timers'] = $input['timers'] ?? [];
-                $recipe['imageURL'] = $input['imageURL'] ?? null;
-                $recipe['originalURL'] = $input['originalURL'] ?? null;
-                $recipeFound = true;
-                break;
+                $this->checkRecipeOwnership($recipe);
+
+                array_splice($recipes, $key, 1);
+                $this->saveRecipes($recipes);
+                
+                echo json_encode(['message' => 'Recette supprimée avec succès']);
+                return;
             }
         }
 
-        if (!$recipeFound) {
-            http_response_code(404);
-            echo json_encode(['error' => 'Recette non trouvée']);
-            return;
-        }
-
-        $this->saveRecipes($recipes);
-
-        http_response_code(200);
-        echo json_encode(['message' => 'Recette modifiée avec succès']);
+        http_response_code(404);
+        echo json_encode(['error' => 'Recette non trouvée']);
     }
 
-    // Charger toutes les recettes depuis le fichier JSON
-    public function getAllRecipes(): array
+    /**
+     * Met à jour les champs modifiables d'une recette.
+     */
+    public function updateRecipe(int $id): void
+    {
+        header('Content-Type: application/json');
+        $input = json_decode(file_get_contents('php://input'), true);
+        $recipes = $this->getAllRecipes();
+
+        foreach ($recipes as &$recipe) {
+            if ($recipe['id'] === $id) {
+                $this->checkRecipeOwnership($recipe);
+
+                $updatableFields = ['name', 'nameFR', 'ingredients', 'stepsFR', 'imageURL'];
+                $hasUpdates = false;
+
+                foreach ($updatableFields as $field) {
+                    if (isset($input[$field])) {
+                        $recipe[$field] = $input[$field];
+                        $hasUpdates = true;
+                    }
+                }
+
+                if (!$hasUpdates) {
+                    echo json_encode($recipe); // Pas de modification
+                    return;
+                }
+
+                $recipe['updatedAt'] = date('Y-m-d H:i:s');
+                $this->saveRecipes($recipes);
+                
+                echo json_encode($recipe);
+                return;
+            }
+        }
+
+        http_response_code(404);
+        echo json_encode(['error' => 'Recette non trouvée']);
+    }
+
+    /**
+     * Récupère toutes les recettes depuis le fichier JSON.
+     */
+    private function getAllRecipes(): array
     {
         if (!file_exists($this->filePath)) {
             return [];
         }
 
-        $data = json_decode(file_get_contents($this->filePath), true);
-        return is_array($data) ? $data : [];
+        $data = file_get_contents($this->filePath);
+        return json_decode($data, true) ?: [];
     }
 
-    // Sauvegarder les recettes dans le fichier JSON
+    /**
+     * Sauvegarde la liste complète des recettes dans le fichier JSON.
+     */
     private function saveRecipes(array $recipes): void
     {
-        file_put_contents($this->filePath, json_encode($recipes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        file_put_contents(
+            $this->filePath,
+            json_encode($recipes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
+        );
     }
-
 }
