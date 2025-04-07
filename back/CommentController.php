@@ -5,6 +5,7 @@ class CommentController
     private string $recipesFile; 
 
     // Constructeur pour initialiser les chemins des fichiers
+
     public function __construct(string $commentsFile, string $recipesFile)
     {
         $this->commentsFile = $commentsFile;
@@ -18,7 +19,7 @@ class CommentController
 
         // Vérifier que le type de contenu de la requête est JSON
         if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
-            http_response_code(400); // Code HTTP 400 : Mauvaise requête
+            http_response_code(400);
             echo json_encode(['error' => 'Invalid Content-Type header']);
             return;
         }
@@ -30,19 +31,19 @@ class CommentController
 
         // Vérifier si l'utilisateur est connecté
         if (!isset($_SESSION['user'])) {
-            http_response_code(401); // Code HTTP 401 : Non autorisé
+            http_response_code(401); 
             echo json_encode(['error' => 'Veuillez vous authentifier pour commenter.']);
             return;
         }
 
         // Récupérer les données JSON envoyées dans la requête
         $input = json_decode(file_get_contents('php://input'), true);
-        $recipeId = $input['recipe_id'] ?? null; // ID de la recette
-        $content = trim($input['content'] ?? ''); // Contenu du commentaire
+        $recipeId = $input['recipe_id'] ?? null; 
+        $content = trim($input['content'] ?? '');
 
         // Vérifier que tous les champs requis sont remplis
         if (!$recipeId || empty($content)) {
-            http_response_code(400); // Code HTTP 400 : Mauvaise requête
+            http_response_code(400); 
             echo json_encode(['error' => 'Veuillez renseigner tous les champs.']);
             return;
         }
@@ -53,7 +54,7 @@ class CommentController
         $recipeExists = array_filter($recipes, fn($recipe) => (int) $recipe['id'] === (int) $recipeId);
 
         if (empty($recipeExists)) {
-            http_response_code(404); // Code HTTP 404 : Non trouvé
+            http_response_code(404); 
             echo json_encode(['error' => 'Recette introuvable']);
             return;
         }
@@ -82,14 +83,14 @@ class CommentController
         // Sauvegarder les commentaires dans le fichier JSON
         $this->saveComments($comments);
 
-        http_response_code(201); // Code HTTP 201 : Créé
+        http_response_code(201); 
         echo json_encode(['message' => 'Commentaire ajouté avec succès', 'comment' => $newComment]);
     }
 
     // Supprimer un commentaire
     public function deleteComment(): void
     {
-        header('Content-Type: application/json'); // Définir le type de contenu de la réponse en JSON
+        header('Content-Type: application/json'); 
 
         // Démarrer une session si elle n'est pas déjà active
         if (session_status() === PHP_SESSION_NONE) {
@@ -98,18 +99,18 @@ class CommentController
 
         // Vérifier si l'utilisateur est connecté
         if (!isset($_SESSION['user'])) {
-            http_response_code(401); // Code HTTP 401 : Non autorisé
+            http_response_code(401);
             echo json_encode(['error' => 'Veuillez vous authentifier pour supprimer un commentaire.']);
             return;
         }
 
         // Récupérer les données JSON envoyées dans la requête
         $input = json_decode(file_get_contents('php://input'), true);
-        $commentId = $input['comment_id'] ?? null; // ID du commentaire à supprimer
+        $commentId = $input['comment_id'] ?? null; 
 
         // Vérifier que l'ID du commentaire est fourni
         if (!$commentId) {
-            http_response_code(400); // Code HTTP 400 : Mauvaise requête
+            http_response_code(400);
             echo json_encode(['error' => 'ID du commentaire requis.']);
             return;
         }
@@ -123,7 +124,7 @@ class CommentController
             if ((int) $comment['id'] === (int) $commentId) {
                 // Vérifier si l'utilisateur connecté est l'auteur du commentaire
                 if ($comment['author']['id'] !== $_SESSION['user']['id']) {
-                    http_response_code(403); // Code HTTP 403 : Interdit
+                    http_response_code(403);
                     echo json_encode(['error' => 'Vous ne pouvez supprimer que vos propres commentaires.']);
                     return;
                 }
@@ -134,7 +135,7 @@ class CommentController
 
         // Si le commentaire n'est pas trouvé
         if ($commentIndex === null) {
-            http_response_code(404); // Code HTTP 404 : Non trouvé
+            http_response_code(404); 
             echo json_encode(['error' => 'Commentaire introuvable.']);
             return;
         }
@@ -144,14 +145,14 @@ class CommentController
         // Sauvegarder les commentaires mis à jour
         $this->saveComments($comments);
 
-        http_response_code(200); // Code HTTP 200 : Succès
+        http_response_code(200); 
         echo json_encode(['message' => 'Commentaire supprimé avec succès.']);
     }
 
     // Modifier un commentaire
     public function updateComment(): void
     {
-        header('Content-Type: application/json'); // Définir le type de contenu de la réponse en JSON
+        header('Content-Type: application/json');
 
         // Démarrer une session si elle n'est pas déjà active
         if (session_status() === PHP_SESSION_NONE) {
@@ -160,19 +161,19 @@ class CommentController
 
         // Vérifier si l'utilisateur est connecté
         if (!isset($_SESSION['user'])) {
-            http_response_code(401); // Code HTTP 401 : Non autorisé
+            http_response_code(401); 
             echo json_encode(['error' => 'Veuillez vous authentifier pour modifier un commentaire.']);
             return;
         }
 
         // Récupérer les données JSON envoyées dans la requête
         $input = json_decode(file_get_contents('php://input'), true);
-        $commentId = $input['comment_id'] ?? null; // ID du commentaire à modifier
-        $newContent = trim($input['content'] ?? ''); // Nouveau contenu du commentaire
+        $commentId = $input['comment_id'] ?? null; 
+        $newContent = trim($input['content'] ?? ''); 
 
         // Vérifier que l'ID du commentaire et le contenu sont fournis
         if (!$commentId || empty($newContent)) {
-            http_response_code(400); // Code HTTP 400 : Mauvaise requête
+            http_response_code(400);
             echo json_encode(['error' => 'ID du commentaire et contenu requis.']);
             return;
         }
@@ -185,24 +186,24 @@ class CommentController
             if ((int) $comment['id'] === (int) $commentId) {
                 // Vérifier si l'utilisateur connecté est l'auteur du commentaire
                 if ($comment['author']['id'] !== $_SESSION['user']['id']) {
-                    http_response_code(403); // Code HTTP 403 : Interdit
+                    http_response_code(403); 
                     echo json_encode(['error' => 'Vous ne pouvez modifier que vos propres commentaires.']);
                     return;
                 }
 
                 // Mettre à jour le contenu du commentaire
                 $comment['content'] = $newContent;
-                $comment['updated_at'] = date('Y-m-d H:i:s'); // Ajouter une date de mise à jour
+                $comment['updated_at'] = date('Y-m-d H:i:s'); 
                 $this->saveComments($comments);
 
-                http_response_code(200); // Code HTTP 200 : Succès
+                http_response_code(200); 
                 echo json_encode(['message' => 'Commentaire modifié avec succès.', 'comment' => $comment]);
                 return;
             }
         }
 
         // Si le commentaire n'est pas trouvé
-        http_response_code(404); // Code HTTP 404 : Non trouvé
+        http_response_code(404);
         echo json_encode(['error' => 'Commentaire introuvable.']);
     }
 
@@ -210,11 +211,11 @@ class CommentController
     public function getAllComments(): array
     {
         if (!file_exists($this->commentsFile)) {
-            return []; // Retourner un tableau vide si le fichier n'existe pas
+            return [];
         }
 
         $data = json_decode(file_get_contents($this->commentsFile), true);
-        return is_array($data) ? $data : []; // Retourner les données ou un tableau vide
+        return is_array($data) ? $data : []; 
     }
 
     // Sauvegarder les commentaires dans le fichier JSON
@@ -228,7 +229,7 @@ class CommentController
     {
         if (!file_exists($this->recipesFile)) {
             error_log("Fichier des recettes introuvable : " . $this->recipesFile);
-            return []; // Retourner un tableau vide si le fichier n'existe pas
+            return []; 
         }
 
         $data = file_get_contents($this->recipesFile);
@@ -245,6 +246,6 @@ class CommentController
             return [];
         }
 
-        return $recipes; // Retourner les recettes
+        return $recipes; 
     }
 }
