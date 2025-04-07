@@ -1,5 +1,19 @@
 const webServerAddress = "http://localhost:8000";
 
+//
+document.getElementById('debut')?.addEventListener('click', async (e) => {
+  e.preventDefault();
+  
+  const button = e.target;
+  button.classList.add('disabled');
+  
+
+  await new Promise(resolve => setTimeout(resolve, 200));
+  
+  window.location.href = 'connexion.html';
+});
+
+
 // Gestion de l'inscription
 document
   .getElementById("inscription")

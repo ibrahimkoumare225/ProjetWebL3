@@ -1,16 +1,30 @@
 <?php
+// Active l'affichage de toutes les erreurs (utile en développement)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+/**
+ * Contrôleur chargé de la gestion des recettes (CRUD) à partir d'un fichier JSON.
+ */
 class RecipeController
 {
     private string $filePath;
 
+    /**
+     * Constructeur de la classe, prend en paramètre le chemin du fichier JSON.
+     */
     public function __construct(string $filePath)
     {
         $this->filePath = $filePath;
     }
 
+    /**
+     * Gère les requêtes HTTP liées aux recettes.
+     * Route localement les actions GET, POST, PUT, DELETE.
+     */
     public function handleRequest(): void
     {
-        ob_start();
+        ob_start(); // Démarre la temporisation de sortie
         $method = $_SERVER['REQUEST_METHOD'];
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -42,6 +56,10 @@ class RecipeController
         ob_end_flush();
     }
 
+    /**
+     * Vérifie si l'utilisateur est authentifié via la session.
+     * Retourne les infos de l'utilisateur s'il est connecté.
+     */
     private function checkAuth(): array
     {
         if (session_status() === PHP_SESSION_NONE) {
@@ -57,11 +75,15 @@ class RecipeController
         return $_SESSION['user'];
     }
 
+    /**
+     * Vérifie si l'utilisateur courant est propriétaire de la recette
+     * ou s'il a un rôle administrateur.
+     */
     private function checkRecipeOwnership(array $recipe): void
     {
         $user = $this->checkAuth();
-        $authorId = $recipe['Author']['id_user'] ?? null;
-        $userId = $user['id_user'] ?? null;
+        $authorId = $recipe['Author']['id'] ?? null;
+        $userId = $user['id'] ?? null;
 
         if ($user['role'] !== 'admin' && (int)$userId !== (int)$authorId) {
             http_response_code(403);
@@ -69,7 +91,27 @@ class RecipeController
             exit;
         }
     }
+     /**
+     * Vérifie si l'utilisateur courant a un rôle chef
+     * ou s'il a un rôle administrateur.
+     */
+    private function checkIfCanAddRecipe(): array
+    {
+        $user = $this->checkAuth();
+    
+        if (!in_array($user['role'], ['admin', 'chef'])) {
+            http_response_code(403);
+            echo json_encode(['error' => 'Seuls les administrateurs ou chefs peuvent ajouter une recette']);
+            exit;
+        }
+    
+        return $user;
+    }
+    
 
+    /**
+     * Retourne toutes les recettes sous forme de JSON.
+     */
     public function getRecipes(): void
     {
         header('Content-Type: application/json');
@@ -82,19 +124,27 @@ class RecipeController
         }
     }
 
+    /**
+     * Ajoute une nouvelle recette en validant les champs requis.
+     */
     public function addRecipe(): void
     {
         header('Content-Type: application/json');
-        $user = $this->checkAuth();
-
+    
+        // Vérifie l'authentification et les autorisations, retourne les infos utilisateur
+        $user = $this->checkIfCanAddRecipe();
+    
+        // Vérifie le type de contenu attendu
         if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
             http_response_code(400);
             echo json_encode(['error' => 'Content-Type doit être application/json']);
             return;
         }
-
+    
+        // Récupère les données envoyées dans le corps de la requête
         $input = json_decode(file_get_contents('php://input'), true);
-
+    
+        // Liste des champs requis pour une recette
         $requiredFields = ['name', 'nameFR', 'ingredients', 'stepsFR'];
         foreach ($requiredFields as $field) {
             if (empty($input[$field])) {
@@ -103,9 +153,11 @@ class RecipeController
                 return;
             }
         }
-
+    
+        // Charge toutes les recettes existantes
         $recipes = $this->getAllRecipes();
-        
+    
+        // Prépare la nouvelle recette à ajouter
         $newRecipe = [
             'id' => count($recipes) + 1,
             'name' => $input['name'],
@@ -119,19 +171,28 @@ class RecipeController
             ],
             'ingredients' => $input['ingredients'],
             'stepsFR' => $input['stepsFR'],
-            'imageURL'=> $input['imageURL'],
+            'imageURL'=> $input['imageURL'] ?? '', // pour éviter des erreurs si imageURL est manquant
             'createdAt' => date('Y-m-d H:i:s'),
             'updatedAt' => date('Y-m-d H:i:s'),
             'likes' => 0
         ];
-
+    
+        // Ajoute la nouvelle recette à la liste
         $recipes[] = $newRecipe;
+    
+        // Sauvegarde la liste des recettes mise à jour
         $this->saveRecipes($recipes);
-
+    
+        // Répond avec un statut 201 (créé) et la recette ajoutée
         http_response_code(201);
         echo json_encode($newRecipe);
     }
+    
 
+    /**
+     * Supprime une recette en fonction de son ID.
+     * L'utilisateur doit être l'auteur ou admin.
+     */
     public function deleteRecipe(int $id): void
     {
         header('Content-Type: application/json');
@@ -140,7 +201,7 @@ class RecipeController
         foreach ($recipes as $key => $recipe) {
             if ($recipe['id'] === $id) {
                 $this->checkRecipeOwnership($recipe);
-                
+
                 array_splice($recipes, $key, 1);
                 $this->saveRecipes($recipes);
                 
@@ -148,11 +209,14 @@ class RecipeController
                 return;
             }
         }
-        
+
         http_response_code(404);
         echo json_encode(['error' => 'Recette non trouvée']);
     }
 
+    /**
+     * Met à jour les champs modifiables d'une recette.
+     */
     public function updateRecipe(int $id): void
     {
         header('Content-Type: application/json');
@@ -165,19 +229,19 @@ class RecipeController
 
                 $updatableFields = ['name', 'nameFR', 'ingredients', 'stepsFR', 'imageURL'];
                 $hasUpdates = false;
-                
+
                 foreach ($updatableFields as $field) {
                     if (isset($input[$field])) {
                         $recipe[$field] = $input[$field];
                         $hasUpdates = true;
                     }
                 }
-                
+
                 if (!$hasUpdates) {
-                    echo json_encode($recipe);
+                    echo json_encode($recipe); // Pas de modification
                     return;
                 }
-                
+
                 $recipe['updatedAt'] = date('Y-m-d H:i:s');
                 $this->saveRecipes($recipes);
                 
@@ -185,11 +249,14 @@ class RecipeController
                 return;
             }
         }
-        
+
         http_response_code(404);
         echo json_encode(['error' => 'Recette non trouvée']);
     }
 
+    /**
+     * Récupère toutes les recettes depuis le fichier JSON.
+     */
     private function getAllRecipes(): array
     {
         if (!file_exists($this->filePath)) {
@@ -200,6 +267,9 @@ class RecipeController
         return json_decode($data, true) ?: [];
     }
 
+    /**
+     * Sauvegarde la liste complète des recettes dans le fichier JSON.
+     */
     private function saveRecipes(array $recipes): void
     {
         file_put_contents(

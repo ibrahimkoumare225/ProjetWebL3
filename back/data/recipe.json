@@ -724,5 +724,30 @@
         "createdAt": "2025-04-04 23:13:16",
         "updatedAt": "2025-04-04 23:13:16",
         "likes": 0
+    },
+    {
+        "id": 13,
+        "name": "gal",
+        "nameFR": "garba",
+        "Author": {
+            "id_user": "67efeed2002d8",
+            "name": "koumare",
+            "prenom": "ibrahim",
+            "email": "ibrahimkoumare5@gmail.com",
+            "role": "admin"
+        },
+        "ingredients": [
+            {
+                "quantity": "1",
+                "name": "de poisson"
+            }
+        ],
+        "stepsFR": [
+            "laver le poisson"
+        ],
+        "createdAt": "2025-04-06 18:01:45",
+        "updatedAt": "2025-04-06 18:02:55",
+        "likes": 0,
+        "imageURL": "https://th.bing.com/th/id/OIP.ogqltcORhhlIVnzYoZriTQHaG-?pid=ImgDet&w=178&h=167&c=7&dpr=1,5"
     }
 ]

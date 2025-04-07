@@ -1,15 +1,17 @@
 <?php
-ini_set('session.cookie_samesite', 'None');
-ini_set('session.cookie_secure', 0); // 0 en HTTP local
+ini_set('session.cookie_samesite', 'Lax');
+ini_set('session.cookie_secure', 0);
 session_set_cookie_params([
     'lifetime' => 86400,
     'path' => '/',
     'domain' => 'localhost',
-    'secure' => false, // Désactivé pour HTTP local
+    'secure' => false,
     'httponly' => true,
-    'samesite' => 'None'
+    'samesite' => 'Lax'
 ]);
-ini_set('display_errors', 0);
+
+
+
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/error.log');
 // Remplacer les headers existants par :

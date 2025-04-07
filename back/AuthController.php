@@ -61,7 +61,7 @@ class AuthController
 		
 		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 		$user = [
-			"id_user" => $idUtilisateur,
+			"id" => $idUtilisateur,
 			"name" =>$username,
 			"prenom" =>$userprename,
 			"mail" => $email,
@@ -137,7 +137,7 @@ class AuthController
 	
 		// Stocker l'utilisateur en session
 		$_SESSION['user'] = [
-			'id' => $userFound['id_user'],
+			'id' => $userFound['id'],
 			'name' => $userFound['name'],
 			'prenom' => $userFound['prenom'],
 			'email' => $userFound['mail'],
@@ -149,7 +149,7 @@ class AuthController
 		 echo json_encode([
         'message' => 'Connexion réussie',
         'user' => [
-            'id_user' => $userFound['id_user'], 
+            'id' => $userFound['id'], 
             'name' => $userFound['name'],
             'prenom' => $userFound['prenom'],
             'email' => $userFound['mail'], 

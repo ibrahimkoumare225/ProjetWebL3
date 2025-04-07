@@ -1,6 +1,6 @@
 [
     {
-        "id_user": "67efeed2002d8",
+        "id": "67efeed2002d8",
         "name": "koumare",
         "prenom": "ibrahim",
         "mail": "ibrahimkoumare5@gmail.com",
@@ -8,11 +8,19 @@
         "role": "admin"
     },
     {
-        "id_user": "67eff2cfd2f36",
+        "id": "67eff2cfd2f36",
         "name": "Moyenga",
         "prenom": "adama",
         "mail": "amoyenga@gmail.com",
         "password": "$2y$12$9ZY0QPxGmwzOhil6bn7ZiOrO6gO9PAZtBbOGUhyZ8i\/uDs5CJB6ne",
+        "role": "chef"
+    },
+    {
+        "id": "67f2b65a5099f",
+        "name": "Moyenga",
+        "prenom": "Haroune",
+        "mail": "hmoyenga@gmail.com",
+        "password": "$2y$12$e6HqLkuROjbLYitZWU8fv.fvyyIO8iVSW9RAwMQrF74nJMn9Ut6he",
         "role": "cuisinier"
     }
 ]
