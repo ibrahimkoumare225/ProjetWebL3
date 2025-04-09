@@ -124,6 +124,53 @@ class RecipeController
         }
     }
 
+  /**
+ * Recherche les recettes contenant un mot-clé dans le nom, les ingrédients ou les étapes.
+ *
+ * @param string $searchTerm Le mot-clé à rechercher.
+ * @return array Liste des recettes filtrées.
+ */
+public function getRecetteBySearch(string $searchTerm): array
+{
+    // Vérifie que le fichier des recettes existe
+    if (!file_exists($this->filePath)) {
+        return [];
+    }
+
+    // Lit et décode le contenu JSON en tableau PHP
+    $content = file_get_contents($this->filePath);
+    $recettes = json_decode($content, true);
+
+    // Si le contenu est vide ou invalide, retourne un tableau vide
+    if (!is_array($recettes)) {
+        return [];
+    }
+
+    // Nettoyage du terme de recherche : suppression des espaces inutiles + conversion en minuscules
+    $searchTerm = strtolower(trim($searchTerm));
+
+    // Si la recherche est vide, retourne toutes les recettes
+    if ($searchTerm === '') {
+        return $recettes;
+    }
+
+    // Filtrage des recettes : on garde celles dont le nom, les ingrédients ou les étapes contiennent le mot-clé
+    $filtered = array_filter($recettes, function ($recette) use ($searchTerm) {
+        // Extraction et mise en minuscule des champs recherchables
+        $name = strtolower($recette['name'] ?? '');
+        $ingredients = strtolower(implode(' ', $recette['ingredients'] ?? []));
+        $steps = strtolower(implode(' ', $recette['stepsFR'] ?? []));
+
+        // Recherche du terme dans les trois champs
+        return strpos($name, $searchTerm) !== false
+            || strpos($ingredients, $searchTerm) !== false
+            || strpos($steps, $searchTerm) !== false;
+    });
+
+    // Réindexe les résultats (évite les clés non consécutives)
+    return array_values($filtered);
+}
+
     /**
      * Ajoute une nouvelle recette en validant les champs requis.
      */
@@ -278,3 +325,4 @@ class RecipeController
         );
     }
 }
+

@@ -56,6 +56,7 @@ $router->register('POST', '/logout', [$authController, 'handleLogout']);//OKI
 //Route pour les recettes
 
 $router->register('GET', '/recipes', [$recipeController, 'getRecipes']); //OKI
+$router->register('GET', '/recipes/search', [$recipeController, 'getRecetteBySearch']);
 $router->register('POST', '/recipes', [$recipeController, 'addRecipe']); // OKI
 $router->register('DELETE', '/recipes/{id}', function ($id) use ($recipeController) {
     $recipeController->deleteRecipe((int)$id);

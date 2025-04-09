@@ -749,5 +749,62 @@
         "updatedAt": "2025-04-06 18:02:55",
         "likes": 0,
         "imageURL": "https://th.bing.com/th/id/OIP.ogqltcORhhlIVnzYoZriTQHaG-?pid=ImgDet&w=178&h=167&c=7&dpr=1,5"
+    },
+    {
+        "id": 14,
+        "name": "ndolès",
+        "nameFR": "ndolès",
+        "Author": {
+            "id": "67efeed2002d8",
+            "name": "koumare",
+            "prenom": "ibrahim",
+            "email": "ibrahimkoumare5@gmail.com",
+            "role": "admin"
+        },
+        "ingredients": [
+            {
+                "quantity": "Arachide,",
+                "name": ""
+            },
+            {
+                "quantity": "poireau,",
+                "name": ""
+            },
+            {
+                "quantity": "persil,",
+                "name": ""
+            },
+            {
+                "quantity": "ail,",
+                "name": ""
+            },
+            {
+                "quantity": "oignons,",
+                "name": ""
+            },
+            {
+                "quantity": "crevette,",
+                "name": ""
+            },
+            {
+                "quantity": "feuille",
+                "name": "de ndolès,"
+            },
+            {
+                "quantity": "huile,",
+                "name": ""
+            },
+            {
+                "quantity": "viande",
+                "name": ""
+            }
+        ],
+        "stepsFR": [
+            "laver les feuilles de ndolès"
+        ],
+        "imageURL": "https://th.bing.com/th/id/OIP.aOfRuC7r3BgFWIERKQdL3gAAAA?rs=1&pid=ImgDetMain",
+        "createdAt": "2025-04-09 13:41:49",
+        "updatedAt": "2025-04-09 13:41:49",
+        "likes": 0
     }
 ]
