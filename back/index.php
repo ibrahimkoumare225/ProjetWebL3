@@ -43,7 +43,7 @@ require_once 'CommentController.php';
 $router = new Router();
 $authController = new AuthController(__DIR__ . '/data/users.json');
 $recipeController = new RecipeController(__DIR__ . '/data/recipe.json');
-$commentController = new CommentController(__DIR__ . '/data/recipe.json',__DIR__ . '/data/comment.json');
+$commentController = new CommentController(__DIR__ . '/data/comments.json');
 
 //Route pour l'authentification
 
@@ -66,13 +66,14 @@ $router->register('PUT', '/recipes/{id}', function ($id) use ($recipeController)
 });
 
 // Routes pour les commentaires
-$router->register('POST', '/comments', [$commentController, 'addComment']);
+
+$router->register('GET', '/comments', [$commentController, 'getComments']); //OKI
+$router->register('POST', '/comments', [$commentController, 'addComment']); // OKI
 $router->register('DELETE', '/comments/{id}', function ($id) use ($commentController) {
     $commentController->deleteComment((int)$id);
 });
 $router->register('PUT', '/comments/{id}', function ($id) use ($commentController) {
     $commentController->updateComment((int)$id);
 });
-$router->register('GET', '/comments', [$commentController, 'getAllComments']);
 
 $router->handleRequest();

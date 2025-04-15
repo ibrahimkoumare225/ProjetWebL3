@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "recipeId": 1,
+        "message": "Cette recette est excellente !",
+        "Author": {
+            "id": "67efeed2002d8",
+            "name": "koumare",
+            "prenom": "ibrahim",
+            "email": "ibrahimkoumare5@gmail.com",
+            "role": "admin"
+        },
+        "createdAt": "2025-04-13 10:04:01"
+    },
+    {
+        "id": 2,
+        "recipeId": 1,
+        "message": "Je l'ai essayée hier, c'était délicieux",
+        "Author": {
+            "id": "67efeed2002d8",
+            "name": "koumare",
+            "prenom": "ibrahim",
+            "email": "ibrahimkoumare5@gmail.com",
+            "role": "admin"
+        },
+        "createdAt": "2025-04-13 10:06:12",
+        "updatedAt": "2025-04-14 12:43:36"
+    },
+    {
+        "id": 3,
+        "message": "super facile a réaliser",
+        "recipeId": 13,
+        "Author": {
+            "id": "67efeed2002d8",
+            "name": "koumare",
+            "prenom": "ibrahim",
+            "email": "ibrahimkoumare5@gmail.com",
+            "role": "admin"
+        },
+        "createdAt": "2025-04-15 20:58:45"
+    }
+]

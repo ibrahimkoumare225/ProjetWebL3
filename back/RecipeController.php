@@ -18,43 +18,6 @@ class RecipeController
         $this->filePath = $filePath;
     }
 
-    /**
-     * Gère les requêtes HTTP liées aux recettes.
-     * Route localement les actions GET, POST, PUT, DELETE.
-     */
-    public function handleRequest(): void
-    {
-        ob_start(); // Démarre la temporisation de sortie
-        $method = $_SERVER['REQUEST_METHOD'];
-        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-        try {
-            preg_match('/\/recipes\/(\d+)$/', $path, $matches);
-            $id = $matches[1] ?? null;
-
-            switch (true) {
-                case $method === 'GET' && preg_match('/\/recipes$/', $path):
-                    $this->getRecipes();
-                    break;
-                case $method === 'POST' && $path === '/recipes':
-                    $this->addRecipe();
-                    break;
-                case $method === 'PUT' && preg_match('/\/recipes\/\d+$/', $path):
-                    $this->updateRecipe((int)$id);
-                    break;
-                case $method === 'DELETE' && preg_match('/\/recipes\/\d+$/', $path):
-                    $this->deleteRecipe((int)$id);
-                    break;
-                default:
-                    http_response_code(404);
-                    echo json_encode(['error' => 'Endpoint non trouvé']);
-            }
-        } catch (Exception $e) {
-            http_response_code(500);
-            echo json_encode(['error' => $e->getMessage()]);
-        }
-        ob_end_flush();
-    }
 
     /**
      * Vérifie si l'utilisateur est authentifié via la session.

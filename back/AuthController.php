@@ -22,7 +22,7 @@ class AuthController
 		$userprename = $_POST['prenom'] ?? '';
 		$email = $_POST['email'] ?? '';
 		$password = $_POST['password'] ?? '';
-		$role = "cuisinier";
+		$role = "utilisateur";
 
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			http_response_code(400);
