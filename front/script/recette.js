@@ -1,4 +1,3 @@
-// Gestion des recettes
 let modalInstance;
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -24,23 +23,36 @@ document.addEventListener("DOMContentLoaded", async () => {
     .addEventListener("change", async (e) => {
       await chargerRecettes(parseInt(e.target.value));
     });
+
+  // Gestion de la recherche
+  document.getElementById("search").addEventListener("input", async (e) => {
+    const query = e.target.value.trim();
+    await chargerRecettes(10, query);
+  });
 });
 
-async function chargerRecettes(limit) {
+async function chargerRecettes(limit, query = '') {
   try {
-    const response = await fetch(`${webServerAddress}/recipes?limit=${limit}`, {
+    const url = query
+      ? `${webServerAddress}/recipes/search?q=${encodeURIComponent(query)}&limit=${limit}`
+      : `${webServerAddress}/recipes?limit=${limit}`;
+    console.log("Requête vers:", url); // Log pour débogage
+    const response = await fetch(url, {
       credentials: "include",
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorData = await response.json();
+      console.error("Erreur HTTP:", response.status, errorData);
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorData.error || 'Inconnu'}`);
     }
 
     const recipes = await response.json();
+    console.log("Recettes reçues:", recipes); // Log pour débogage
     afficherRecettes(recipes);
   } catch (error) {
     console.error("Erreur de chargement:", error);
-    alert("Impossible de charger les recettes");
+    alert("Impossible de charger les recettes: " + error.message);
   }
 }
 
@@ -161,7 +173,7 @@ function initCardInteractions() {
           }),
         });
       } catch (error) {
-        console.error("Erreur:", error);
+        console.error("Erreur lors du like:", error);
       }
     });
   });
@@ -199,7 +211,7 @@ function initCardInteractions() {
             alert(result.error || "Suppression non autorisée !");
           }
         } catch (error) {
-          console.error("Erreur:", error);
+          console.error("Erreur lors de la suppression:", error);
           alert("Action non autorisée !");
         }
       }
@@ -230,6 +242,7 @@ function initCardInteractions() {
           throw new Error(error.error);
         }
       } catch (error) {
+        console.error("Erreur lors de l'édition:", error);
         alert(`Édition impossible : ${error.message}`);
       }
     });
@@ -338,8 +351,8 @@ document.getElementById("add-form")?.addEventListener("submit", async (e) => {
       alert(result.error || "Erreur lors de l'ajout");
     }
   } catch (error) {
-    console.error("Erreur:", error);
-    alert("Erreur lors de l'ajout");
+    console.error("Erreur lors de l'ajout:", error);
+    alert("Erreur lors de l'ajout: " + error.message);
   }
 });
 
@@ -423,7 +436,7 @@ document.getElementById("edit-form")?.addEventListener("submit", async (e) => {
       alert(result.error || "Erreur lors de la mise à jour");
     }
   } catch (error) {
-    console.error("Erreur:", error);
-    alert("Erreur lors de la mise à jour");
+    console.error("Erreur lors de la mise à jour:", error);
+    alert("Erreur lors de la mise à jour: " + error.message);
   }
 });
