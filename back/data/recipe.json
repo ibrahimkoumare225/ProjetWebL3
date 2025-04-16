@@ -196,44 +196,36 @@
         ],
         "ingredients": [
             {
-                "quantity": "5 teaspoons",
-                "name": "yeast",
-                "type": "Baking"
+                "quantity": "5",
+                "name": "teaspoons yeast"
             },
             {
-                "quantity": "5 cups",
-                "name": "flour",
-                "type": "Baking"
+                "quantity": "5",
+                "name": "cups flour"
             },
             {
-                "quantity": "4 tablespoons",
-                "name": "vegetable oil",
-                "type": "Baking"
+                "quantity": "4",
+                "name": "tablespoons vegetable oil"
             },
             {
-                "quantity": "2 tablespoons",
-                "name": "sugar",
-                "type": "Baking"
+                "quantity": "2",
+                "name": "tablespoons sugar"
             },
             {
-                "quantity": "2 teaspoons",
-                "name": "salt",
-                "type": "Baking"
+                "quantity": "2",
+                "name": "teaspoons salt"
             },
             {
-                "quantity": "2 cups",
-                "name": "hot water",
-                "type": "Misc"
+                "quantity": "2",
+                "name": "cups hot water"
             },
             {
-                "quantity": "1/4 cup",
-                "name": "pizza sauce",
-                "type": "Misc"
+                "quantity": "1/4",
+                "name": "cup pizza sauce"
             },
             {
-                "quantity": "3/4 cup",
-                "name": "mozzarella cheese",
-                "type": "Dairy"
+                "quantity": "3/4",
+                "name": "cup mozzarella cheese"
             }
         ],
         "steps": [
@@ -254,7 +246,9 @@
             15,
             0
         ],
-        "imageURL": "http://upload.wikimedia.org/wikipedia/commons/c/c7/Spinach_pizza.jpg"
+        "imageURL": "http://upload.wikimedia.org/wikipedia/commons/c/c7/Spinach_pizza.jpg",
+        "stepsFR": [],
+        "updatedAt": "2025-04-16 11:13:52"
     },
     {
         "id": 5,
