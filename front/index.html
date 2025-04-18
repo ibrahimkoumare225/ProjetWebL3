@@ -22,7 +22,12 @@
         <!-- Bouton de déconnexion à droite -->
         <ul class="right">
           <li>
-            <a href="#!" id="logout-btn" class="btn-floating btn-small red" title="Déconnexion">
+            <a
+              href="#!"
+              id="logout-btn"
+              class="btn-floating btn-small red"
+              title="Déconnexion"
+            >
               <i class="material-icons">logout</i>
             </a>
           </li>
@@ -104,8 +109,41 @@
           </div>
         </div>
       </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close btn-flat">Fermer</a>
+      </div>
     </div>
-
+    <!-- Modal Commentaires -->
+    <div id="comment-modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4 class="teal-text">Commentaires</h4>
+        <div class="row">
+          <div class="col s12">
+            <ul id="comments-list" class="collection"></ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <form id="add-comment-form">
+              <div class="input-field">
+                <textarea
+                  id="comment-message"
+                  class="materialize-textarea"
+                  required
+                ></textarea>
+                <label for="comment-message">Ajouter un commentaire</label>
+              </div>
+              <button type="submit" class="btn waves-effect waves-light teal">
+                Poster
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close btn-flat">Fermer</a>
+      </div>
+    </div>
     <!-- Modal Ajout -->
     <div id="add-modal" class="modal">
       <div class="modal-content">
@@ -156,6 +194,9 @@
             </button>
           </div>
         </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close btn-flat">Fermer</a>
       </div>
     </div>
 
@@ -212,6 +253,9 @@
           </div>
         </form>
       </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close btn-flat">Fermer</a>
+      </div>
     </div>
 
     <!-- Modal Suppression -->
@@ -230,8 +274,11 @@
         >
       </div>
     </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script src="script.js"></script>
+    <script src="script/auth.js"></script>
+    <script src="script/recette.js"></script>
+    <script src="script/comment.js"></script>
   </body>
 </html>

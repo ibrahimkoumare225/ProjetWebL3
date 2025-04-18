@@ -35,15 +35,17 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once 'Router.php';
+require_once 'RoleController.php';
 require_once 'AuthController.php';
 require_once 'RecipeController.php';
 require_once 'CommentController.php';
 
 
 $router = new Router();
+$roleController = new RoleController(__DIR__ . '/data/roles.json');
 $authController = new AuthController(__DIR__ . '/data/users.json');
 $recipeController = new RecipeController(__DIR__ . '/data/recipe.json');
-$commentController = new CommentController(__DIR__ . '/data/recipe.json',__DIR__ . '/data/comment.json');
+$commentController = new CommentController(__DIR__ . '/data/comments.json');
 
 //Route pour l'authentification
 
@@ -56,6 +58,7 @@ $router->register('POST', '/logout', [$authController, 'handleLogout']);//OKI
 //Route pour les recettes
 
 $router->register('GET', '/recipes', [$recipeController, 'getRecipes']); //OKI
+$router->register('GET', '/recipes/search', [$recipeController, 'getRecetteBySearch']);
 $router->register('POST', '/recipes', [$recipeController, 'addRecipe']); // OKI
 $router->register('DELETE', '/recipes/{id}', function ($id) use ($recipeController) {
     $recipeController->deleteRecipe((int)$id);
@@ -65,13 +68,21 @@ $router->register('PUT', '/recipes/{id}', function ($id) use ($recipeController)
 });
 
 // Routes pour les commentaires
-$router->register('POST', '/comments', [$commentController, 'addComment']);
+
+$router->register('GET', '/comments', [$commentController, 'getComments']); //OKI
+$router->register('POST', '/comments', [$commentController, 'addComment']); // OKI
 $router->register('DELETE', '/comments/{id}', function ($id) use ($commentController) {
     $commentController->deleteComment((int)$id);
 });
 $router->register('PUT', '/comments/{id}', function ($id) use ($commentController) {
     $commentController->updateComment((int)$id);
 });
-$router->register('GET', '/comments', [$commentController, 'getAllComments']);
+
+// Routes pour les rôles
+
+$router->register('GET', '/roles', [$roleController, 'getRoles']);
+$router->register('GET', '/roles/requests/pending', [$roleController, 'getPendingRequests']);
+$router->register('POST', '/roles/request', [$roleController, 'requestRole']);
+$router->register('PUT', '/roles/requests/{id}/{action}', [$roleController, 'handleRoleRequest']);
 
 $router->handleRequest();
