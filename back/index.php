@@ -33,11 +33,13 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once 'Router.php';
+require_once 'RoleController.php';
 require_once 'AuthController.php';
 require_once 'RecipeController.php';
 require_once 'CommentController.php';
 
 $router = new Router();
+$roleController = new RoleController(__DIR__ . '/data/roles.json');
 $authController = new AuthController(__DIR__ . '/data/users.json');
 $recipeController = new RecipeController(__DIR__ . '/data/recipe.json');
 $commentController = new CommentController(__DIR__ . '/data/comments.json');
@@ -70,6 +72,13 @@ $router->register('DELETE', '/comments/{id}', function ($id) use ($commentContro
 $router->register('PUT', '/comments/{id}', function ($id) use ($commentController) {
     $commentController->updateComment((int)$id);
 });
+
+// Routes pour les rôles
+
+$router->register('GET', '/roles', [$roleController, 'getRoles']);
+$router->register('GET', '/roles/requests/pending', [$roleController, 'getPendingRequests']);
+$router->register('POST', '/roles/request', [$roleController, 'requestRole']);
+$router->register('PUT', '/roles/requests/{id}/{action}', [$roleController, 'handleRoleRequest']);
 
 try {
     $router->handleRequest();
