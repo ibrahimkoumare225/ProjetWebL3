@@ -68,7 +68,9 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
    php -S localhost:8000 -t back/
    ```
 5. **Accéder à l'application**
+   ```bash
    - Ouvrir un navigateur et aller sur `http://localhost:3000/instance.html`
+   ```
 
 ## Structure du Projet
 ```
