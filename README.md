@@ -59,9 +59,9 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
    ```
 3. **Lancer le serveur**
    ```bash
-   3.1. **Lancer le serveur pour le front**
+    **Lancer le serveur pour le front**
        php -S localhost:3000 -t front/
-   3.2. **Lancer le serveur pour le backend **
+    **Lancer le serveur pour le backend **
          php -S localhost:8000 -t back/
    ```
 4. **Accéder à l'application**
