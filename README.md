@@ -58,14 +58,14 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
    cd ProjetWebL3  
    ```
 3. **Lancer le serveur**
-      ```bash
+      
         a.   **Lancer le serveur pour le front**
-      ```
+      
              php -S localhost:3000 -t front/
 
-      ```bash
+      
         b.  **Lancer le serveur pour le backend **
-      ```
+      
                  php -S localhost:8000 -t back/
 
 5. **Accéder à l'application**
