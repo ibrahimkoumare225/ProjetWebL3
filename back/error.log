@@ -1,0 +1,93 @@
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 1 converti en entier: 1
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 2 converti en entier: 1
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f"]
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 3 converti en entier: 2
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 4 converti en entier: 0
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 4 normalisé: []
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 5 converti en entier: 1
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 7 converti en entier: 1
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 8 converti en entier: 0
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 8 normalisé: []
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 9 converti en entier: 3
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 10 converti en entier: 2
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f"]
+[30-Apr-2025 13:22:00 UTC] Champ 'likes' pour recette ID 13 converti en entier: 2
+[30-Apr-2025 13:22:00 UTC] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[30-Apr-2025 13:22:00 UTC] getAllRecipes: Retourne 10 recettes valides sur 10 totales
+[30-Apr-2025 13:22:00 UTC] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":1,"likedBy":["67f2b65a5099f"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":2,"likedBy":["67efeed2002d8","67f2b65a5099f"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","67efeed2002d8"]}]
+[30-Apr-2025 13:22:07 UTC] checkAuth: Succès - userId=67efeed2002d8, user={"id":"67efeed2002d8","name":"koumare","prenom":"ibrahim","email":"ibrahimkoumare5@gmail.com","role":"admin"}
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 1 converti en entier: 1
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 2 converti en entier: 1
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 3 converti en entier: 2
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 4 converti en entier: 0
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 4 normalisé: []
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 5 converti en entier: 1
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 7 converti en entier: 1
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 8 converti en entier: 0
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 8 normalisé: []
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 9 converti en entier: 3
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 10 converti en entier: 2
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 13 converti en entier: 2
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[30-Apr-2025 13:22:07 UTC] getAllRecipes: Retourne 10 recettes valides sur 10 totales
+[30-Apr-2025 13:22:07 UTC] handleLike: userId=67efeed2002d8, action=like, recipeId=13, likes=2, likedBy=["67f2b65a5099f","67efeed2002d8"], hasLiked=true, input={"recipeId":"13","action":"like"}
+[30-Apr-2025 13:22:07 UTC] checkAuth: Succès - userId=67efeed2002d8, user={"id":"67efeed2002d8","name":"koumare","prenom":"ibrahim","email":"ibrahimkoumare5@gmail.com","role":"admin"}
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 1 converti en entier: 1
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 2 converti en entier: 1
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 3 converti en entier: 2
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 4 converti en entier: 0
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 4 normalisé: []
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 5 converti en entier: 1
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 7 converti en entier: 1
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 8 converti en entier: 0
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 8 normalisé: []
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 9 converti en entier: 3
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 10 converti en entier: 2
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f"]
+[30-Apr-2025 13:22:07 UTC] Champ 'likes' pour recette ID 13 converti en entier: 2
+[30-Apr-2025 13:22:07 UTC] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[30-Apr-2025 13:22:07 UTC] getAllRecipes: Retourne 10 recettes valides sur 10 totales
+[30-Apr-2025 13:22:07 UTC] handleLike: userId=67efeed2002d8, action=unlike, recipeId=13, likes=2, likedBy=["67f2b65a5099f","67efeed2002d8"], hasLiked=true, input={"recipeId":"13","action":"unlike"}
+[30-Apr-2025 13:22:07 UTC] Like retiré pour recette 13 par utilisateur 67efeed2002d8, nouveau total=1
+[30-Apr-2025 13:22:07 UTC] saveRecipes (handleLike): Écriture dans C:\xampp\htdocs\ProjetWebL3\back/data/recipe.json, nombre de recettes=10
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 1 converti en entier: 1
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 2 converti en entier: 1
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f"]
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 3 converti en entier: 2
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 4 converti en entier: 0
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 4 normalisé: []
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 5 converti en entier: 1
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 7 converti en entier: 1
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 8 converti en entier: 0
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 8 normalisé: []
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 9 converti en entier: 3
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 10 converti en entier: 2
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f"]
+[30-Apr-2025 13:22:15 UTC] Champ 'likes' pour recette ID 13 converti en entier: 1
+[30-Apr-2025 13:22:15 UTC] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f"]
+[30-Apr-2025 13:22:15 UTC] getAllRecipes: Retourne 10 recettes valides sur 10 totales
+[30-Apr-2025 13:22:15 UTC] checkAuth: Succès - userId=67efeed2002d8, user={"id":"67efeed2002d8","name":"koumare","prenom":"ibrahim","email":"ibrahimkoumare5@gmail.com","role":"admin"}
+[30-Apr-2025 13:22:15 UTC] checkRecipeOwnership: Succès - userId=67efeed2002d8, authorId=67efeed2002d8, role=admin
