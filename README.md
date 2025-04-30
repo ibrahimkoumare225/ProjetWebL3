@@ -61,15 +61,13 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
       ```bash
         a.   **Lancer le serveur pour le front**
       ```
-          ```bash
              php -S localhost:3000 -t front/
-          ```
+
       ```bash
         b.  **Lancer le serveur pour le backend **
       ```
-          ```bash
                  php -S localhost:8000 -t back/
-          ```
+
 5. **Accéder à l'application**
    - Ouvrir un navigateur et aller sur `http://localhost:3000/instance.html`
 
