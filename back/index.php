@@ -58,6 +58,9 @@ $router->register('PUT', '/recipes/{id}', function ($id) use ($recipeController)
     $recipeController->updateRecipe((int)$id);
 });
 
+// Route pour les likes
+$router->register('POST', '/like', [$recipeController, 'handleLike']);
+
 // Routes pour les commentaires
 $router->register('GET', '/comments', [$commentController, 'getComments']);
 $router->register('POST', '/comments', [$commentController, 'addComment']);

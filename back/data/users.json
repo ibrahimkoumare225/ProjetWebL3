@@ -24,11 +24,11 @@
         "role": "cuisinier"
     },
     {
-        "id": "67fb9b650ae6f",
+        "id": "6811fa75db4a7",
         "name": "test",
         "prenom": "test",
         "mail": "test@gmail.com",
-        "password": "$2y$12$FY9Bc9dkVxt2GyhLBsPv2OzgjKz7R.skPpMOValDp7r7JfFU8.nlS",
+        "password": "$2y$12$w1WYmLG4taixw2\/iWmCCreR9MWnw7FbcrCMVPflF\/V6IckUtCzrpG",
         "role": "utilisateur"
     }
 ]

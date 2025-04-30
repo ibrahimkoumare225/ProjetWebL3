@@ -1,18 +1,16 @@
 const webServerAddress = "http://localhost:8000";
 
-//
+// Gestion du bouton "Démarrer"
 document.getElementById('debut')?.addEventListener('click', async (e) => {
   e.preventDefault();
   
   const button = e.target;
   button.classList.add('disabled');
   
-
   await new Promise(resolve => setTimeout(resolve, 200));
   
   window.location.href = 'connexion.html';
 });
-
 
 // Gestion de l'inscription
 document
@@ -72,6 +70,7 @@ async function connexion(event) {
           role: result.user.role,
         })
       );
+      console.log("connexion: localStorage.user défini:", localStorage.getItem("user"));
       window.location.href = result.redirect;
     } else {
       alert(result.error || "Erreur de connexion");
@@ -97,16 +96,17 @@ document.getElementById("logout-btn")?.addEventListener("click", async (e) => {
 
     if (response.ok) {
       localStorage.removeItem("user");
+      console.log("logout: localStorage.user vidé, cookie PHPSESSID expiré");
       // Suppression du cookie de session
       document.cookie =
         "PHPSESSID=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
       window.location.href = "/connexion.html";
     } else {
+      console.error("Erreur de déconnexion:", result);
       alert(result.message || "La déconnexion a échoué");
     }
   } catch (error) {
-    console.error("Erreur lors de la déconnexion:", error);
+    console.error("Erreur réseau lors de la déconnexion:", error);
     alert("Une erreur est survenue lors de la déconnexion");
   }
 });
-
