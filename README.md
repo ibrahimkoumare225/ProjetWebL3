@@ -5,29 +5,30 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
 
 ## Fonctionnalités
 - **Gestion des rôles utilisateurs**
-  - Cuisiniers : Commentent et ajoutent des photos sur des recettes existantes.
-  - Chefs : Proposent de nouvelles recettes et modifient leurs propres recettes.
+  - Utilisateurs : Voir les recettes ainsi que les details de chaque recettes et les leurs commentaires, ils peuvent aussi liker les recettes 
+  - Cuisiniers : Commentent des recettes.
+  - Chefs : Proposent de nouvelles recettes et modifient ou supprime leurs propres recettes.
   - Traducteurs : Traduisent les recettes d'une langue à l'autre.
-  - Administrateur : Valide, modifie, supprime et traduit les recettes, gère les utilisateurs et leurs rôles.
+  - Administrateur : Ajoute, modifie, supprime et traduit les recettes, gère les utilisateurs et leurs rôles.
 
 - **Authentification et gestion des utilisateurs**
   - Inscription et connexion (Login / Mot de passe)
-  - Tout utilisateur inscrit commence en tant que Cuisinier
-  - Possibilité de demander un rôle de Chef ou Traducteur
+  - Tout utilisateur inscrit commence en tant que Utilisateur 
+  - Possibilité de demander un rôle de Chef , de Cusinier ou de Traducteur
   - L'administrateur peut approuver ces demandes et attribuer les rôles
 
 - **Gestion des recettes**
   - Ajout de nouvelles recettes par les Chefs
-  - Modification des recettes propres aux Chefs
+  - Modification des recettes propres aux Chefs (auteur de la reccette )
   - Possibilité d'ajouter des photos et commentaires
-  - Recettes avec valeurs nulles jusqu'à validation par un administrateur
-  - Les recettes peuvent être marquées comme "terminées" ou "publiées"
-  - Recherche avancée sur les recettes (par ingrédient, catégorie, état de complétion, etc.)
+  - Recherche une recette par son nom
   - Visualisation détaillée d'une recette avec :
-    - Étapes
+    - Titres
     - Ingrédients
-    - Temps total des étapes
-    - Commentaires et photos
+    - Étapes de préparation
+  - possibiliter de voir les Commentaires d'une recette
+    - De modifier le commentaire si on est l'auteur ou l'admin
+    - De supprimer le commentaire si on est l'auteur ou l'admin
   
 - **Interface de traduction**
   - Interface à deux colonnes (Français / Anglais)
@@ -37,12 +38,12 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
 - **Expérience utilisateur**
   - Interface moderne et ergonomique en CSS
   - Commutation facile entre les langues
-  - Gestion des images via URL ou upload
+  - Gestion des images via URL 
   - Affichage des champs restants à remplir
   - Ajout d'un "cœur" pour aimer une recette
 
 ## Technologies Utilisées
-- **Front-end** : HTML, CSS, Bootstrap JavaScript
+- **Front-end** : HTML, CSS, Materialize JavaScript notament Ajax
 - **Back-end** : PHP
 - **Base de données** : JSON (initialement), possibilité d'évolution vers une BD relationnelle
 
@@ -52,28 +53,53 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
    git clone https://github.com/votre-repo.git](https://github.com/ibrahimkoumare225/ProjetWebL3
    
    ```
-2. **Installer les dépendances**
+2. **Naviguer pour ce placer dans le bon dossier**
    ```bash
-   npm install  # ou autre gestionnaire de paquets
+   cd ProjetWebL3  
    ```
 3. **Lancer le serveur**
+      
+   **Lancer le serveur pour le front**
    ```bash
-   npm start  # ou autre commande selon l'environnement
+   php -S localhost:3000 -t front/
+   ```   
+   **Lancer le serveur pour le backend**
+   ```bash
+   php -S localhost:8000 -t back/
    ```
-4. **Accéder à l'application**
-   - Ouvrir un navigateur et aller sur `http://localhost:PORT`
+5. **Accéder à l'application**
+   ```bash
+   Ouvrir un navigateur et aller sur `http://localhost:3000/instance.html`
+   ```
 
 ## Structure du Projet
 ```
-/gestion-recettes
-│── /public            # Fichiers statiques (CSS, images, etc.)
-│── /src               # Code source principal
-│   │── /components    # Composants réutilisables
-│   │── /pages         # Pages principales
-│   │── /services      # Gestion des appels API et données
-│── /data              # Fichier JSON contenant les recettes initiales
-│── server.js          # Backend 
-│── README.md          # Documentation du projet
+│── back                          # Dossier contenant le code source principal
+│   │── data                      # Dossier contenant les fichiers json
+│   │     │── users               # fichier stockant les utilisateurs
+│   │     │── roles               # fichier stockant les demandes de roles
+│   │     │── recipes             # fichier stockant les recettes
+│   │     │── comments            # fichier stockant les commentaires
+│   │── index.php                 # Fichier qui configure l’environnement et définit les routes de l’API en les associant aux contrôleurs
+│   │── RecipeController.php      # fichier contenant les fonctions pour géré les recettes
+│   │── AuthController.php        # fichier contenant les fonctions pour l'inscription et l'authentification
+│   │── CommentController.php     # fichier contenant les fonctions pour géré les commentaires 
+│   │── RoleController.php        # fichier contenant les fonctions pour géré les role
+│   │── Router.php                # fichier contenant les fonctions pour gérer le routage des requêtes HTTP
+│   │── error.log                 # fichier stockant les logs(erreurs)
+│   
+│── front                         # Dossier contenant les fichiers gérant les vues
+│     │── script                  # Dossier contenant les fichiers js pour les appels ajax
+│           │── auth.js           # Ce fichier permet de connecter, inscrire ou déconnecter un utilisateur depuis l’interface du site.
+│           │── comment.js        # Ce fichier permet de commenter, modifier, supprimer, voir (un commentaire) des recettes depuis l'interface du site.
+│           │── recette.js        # Ce fichier permet d'ajouter, modifier, supprimer, voir une reccette depuis l’interface du site.
+│           │── role.js           # Ce fichier permet de voir, de demander, accepter ou refuser un rôle depuis l’interface du site.
+│           │── traduction.js     # Ce fichier permet de traduire, complété ou modifier(les traductions d'une recette) une recettte depuis l’interface du site.
+│── instance.html                   # Première page de l'applicatio
+│── inscription.html                # Page d'inscription
+│── connexion.html                  # Page d'authentification
+│── nav.php                         # Page contenant la navbar 
+│── README.md                       # Documentation du projet
 ```
 
 ## Contributions

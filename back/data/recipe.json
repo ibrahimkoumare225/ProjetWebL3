@@ -3,7 +3,13 @@
         "id": 1,
         "name": "Crock Pot Roast",
         "nameFR": "Roti à la cocotte",
-        "Author": "Unknown",
+        "Author": {
+            "id": "unknown",
+            "name": "Unknown",
+            "prenom": "",
+            "email": "",
+            "role": "unknown"
+        },
         "Without": [
             "NoGluten",
             "NoMilk"
@@ -81,13 +87,23 @@
             420
         ],
         "imageURL": "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
-        "originalURL": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208"
+        "originalURL": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208",
+        "likes": 1,
+        "likedBy": [
+            "67eff2cfd2f36"
+        ]
     },
     {
         "id": 2,
         "name": "Roasted Asparagus",
         "nameFR": "Asperges roties",
-        "Author": "Unknown",
+        "Author": {
+            "id": "unknown",
+            "name": "Unknown",
+            "prenom": "",
+            "email": "",
+            "role": "unknown"
+        },
         "Without": [
             "NoGluten",
             "NoMilk",
@@ -135,13 +151,25 @@
             0
         ],
         "imageURL": "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/50/84/7/picMcSyVd.jpg",
-        "originalURL": "http://www.food.com/recipe/roasted-asparagus-50847"
+        "originalURL": "http://www.food.com/recipe/roasted-asparagus-50847",
+        "likes": 3,
+        "likedBy": [
+            "67f2b65a5099f",
+            "67efeed2002d8",
+            "67ff8be66e6a5"
+        ]
     },
     {
         "id": 3,
         "name": "Curried Lentils and Rice",
         "nameFR": "Lentilles et Riz au curry",
-        "Author": "Unknown",
+        "Author": {
+            "id": "unknown",
+            "name": "Unknown",
+            "prenom": "",
+            "email": "",
+            "role": "unknown"
+        },
         "Without": [
             "NoGluten",
             "NoMilk",
@@ -184,13 +212,23 @@
             0
         ],
         "imageURL": "https://www.wellplated.com/wp-content/uploads/2022/11/Best-Traditional-Letil-Soup-Recipe.jpg",
-        "updatedAt": "2025-04-04 17:18:13"
+        "updatedAt": "2025-04-04 17:18:13",
+        "likedBy": [
+            "67efeed2002d8"
+        ],
+        "likes": 2
     },
     {
         "id": 4,
         "name": "Big Night Pizza",
         "nameFR": "La pizza des grands soirs",
-        "Author": "Unknown",
+        "Author": {
+            "id": "unknown",
+            "name": "Unknown",
+            "prenom": "",
+            "email": "",
+            "role": "unknown"
+        },
         "Without": [
             "Vegetarian"
         ],
@@ -247,6 +285,8 @@
             0
         ],
         "imageURL": "http://upload.wikimedia.org/wikipedia/commons/c/c7/Spinach_pizza.jpg",
+        "likes": 0,
+        "likedBy": [],
         "stepsFR": [],
         "updatedAt": "2025-04-16 11:13:52"
     },
@@ -254,7 +294,13 @@
         "id": 5,
         "name": "Cranberry and Apple Stuffed Acorn Squash Recipe",
         "nameFR": "Courge poivrée farcies aux cranberries et aux pommes",
-        "Author": "Unknown",
+        "Author": {
+            "id": "unknown",
+            "name": "Unknown",
+            "prenom": "",
+            "email": "",
+            "role": "unknown"
+        },
         "Without": [
             "NoGluten",
             "Vegetarian"
@@ -312,62 +358,11 @@
             0
         ],
         "imageURL": "http://elanaspantry.com/wp-content/uploads/2008/10/acorn_squash_with_cranberry.jpg",
-        "originalURL": ""
-    },
-    {
-        "id": 6,
-        "name": "Mic's Yorkshire Puds",
-        "nameFR": "Yorkshire pudding  de Mickey",
-        "Author": "Unknown",
-        "Without": [
-            "Vegetarian"
-        ],
-        "ingredients": [
-            {
-                "quantity": "200g",
-                "name": "plain flour",
-                "type": "Baking"
-            },
-            {
-                "quantity": "3",
-                "name": "eggs",
-                "type": "Dairy"
-            },
-            {
-                "quantity": "300ml",
-                "name": "milk",
-                "type": "Dairy"
-            },
-            {
-                "quantity": "3 tbsp",
-                "name": "vegetable oil",
-                "type": "Condiments"
-            }
-        ],
-        "steps": [
-            "Put the flour and some seasoning into a large bowl.",
-            "Stir in eggs, one at a time.",
-            "Whisk in milk until you have a smooth batter.",
-            "Chill in the fridge for at least 30 minutes.",
-            "Heat oven to 220C/gas mark 7.",
-            "Pour the oil into the holes of a 8-hole muffin tin.",
-            "Heat tin in the oven for 5 minutes.",
-            "Ladle the batter mix into the tin.",
-            "Bake for 30 minutes until well browned and risen."
-        ],
-        "timers": [
-            0,
-            0,
-            0,
-            30,
-            0,
-            0,
-            5,
-            0,
-            30
-        ],
-        "imageURL": "http://upload.wikimedia.org/wikipedia/commons/f/f9/Yorkshire_Pudding.jpg",
-        "originalURL": "https://fr.wikipedia.org/wiki/Yorkshire_pudding"
+        "originalURL": "",
+        "likes": 1,
+        "likedBy": [
+            "67efeed2002d8"
+        ]
     },
     {
         "id": 7,
@@ -459,7 +454,18 @@
             0
         ],
         "imageURL": "http://s3.amazonaws.com/gmi-digital-library/65caecf7-a8f7-4a09-8513-2659cf92871e.jpg",
-        "originalURL": "#"
+        "originalURL": "#",
+        "likes": 1,
+        "likedBy": [
+            "67efeed2002d8"
+        ],
+        "Author": {
+            "id": "unknown",
+            "name": "Unknown",
+            "prenom": "",
+            "email": "",
+            "role": "unknown"
+        }
     },
     {
         "id": 8,
@@ -537,7 +543,16 @@
             0
         ],
         "imageURL": "https://www.wellplated.com/wp-content/uploads/2015/06/Red-White-and-Blueberry-Cheesecake-Bars.-The-perfect-dessert-for-the-Fourth-of-July.jpg",
-        "originalURL": "http://www.canadianliving.com/food/blueberry_oatmeal_squares.php"
+        "originalURL": "http://www.canadianliving.com/food/blueberry_oatmeal_squares.php",
+        "likedBy": [],
+        "likes": 0,
+        "Author": {
+            "id": "unknown",
+            "name": "Unknown",
+            "prenom": "",
+            "email": "",
+            "role": "unknown"
+        }
     },
     {
         "id": 9,
@@ -627,7 +642,20 @@
             0
         ],
         "imageURL": "http://www.chatelaine.com/wp-content/uploads/2013/05/Curried-chicken-salad.jpg",
-        "originalURL": "http://www.chatelaine.com/recipe/stovetop-cooking-method/curried-chicken-salad/"
+        "originalURL": "http://www.chatelaine.com/recipe/stovetop-cooking-method/curried-chicken-salad/",
+        "likedBy": [
+            "67efeed2002d8",
+            "67eff2cfd2f36",
+            "67f2b65a5099f"
+        ],
+        "likes": 3,
+        "Author": {
+            "id": "unknown",
+            "name": "Unknown",
+            "prenom": "",
+            "email": "",
+            "role": "unknown"
+        }
     },
     {
         "id": 10,
@@ -654,10 +682,16 @@
             "Faire cuire à feu moyen dans une poêle."
         ],
         "timers": [],
-        "imageURL": "https://www.wellplated.com/wp-content/uploads/2021/08/Traditional-Savory-Crepes.jpg"
+        "imageURL": "https://www.wellplated.com/wp-content/uploads/2021/08/Traditional-Savory-Crepes.jpg",
+        "likedBy": [
+            "67efeed2002d8",
+            "67f2b65a5099f",
+            "6811fa75db4a7"
+        ],
+        "likes": 3
     },
     {
-        "id": 11,
+        "id": 13,
         "name": "foutou with seed sauce",
         "nameFR": "foutou sauce graine",
         "Author": {
@@ -669,79 +703,132 @@
         },
         "ingredients": [
             {
-                "quantity": "5",
-                "name": "banane plantain,"
+                "quantity": "banane",
+                "name": "plantain,"
             },
             {
-                "quantity": "3",
-                "name": "manioc,"
+                "quantity": "manioc,",
+                "name": ""
+            },
+            {
+                "quantity": "graine,",
+                "name": ""
+            },
+            {
+                "quantity": "viande,",
+                "name": ""
+            },
+            {
+                "quantity": "poisson,",
+                "name": ""
+            },
+            {
+                "quantity": "oignons,",
+                "name": ""
+            },
+            {
+                "quantity": "tomate",
+                "name": "fraîche"
+            }
+        ],
+        "stepsFR": [
+            "laver la graine et mettre au feux"
+        ],
+        "imageURL": "https://recettesdafrique.com/wp-content/uploads/2022/12/Foutou-sauce-graine.jpg",
+        "createdAt": "2025-04-30 10:53:16",
+        "updatedAt": "2025-04-30 13:14:38",
+        "likes": 2,
+        "likedBy": [
+            "67f2b65a5099f",
+            "68146a641b184"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Spaghetti Bolognese",
+        "nameFR": "spaghetti bolognaise",
+        "Author": {
+            "id": "67eff2cfd2f36",
+            "name": "Moyenga",
+            "prenom": "adama",
+            "email": "amoyenga@gmail.com",
+            "role": "chef"
+        },
+        "ingredients": [
+            {
+                "quantity": "500g",
+                "name": "patte,"
+            },
+            {
+                "quantity": "200g",
+                "name": "de tommate fraiche,"
             },
             {
                 "quantity": "1kg",
-                "name": "de graine"
+                "name": "de viande de boeuf"
             }
         ],
         "stepsFR": [
-            "Épluché les bannes plantain et les manioc,",
-            "Étapes de préparation (une par ligne)"
+            "laver la viande"
         ],
-        "imageURL": "https://recettesdafrique.com/wp-content/uploads/2022/12/Foutou-sauce-graine.jpg",
-        "createdAt": "2025-04-04 23:04:37",
-        "updatedAt": "2025-04-04 23:04:37",
-        "likes": 0
+        "imageURL": "https://tse3.mm.bing.net/th/id/OIP.pxYZYv9NIvI4JL8lzy3XrwHaHa?rs=1&pid=ImgDetMain",
+        "createdAt": "2025-05-01 15:45:01",
+        "updatedAt": "2025-05-01 15:45:01",
+        "likes": 0,
+        "likedBy": []
     },
     {
-        "id": 12,
-        "name": "TCHEP",
-        "nameFR": "TCHEP",
-        "Author": {
-            "id": "67efeed2002d8",
-            "name": "koumare",
-            "prenom": "ibrahim",
-            "email": "ibrahimkoumare5@gmail.com",
-            "role": "admin"
-        },
-        "ingredients": [
-            {
-                "quantity": "1",
-                "name": "kg de riz,"
-            },
-            {
-                "quantity": "1",
-                "name": "kg de poisson"
-            }
-        ],
-        "stepsFR": [
-            "Laver le poisson"
-        ],
-        "imageURL": "https://www.cuisinedecheznous.net/wp-content/uploads/2023/05/343088985_255432726892945_4531056068724083270_n.jpg",
-        "createdAt": "2025-04-04 23:13:16",
-        "updatedAt": "2025-04-04 23:13:16",
-        "likes": 0
-    },
-    {
-        "id": 13,
+        "id": 15,
         "name": "gal",
         "nameFR": "garba",
         "Author": {
-            "id_user": "67efeed2002d8",
-            "name": "koumare",
-            "prenom": "ibrahim",
-            "email": "ibrahimkoumare5@gmail.com",
-            "role": "admin"
+            "id": "6811fa75db4a7",
+            "name": "test",
+            "prenom": "test",
+            "email": "test@gmail.com",
+            "role": "chef"
         },
         "ingredients": [
             {
-                "quantity": "1",
-                "name": "de poisson"
+                "quantity": "poisson",
+                "name": ""
             }
         ],
         "stepsFR": [
-            "laver le poisson"
+            "laver poisson"
         ],
-        "createdAt": "2025-04-06 18:01:45",
-        "updatedAt": "2025-04-15 21:21:46",
+        "imageURL": "https://th.bing.com/th/id/R.fc34fc9a9db3aa11e79a30abcffa1f6e?rik=2nOpcYXOMaO9EA&riu=http%3a%2f%2fjeannette-cuisine.fr%2fwp-content%2fuploads%2f2013%2f06%2fLe-Garba-grotto.jpg&ehk=fxaOLHuvCUaZW8xKWAGUzSr5%2forvckdhMLzEG0woB9Q%3d&risl=&pid=ImgRaw&r=0",
+        "createdAt": "2025-05-01 15:48:36",
+        "updatedAt": "2025-05-01 15:48:36",
+        "likes": 1,
+        "likedBy": [
+            "6811fa75db4a7"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "testReussi",
+        "nameFR": "testReussi",
+        "Author": {
+            "id": "67eff2cfd2f36",
+            "name": "Moyenga",
+            "prenom": "adama",
+            "email": "amoyenga@gmail.com",
+            "role": "chef"
+        },
+        "ingredients": [
+            {
+                "quantity": "testReussi",
+                "name": ""
+            }
+        ],
+        "stepsFR": [
+            "testReussi"
+        ],
+        "imageURL": "",
+        "createdAt": "2025-05-03 11:17:49",
+        "updatedAt": "2025-05-03 11:17:49",
         "likes": 0,
-        "imageURL": "https://th.bing.com/th/id/OIP.ogqltcORhhlIVnzYoZriTQHaG-?pid=ImgDet&w=178&h=167&c=7&dpr=1,5"
+        "likedBy": []
     }
 ]

@@ -4,7 +4,7 @@
         "name": "koumare",
         "prenom": "ibrahim",
         "mail": "ibrahimkoumare5@gmail.com",
-        "password": "$2y$12$QB4I2YaSrfHBOFC0\/PlsVutuJX96gsc5XgpIBa5o4smpY0F0L0yQO",
+        "password": "$2y$12$QB4I2YaSrfHBOFC0/PlsVutuJX96gsc5XgpIBa5o4smpY0F0L0yQO",
         "role": "admin"
     },
     {
@@ -12,32 +12,8 @@
         "name": "Moyenga",
         "prenom": "adama",
         "mail": "amoyenga@gmail.com",
-        "password": "$2y$12$9ZY0QPxGmwzOhil6bn7ZiOrO6gO9PAZtBbOGUhyZ8i\/uDs5CJB6ne",
+        "password": "$2y$12$9ZY0QPxGmwzOhil6bn7ZiOrO6gO9PAZtBbOGUhyZ8i/uDs5CJB6ne",
         "role": "chef"
-    },
-    {
-        "id": "67f2b65a5099f",
-        "name": "Moyenga",
-        "prenom": "Haroune",
-        "mail": "hmoyenga@gmail.com",
-        "password": "$2y$12$e6HqLkuROjbLYitZWU8fv.fvyyIO8iVSW9RAwMQrF74nJMn9Ut6he",
-        "role": "cuisinier"
-    },
-    {
-        "id": "67fb9b650ae6f",
-        "name": "test",
-        "prenom": "test",
-        "mail": "test@gmail.com",
-        "password": "$2y$12$FY9Bc9dkVxt2GyhLBsPv2OzgjKz7R.skPpMOValDp7r7JfFU8.nlS",
-        "role": "utilisateur"
-    },
-    {
-        "id": "67ff747f6f377",
-        "name": "BESSALA",
-        "prenom": "Leonne",
-        "mail": "irisbessala11@gmail.com",
-        "password": "$2y$10$C1E6yF4Qp2WnSKIouP\/b9ecXgwyqcRNaq4P8zSf1ohEG9m8AUKNOq",
-        "role": "admin"
     },
     {
         "id": "67ff8b9157806",
@@ -53,6 +29,22 @@
         "prenom": "bess",
         "mail": "irisbes@gmail.com",
         "password": "$2y$10$cj0jcSOLNUMYDtfakj4wYeOvYmKzJLXHnHwQ3sXpR8iltGkJyt8Lq",
-        "role": "utilisateur"
+        "role": "traducteur"
+    },
+    {
+        "id": "68146a641b184",
+        "name": "mokey",
+        "prenom": "luffy",
+        "mail": "monkeyDiLuffy@gmail.com",
+        "password": "$2y$12$s8xK.HoY0meugG1pyZ8f6.TEuB3kIFLEypeFHoeZgjv9tFpJpwPrK",
+        "role": "chef"
+    },
+    {
+        "id": "68167023f2bf3",
+        "name": "iris",
+        "prenom": "bess",
+        "mail": "irisbessala11@gmail.com",
+        "password": "$2y$10$dPtdVTLh0lJd813ZUZnvvOlK/tc4hLakfr0sM5SQFq.Vu4kQBLkWy",
+        "role": "admin"
     }
 ]

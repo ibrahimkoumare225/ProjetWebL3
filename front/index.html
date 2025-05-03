@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!-- Définit l'encodage des caractères en UTF-8 pour une compatibilité universelle -->
     <meta charset="UTF-8" />
+    <!-- Configure la mise à l'échelle pour les appareils mobiles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
     <title>RecetteApp</title>
+    <!-- Inclut la feuille de style Materialize pour une mise en forme moderne -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <!-- Inclut les icônes Material Icons de Google pour une interface visuelle -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <!-- Barre de navigation fixe avec le thème teal de Materialize -->
     <nav class="teal">
       <div class="nav-wrapper">
+        <!-- Logo de l'application centré avec une icône Material -->
         <a href="#" class="brand-logo center">
           <i class="material-icons">local_dining</i> RecetteApp
         </a>
-        <!-- Bouton de déconnexion à droite -->
+        <!-- Menu à droite avec un bouton de déconnexion -->
         <ul class="right">
           <li>
             <a
@@ -35,31 +42,37 @@
       </div>
     </nav>
 
+    <!-- Conteneur principal avec marge supérieure pour l'espacement -->
     <div class="container" style="margin-top: 100px">
+      <!-- Séparateur visuel -->
       <div class="divider"></div>
 
+      <!-- En-tête et boutons de contrôle -->
       <div class="row valign-wrapper" style="margin-top: 10px">
+        <!-- Titre de la liste des recettes -->
         <div class="col s6">
           <h5 class="black-text"><strong>Liste des recettes</strong></h5>
         </div>
-
+        <!-- Boutons pour gérer les rôles, ajouter une recette et accéder à l'administration -->
         <div class="col s6 right-align">
-          <a class="btn orange waves-effect waves-light">
+          <a class="btn orange waves-effect waves-light" id="role-btn">
             <i class="material-icons left">assignment_ind</i>Rôles
           </a>
           <a class="btn blue waves-effect waves-light" id="recette-add">
             <i class="material-icons left">add</i> Add
           </a>
-
-          <a class="btn teal waves-effect waves-light">
+          <a class="btn teal waves-effect waves-light" id="admin-btn">
             <i class="material-icons left">dashboard</i> Admin
           </a>
         </div>
       </div>
 
+      <!-- Séparateur visuel -->
       <div class="divider"></div>
 
+      <!-- Contrôles de pagination et de recherche -->
       <div class="row valign-wrapper" style="margin-top: 10px">
+        <!-- Sélecteur pour le nombre d'entrées à afficher -->
         <div class="col s6 valign-wrapper">
           <label style="margin-right: 10px">Show</label>
           <select
@@ -73,7 +86,7 @@
           </select>
           <label style="margin-left: 10px">entries</label>
         </div>
-
+        <!-- Champ de recherche pour filtrer les recettes -->
         <div class="col s6" style="text-align: right">
           <label for="search" style="margin-right: 10px">Rechercher</label>
           <input
@@ -86,23 +99,23 @@
       </div>
     </div>
 
+    <!-- Conteneur pour la liste des recettes -->
     <div class="container">
-      <!-- Barre de contrôle -->
-      <div class="row valign-wrapper"></div>
-
-      <!-- Liste des recettes -->
       <div class="row" id="recette-list"></div>
     </div>
 
-    <!-- Modal Détails -->
+    <!-- Modal pour afficher les détails d'une recette -->
     <div id="detail-modal" class="modal modal-fixed-footer">
       <div class="modal-content">
+        <!-- Titre de la recette (dynamiquement rempli) -->
         <h4 class="teal-text"></h4>
         <div class="row">
+          <!-- Liste des ingrédients -->
           <div class="col s12 m6">
             <h5>Ingrédients</h5>
             <ul class="collection"></ul>
           </div>
+          <!-- Liste des étapes -->
           <div class="col s12 m6">
             <h5>Étapes</h5>
             <ol class="collection"></ol>
@@ -111,19 +124,23 @@
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-close btn-flat">Fermer</a>
+        <a href="#!" id="translate-btn" class="btn teal" >Traduire</a>
       </div>
     </div>
-    <!-- Modal Commentaires -->
+
+    <!-- Modal pour gérer les commentaires -->
     <div id="comment-modal" class="modal modal-fixed-footer">
       <div class="modal-content">
         <h4 class="teal-text">Commentaires</h4>
         <div class="row">
           <div class="col s12">
+            <!-- Liste des commentaires -->
             <ul id="comments-list" class="collection"></ul>
           </div>
         </div>
         <div class="row">
           <div class="col s12">
+            <!-- Formulaire pour ajouter un commentaire -->
             <form id="add-comment-form">
               <div class="input-field">
                 <textarea
@@ -144,10 +161,12 @@
         <a href="#!" class="modal-close btn-flat">Fermer</a>
       </div>
     </div>
-    <!-- Modal Ajout -->
+
+    <!-- Modal pour ajouter une nouvelle recette -->
     <div id="add-modal" class="modal">
       <div class="modal-content">
         <h4>Nouvelle Recette</h4>
+        <!-- Formulaire pour ajouter une recette -->
         <form id="add-form">
           <div class="row">
             <div class="input-field col s6">
@@ -159,7 +178,6 @@
               <label for="add-nameFR">Nom (français)</label>
             </div>
           </div>
-
           <div class="row">
             <div class="input-field col s12">
               <textarea
@@ -171,7 +189,6 @@
               >
             </div>
           </div>
-
           <div class="row">
             <div class="input-field col s12">
               <textarea id="add-steps" class="materialize-textarea"></textarea>
@@ -180,14 +197,12 @@
               >
             </div>
           </div>
-
           <div class="row">
             <div class="input-field col s12">
               <input id="add-imageURL" type="text" class="validate" />
               <label for="add-imageURL">URL de l'image</label>
             </div>
           </div>
-
           <div class="modal-footer">
             <button type="submit" class="btn waves-effect waves-light">
               Ajouter
@@ -200,13 +215,13 @@
       </div>
     </div>
 
-    <!-- Modal Édition -->
+    <!-- Modal pour modifier une recette existante -->
     <div id="edit-modal" class="modal">
       <div class="modal-content">
         <h4>Modifier la Recette</h4>
+        <!-- Formulaire pour modifier une recette -->
         <form id="edit-form">
           <input type="hidden" id="edit-id" />
-
           <div class="row">
             <div class="input-field col s6">
               <input id="edit-name" type="text" class="validate" required />
@@ -217,7 +232,6 @@
               <label for="edit-nameFR">Nom (français)</label>
             </div>
           </div>
-
           <div class="row">
             <div class="input-field col s12">
               <textarea
@@ -229,7 +243,6 @@
               >
             </div>
           </div>
-
           <div class="row">
             <div class="input-field col s12">
               <textarea id="edit-steps" class="materialize-textarea"></textarea>
@@ -238,14 +251,12 @@
               >
             </div>
           </div>
-
           <div class="row">
             <div class="input-field col s12">
               <input id="edit-imageURL" type="text" class="validate" />
               <label for="edit-imageURL">URL de l'image</label>
             </div>
           </div>
-
           <div class="modal-footer">
             <button type="submit" class="btn waves-effect waves-light">
               Sauvegarder
@@ -258,7 +269,7 @@
       </div>
     </div>
 
-    <!-- Modal Suppression -->
+    <!-- Modal pour confirmer la suppression d'une recette -->
     <div id="delete-modal" class="modal">
       <div class="modal-content">
         <h4>Confirmer la suppression</h4>
@@ -274,11 +285,60 @@
         >
       </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!-- Modal pour gérer les rôles de l'utilisateur -->
+    <div id="role-modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4 class="teal-text">Gérer mes rôles</h4>
+        <div class="row">
+          <!-- Boutons pour basculer entre la liste des demandes et le formulaire -->
+          <div class="col s6">
+            <button class="btn waves-effect waves-light teal" id="show-requests-btn">
+              Mes demandes de rôles
+            </button>
+          </div>
+          <div class="col s6">
+            <button class="btn waves-effect waves-light teal" id="show-form-btn">
+              Demander un nouveau rôle
+            </button>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <!-- Contenu dynamique des rôles -->
+        <div id="role-content" class="row"></div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close btn-flat">Fermer</a>
+      </div>
+    </div>
+
+    <!-- Modal pour l'administration des demandes de rôles -->
+    <div id="admin-modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4 class="teal-text">Gérer les demandes de rôles</h4>
+        <!-- Liste des demandes en attente -->
+        <div id="admin-requests"></div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close btn-flat">Fermer</a>
+      </div>
+    </div>
+
+    <!-- Inclut la bibliothèque JavaScript Materialize pour les interactions dynamiques -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Script pour initialiser les modals Materialize -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Initialisation des modales Materialize");
+        const modals = document.querySelectorAll(".modal");
+        M.Modal.init(modals, { dismissible: true });
+        console.log("Modales initialisées:", modals);
+      });
+    </script>
+    <!-- Inclut les scripts JavaScript pour gérer l'authentification, les recettes, les commentaires et les rôles -->
     <script src="script/auth.js"></script>
     <script src="script/recette.js"></script>
     <script src="script/comment.js"></script>
+    <script src="script/role.js"></script>
   </body>
 </html>

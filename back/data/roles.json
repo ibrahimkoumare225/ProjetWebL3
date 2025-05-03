@@ -1,14 +1,61 @@
-[
-  { "id": 1, "name": "Cuisinier" },
-  { "id": 2, "name": "Chef" },
-  { "id": 3, "name": "Traducteur" },
-  { "id": 4, "name": "Administrateur" }
-,
-  {
-      "id": 1,
-      "userId": 4,
-      "requestedRole": "chef",
-      "status": "pending",
-      "createdAt": "2025-04-16 10:00:00"
-  }
-]
+{
+    "requests": [
+        {
+            "id": 1,
+            "userId": "68146a641b184",
+            "userName": "mokey",
+            "userPrenom": "luffy",
+            "userEmail": "monkeyDiLuffy@gmail.com",
+            "requestedRole": "traducteur",
+            "status": "accepted",
+            "createdAt": "2025-05-02 06:47:41",
+            "processedAt": "2025-05-02 06:47:53"
+        },
+        {
+            "id": 2,
+            "userId": "68146a641b184",
+            "userName": "mokey",
+            "userPrenom": "luffy",
+            "userEmail": "monkeyDiLuffy@gmail.com",
+            "requestedRole": "cuisinier",
+            "status": "accepted",
+            "createdAt": "2025-05-02 06:48:51",
+            "processedAt": "2025-05-02 06:49:09"
+        },
+        {
+            "id": 3,
+            "userId": "67eff2cfd2f36",
+            "userName": "Moyenga",
+            "userPrenom": "adama",
+            "userEmail": "amoyenga@gmail.com",
+            "requestedRole": "traducteur",
+            "status": "rejected",
+            "createdAt": "2025-05-03 10:34:01",
+            "processedAt": "2025-05-03 10:37:24"
+        },
+        {
+            "id": 4,
+            "userId": "68146a641b184",
+            "userName": "mokey",
+            "userPrenom": "luffy",
+            "userEmail": "monkeyDiLuffy@gmail.com",
+            "requestedRole": "chef",
+            "status": "accepted",
+            "createdAt": "2025-05-03 11:51:18",
+            "processedAt": "2025-05-03 11:51:40"
+        },
+        {
+            "id": 5,
+            "userId": "67ff8be66e6a5",
+            "userName": "iris",
+            "userPrenom": "bess",
+            "userEmail": "irisbes@gmail.com",
+            "requestedRole": "cuisinier",
+            "status": "pending",
+            "createdAt": "2025-05-03 21:34:00"
+        }
+    ],
+    "users": {
+        "68146a641b184": "chef"
+    }
+}

@@ -1,54 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Définit l'encodage des caractères en UTF-8 pour une compatibilité universelle -->
     <meta charset="UTF-8" />
+    <!-- Configure la mise à l'échelle pour les appareils mobiles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
     <title>Document</title>
+    <!-- Inclut la feuille de style Materialize pour une mise en forme moderne -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <!-- Inclut les icônes Material Icons de Google pour une interface visuelle -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
   </head>
   <body>
+    <!-- Barre de navigation fixe avec le thème teal de Materialize -->
     <nav>
       <div class="nav-wrapper teal">
+        <!-- Logo de l'application centré avec une icône Material -->
         <a href="#" class="brand-logo center">
           <i class="material-icons">local_dining</i> RecetteApp
         </a>
       </div>
     </nav>
 
+    <!-- Conteneur principal avec une marge supérieure pour l'espacement -->
     <div class="row" style="margin-top: 2vh">
+      <!-- Centrage du formulaire dans une colonne de largeur moyenne -->
       <div class="col s12 m4 offset-m4">
+        <!-- Carte Materialize pour un effet de boîte élégant -->
         <div class="card-panel">
+          <!-- Titre centré du formulaire d'inscription -->
           <h5 class="center">Page d'inscription</h5>
+          <!-- Formulaire d'inscription avec l'ID "inscription" -->
           <form id="inscription">
+            <!-- Champ pour le nom avec validation HTML5 -->
             <div class="input-field">
               <input id="name" name="name" type="text" required />
               <label for="name">Nom</label>
             </div>
+            <!-- Champ pour le prénom avec validation HTML5 -->
             <div class="input-field">
               <input id="prenom" name="prenom" type="text" required />
               <label for="prenom">Prénom</label>
             </div>
+            <!-- Champ pour l'email avec validation HTML5 -->
             <div class="input-field">
               <input id="email" name="email" type="email" required />
               <label for="email">Email</label>
             </div>
+            <!-- Champ pour le mot de passe avec masquage du texte -->
             <div class="input-field">
               <input id="password" name="password" type="password" required />
               <label for="password">Mot de passe</label>
             </div>
+            <!-- Bouton de soumission centré avec effet Materialize -->
             <div class="center">
               <button class="btn waves-effect waves-light" type="submit">
                 S'inscrire
               </button>
             </div>
           </form>
+          <!-- Section pour le lien de connexion avec une icône -->
           <div class="row" style="margin-top: 2rem">
             <div class="col s12 center">
               <span class="grey-text">Déja un compte ?</span>
@@ -61,7 +79,10 @@
         </div>
       </div>
     </div>
+
+    <!-- Inclut le script JavaScript pour gérer l'authentification -->
     <script src="script/auth.js"></script>
+    <!-- Inclut la bibliothèque JavaScript Materialize pour les interactions dynamiques -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>

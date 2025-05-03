@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!-- Définit l'encodage des caractères en UTF-8 pour une compatibilité universelle -->
     <meta charset="UTF-8" />
+    <!-- Configure la mise à l'échelle pour les appareils mobiles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
     <title>RecetteApp</title>
+    <!-- Inclut la feuille de style Materialize pour une mise en forme moderne -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <!-- Inclut les icônes Material Icons de Google pour une interface visuelle -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"
       rel="stylesheet"
     />
-    
-    
   </head>
   <body>
+    <!-- Barre de navigation fixe avec le thème teal de Materialize -->
     <nav class="teal">
       <div class="nav-wrapper">
+        <!-- Logo de l'application centré avec une icône Material -->
         <a href="#" class="brand-logo center">
           <i class="material-icons">local_dining</i> RecetteApp
         </a>
       </div>
     </nav>
+
+    <!-- Conteneur principal avec une classe personnalisée pour la mise en page -->
     <div class="container nt-4">
+      <!-- Section de bienvenue avec un style jumbotron pour une présentation attrayante -->
       <div class="jumbotron">
+        <!-- Titre principal de la page d'accueil -->
         <h1 class="display-4">Bienvenue sur RecetteApp!</h1>
+        <!-- Description de l'application avec un style lead pour une mise en évidence -->
         <p class="lead">
           RecetteApp est une est une application web permettant la gestion de
           recettes de cuisine en français et en anglais. Il inclut différentes
           fonctionnalités de gestion des recettes, des utilisateurs et de leurs
           rôles.
         </p>
+        <!-- Séparateur horizontal pour structurer le contenu -->
         <hr class="my-4" />
+        <!-- Instruction pour guider l'utilisateur -->
         <p>
           Pour commencer, cliquez sur l'un des deux bouton selon votre
           préocupation.
         </p>
+        <!-- Bouton d'action principal avec effet Materialize pour démarrer l'expérience -->
         <a
           class="btn btn-teal btn-lg waves-effect"
           href="#"
@@ -47,7 +60,10 @@
         </a>
       </div>
     </div>
+
+    <!-- Inclut la bibliothèque JavaScript Materialize pour les interactions dynamiques -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Inclut le script JavaScript pour gérer l'authentification -->
     <script src="script/auth.js"></script>
   </body>
 </html>
