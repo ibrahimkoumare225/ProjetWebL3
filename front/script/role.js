@@ -443,4 +443,5 @@ async function afficherSectionAdmin() {
       console.error("Materialize non chargé, modale non ouverte");
     }
   }
+  
 }

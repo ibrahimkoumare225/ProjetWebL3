@@ -43,6 +43,16 @@
             "status": "accepted",
             "createdAt": "2025-05-03 11:51:18",
             "processedAt": "2025-05-03 11:51:40"
+        },
+        {
+            "id": 5,
+            "userId": "67ff8be66e6a5",
+            "userName": "iris",
+            "userPrenom": "bess",
+            "userEmail": "irisbes@gmail.com",
+            "requestedRole": "cuisinier",
+            "status": "pending",
+            "createdAt": "2025-05-03 21:34:00"
         }
     ],
     "users": {

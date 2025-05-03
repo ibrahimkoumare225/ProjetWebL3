@@ -29,7 +29,7 @@
         "prenom": "bess",
         "mail": "irisbes@gmail.com",
         "password": "$2y$10$cj0jcSOLNUMYDtfakj4wYeOvYmKzJLXHnHwQ3sXpR8iltGkJyt8Lq",
-        "role": "utilisateur"
+        "role": "traducteur"
     },
     {
         "id": "68146a641b184",
@@ -38,5 +38,13 @@
         "mail": "monkeyDiLuffy@gmail.com",
         "password": "$2y$12$s8xK.HoY0meugG1pyZ8f6.TEuB3kIFLEypeFHoeZgjv9tFpJpwPrK",
         "role": "chef"
+    },
+    {
+        "id": "68167023f2bf3",
+        "name": "iris",
+        "prenom": "bess",
+        "mail": "irisbessala11@gmail.com",
+        "password": "$2y$10$dPtdVTLh0lJd813ZUZnvvOlK/tc4hLakfr0sM5SQFq.Vu4kQBLkWy",
+        "role": "admin"
     }
 ]

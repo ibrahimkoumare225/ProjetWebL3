@@ -1,0 +1,373 @@
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 2
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:31:44 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:31:44 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:31:44 Europe/Berlin] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":2,"likedBy":["67f2b65a5099f","67efeed2002d8"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":3,"likedBy":["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","68146a641b184"]}]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 2
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:32:00 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:32:00 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:32:00 Europe/Berlin] checkAuth: Échec - Aucune session utilisateur trouvée
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 2
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:33:24 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:33:24 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:33:24 Europe/Berlin] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":2,"likedBy":["67f2b65a5099f","67efeed2002d8"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":3,"likedBy":["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","68146a641b184"]}]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 2
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:33:27 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:33:27 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:33:27 Europe/Berlin] checkAuth: Succès - userId=67ff8be66e6a5, user={"id":"67ff8be66e6a5","name":"iris","prenom":"bess","email":"irisbes@gmail.com","role":"traducteur"}
+[03-May-2025 21:33:27 Europe/Berlin] checkRecipeOwnership: Échec - userId=67ff8be66e6a5, authorId=unknown, role=traducteur
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 2
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:33:39 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:33:39 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:33:39 Europe/Berlin] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":2,"likedBy":["67f2b65a5099f","67efeed2002d8"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":3,"likedBy":["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","68146a641b184"]}]
+[03-May-2025 21:34:00 Europe/Berlin] requestRole - userId from request: 67ff8be66e6a5 (type: string)
+[03-May-2025 21:34:00 Europe/Berlin] requestRole - session user id: 67ff8be66e6a5 (type: string)
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 2
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:36:41 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:36:41 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:36:41 Europe/Berlin] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":2,"likedBy":["67f2b65a5099f","67efeed2002d8"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":3,"likedBy":["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","68146a641b184"]}]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 2
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:41:37 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:41:37 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:41:37 Europe/Berlin] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":2,"likedBy":["67f2b65a5099f","67efeed2002d8"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":3,"likedBy":["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","68146a641b184"]}]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 2
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:42:15 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:42:15 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:42:15 Europe/Berlin] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":2,"likedBy":["67f2b65a5099f","67efeed2002d8"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":3,"likedBy":["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","68146a641b184"]}]
+[03-May-2025 21:43:19 Europe/Berlin] checkAuth: Succès - userId=67ff8be66e6a5, user={"id":"67ff8be66e6a5","name":"iris","prenom":"bess","email":"irisbes@gmail.com","role":"traducteur"}
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 2
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8"]
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:43:19 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:43:19 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:43:19 Europe/Berlin] handleLike: userId=67ff8be66e6a5, action=like, recipeId=2, likes=2, likedBy=["67f2b65a5099f","67efeed2002d8"], hasLiked=false, input={"recipeId":"2","action":"like"}
+[03-May-2025 21:43:19 Europe/Berlin] Like ajouté pour recette 2 par utilisateur 67ff8be66e6a5, nouveau total=3
+[03-May-2025 21:43:19 Europe/Berlin] saveRecipes (handleLike): Écriture dans C:\xampp\htdocs\ProjetWebL3\back/data/recipe.json, nombre de recettes=13
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 3
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8","67ff8be66e6a5"]
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:43:46 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:43:46 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:43:46 Europe/Berlin] checkAuth: Succès - userId=67ff8be66e6a5, user={"id":"67ff8be66e6a5","name":"iris","prenom":"bess","email":"irisbes@gmail.com","role":"traducteur"}
+[03-May-2025 21:43:46 Europe/Berlin] checkRecipeOwnership: Échec - userId=67ff8be66e6a5, authorId=unknown, role=traducteur
+[03-May-2025 21:44:16 Europe/Berlin] checkAuth: Succès - userId=67ff8be66e6a5, user={"id":"67ff8be66e6a5","name":"iris","prenom":"bess","email":"irisbes@gmail.com","role":"traducteur"}
+[03-May-2025 21:44:21 Europe/Berlin] checkAuth: Succès - userId=67ff8be66e6a5, user={"id":"67ff8be66e6a5","name":"iris","prenom":"bess","email":"irisbes@gmail.com","role":"traducteur"}
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 3
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8","67ff8be66e6a5"]
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 21:52:48 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 21:52:48 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 21:52:48 Europe/Berlin] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":3,"likedBy":["67f2b65a5099f","67efeed2002d8","67ff8be66e6a5"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":3,"likedBy":["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","68146a641b184"]}]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 3
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8","67ff8be66e6a5"]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 22:05:37 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 22:05:37 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 22:05:37 Europe/Berlin] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":3,"likedBy":["67f2b65a5099f","67efeed2002d8","67ff8be66e6a5"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":3,"likedBy":["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","68146a641b184"]}]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 1 converti en entier: 1
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 1 normalisé: ["67eff2cfd2f36"]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 2 converti en entier: 3
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 2 normalisé: ["67f2b65a5099f","67efeed2002d8","67ff8be66e6a5"]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 3 converti en entier: 2
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 3 normalisé: ["67efeed2002d8"]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 4 converti en entier: 0
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 4 normalisé: []
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 5 converti en entier: 1
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 5 normalisé: ["67efeed2002d8"]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 7 converti en entier: 1
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 7 normalisé: ["67efeed2002d8"]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 8 converti en entier: 0
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 8 normalisé: []
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 9 converti en entier: 3
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 9 normalisé: ["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 10 converti en entier: 3
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 10 normalisé: ["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 13 converti en entier: 2
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 13 normalisé: ["67f2b65a5099f","68146a641b184"]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 14 converti en entier: 0
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 14 normalisé: []
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 15 converti en entier: 1
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 15 normalisé: ["6811fa75db4a7"]
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likes' pour recette ID 16 converti en entier: 0
+[03-May-2025 22:08:05 Europe/Berlin] Champ 'likedBy' pour recette ID 16 normalisé: []
+[03-May-2025 22:08:05 Europe/Berlin] getAllRecipes: Retourne 13 recettes valides sur 13 totales
+[03-May-2025 22:08:05 Europe/Berlin] getRecipes: Requête avec limit=10, retourne 10 recettes, likes inclus: [{"id":1,"likes":1,"likedBy":["67eff2cfd2f36"]},{"id":2,"likes":3,"likedBy":["67f2b65a5099f","67efeed2002d8","67ff8be66e6a5"]},{"id":3,"likes":2,"likedBy":["67efeed2002d8"]},{"id":4,"likes":0,"likedBy":[]},{"id":5,"likes":1,"likedBy":["67efeed2002d8"]},{"id":7,"likes":1,"likedBy":["67efeed2002d8"]},{"id":8,"likes":0,"likedBy":[]},{"id":9,"likes":3,"likedBy":["67efeed2002d8","67eff2cfd2f36","67f2b65a5099f"]},{"id":10,"likes":3,"likedBy":["67efeed2002d8","67f2b65a5099f","6811fa75db4a7"]},{"id":13,"likes":2,"likedBy":["67f2b65a5099f","68146a641b184"]}]

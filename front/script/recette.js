@@ -726,3 +726,58 @@ document.getElementById("edit-form")?.addEventListener("submit", async (e) => {
     alert("Erreur réseau: " + error.message);
   }
 });
+async function translateText(text, targetLang = "fr") {
+  try {
+    const response = await fetch(`${webServerAddress}/translate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: text,
+        sourceLang: "en", // Langue source
+        targetLang: targetLang, // Langue cible
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Erreur lors de la traduction :", errorData);
+      throw new Error(errorData.error || "Erreur de traduction");
+    }
+
+    const data = await response.json();
+    return data.translatedText;
+  } catch (error) {
+    console.error("Erreur réseau ou de traduction :", error);
+    throw error;
+  }
+}
+document.getElementById("translate-btn").addEventListener("click", async function () {
+  const modal = document.getElementById("detail-modal");
+  const title = modal.querySelector("h4");
+  const ingredientsList = modal.querySelector("ul.collection");
+  const stepsList = modal.querySelector("ol.collection");
+
+  // Traduire le titre
+  title.textContent = await translateText(title.textContent);
+
+  // Traduire chaque ingrédient
+  const ingredientItems = ingredientsList.querySelectorAll("li");
+  for (const item of ingredientItems) {
+    item.textContent = await translateText(item.textContent);
+  }
+
+  // Traduire chaque étape
+  const stepItems = stepsList.querySelectorAll("li");
+  for (const item of stepItems) {
+    item.textContent = await translateText(item.textContent);
+  }
+
+
+  const translateBtn = document.getElementById("translate-btn");
+translateBtn.textContent = "Traduction...";
+translateBtn.disabled = true;
+
+  
+});
