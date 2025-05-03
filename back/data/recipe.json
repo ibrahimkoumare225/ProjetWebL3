@@ -152,9 +152,10 @@
         ],
         "imageURL": "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/50/84/7/picMcSyVd.jpg",
         "originalURL": "http://www.food.com/recipe/roasted-asparagus-50847",
-        "likes": 1,
+        "likes": 2,
         "likedBy": [
-            "67f2b65a5099f"
+            "67f2b65a5099f",
+            "67efeed2002d8"
         ]
     },
     {
@@ -683,9 +684,10 @@
         "imageURL": "https://www.wellplated.com/wp-content/uploads/2021/08/Traditional-Savory-Crepes.jpg",
         "likedBy": [
             "67efeed2002d8",
-            "67f2b65a5099f"
+            "67f2b65a5099f",
+            "6811fa75db4a7"
         ],
-        "likes": 2
+        "likes": 3
     },
     {
         "id": 13,
@@ -734,11 +736,98 @@
         "imageURL": "https://recettesdafrique.com/wp-content/uploads/2022/12/Foutou-sauce-graine.jpg",
         "createdAt": "2025-04-30 10:53:16",
         "updatedAt": "2025-04-30 13:14:38",
-        "likes": 3,
+        "likes": 2,
         "likedBy": [
-            "67efeed2002d8",
             "67f2b65a5099f",
-            "67eff2cfd2f36"
+            "68146a641b184"
         ]
+    },
+    {
+        "id": 14,
+        "name": "Spaghetti Bolognese",
+        "nameFR": "spaghetti bolognaise",
+        "Author": {
+            "id": "67eff2cfd2f36",
+            "name": "Moyenga",
+            "prenom": "adama",
+            "email": "amoyenga@gmail.com",
+            "role": "chef"
+        },
+        "ingredients": [
+            {
+                "quantity": "500g",
+                "name": "patte,"
+            },
+            {
+                "quantity": "200g",
+                "name": "de tommate fraiche,"
+            },
+            {
+                "quantity": "1kg",
+                "name": "de viande de boeuf"
+            }
+        ],
+        "stepsFR": [
+            "laver la viande"
+        ],
+        "imageURL": "https://tse3.mm.bing.net/th/id/OIP.pxYZYv9NIvI4JL8lzy3XrwHaHa?rs=1&pid=ImgDetMain",
+        "createdAt": "2025-05-01 15:45:01",
+        "updatedAt": "2025-05-01 15:45:01",
+        "likes": 0,
+        "likedBy": []
+    },
+    {
+        "id": 15,
+        "name": "gal",
+        "nameFR": "garba",
+        "Author": {
+            "id": "6811fa75db4a7",
+            "name": "test",
+            "prenom": "test",
+            "email": "test@gmail.com",
+            "role": "chef"
+        },
+        "ingredients": [
+            {
+                "quantity": "poisson",
+                "name": ""
+            }
+        ],
+        "stepsFR": [
+            "laver poisson"
+        ],
+        "imageURL": "https://th.bing.com/th/id/R.fc34fc9a9db3aa11e79a30abcffa1f6e?rik=2nOpcYXOMaO9EA&riu=http%3a%2f%2fjeannette-cuisine.fr%2fwp-content%2fuploads%2f2013%2f06%2fLe-Garba-grotto.jpg&ehk=fxaOLHuvCUaZW8xKWAGUzSr5%2forvckdhMLzEG0woB9Q%3d&risl=&pid=ImgRaw&r=0",
+        "createdAt": "2025-05-01 15:48:36",
+        "updatedAt": "2025-05-01 15:48:36",
+        "likes": 1,
+        "likedBy": [
+            "6811fa75db4a7"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "testReussi",
+        "nameFR": "testReussi",
+        "Author": {
+            "id": "67eff2cfd2f36",
+            "name": "Moyenga",
+            "prenom": "adama",
+            "email": "amoyenga@gmail.com",
+            "role": "chef"
+        },
+        "ingredients": [
+            {
+                "quantity": "testReussi",
+                "name": ""
+            }
+        ],
+        "stepsFR": [
+            "testReussi"
+        ],
+        "imageURL": "",
+        "createdAt": "2025-05-03 11:17:49",
+        "updatedAt": "2025-05-03 11:17:49",
+        "likes": 0,
+        "likedBy": []
     }
 ]
