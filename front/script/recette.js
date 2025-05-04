@@ -1,7 +1,8 @@
 /**
  * Script JavaScript pour gérer l'affichage et l'interaction avec les recettes côté client.
  * Inclut le chargement des recettes, l'affichage des cartes, la gestion des likes,
- * la suppression, l'édition et l'ajout de recettes via des formulaires modaux.
+ * la suppression, l'édition, l'ajout de recettes via des formulaires modaux,
+ * et la traduction des titres pour les traducteurs.
  */
 
 /**
@@ -68,6 +69,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       line-height: 24px;
       display: inline-flex;
       align-items: center;
+    }
+    .translate-btn.disabled {
+      opacity: 0.5;
+      pointer-events: none;
     }
   `;
   document.head.appendChild(style);
@@ -161,6 +166,7 @@ function afficherRecettes(recipes) {
   }
   container.innerHTML = ""; // Vide le conteneur
   const currentUser = JSON.parse(localStorage.getItem("user"));
+  const isTranslator = currentUser && currentUser.role === "traducteur";
 
   console.log("Affichage de", recipes.length, "recettes");
   recipes.forEach((recipe, index) => {
@@ -186,12 +192,12 @@ function afficherRecettes(recipes) {
         )}, likedByUser=${likedByUser}`
       );
 
-      // Génère le HTML de la carte
+      // Génère le HTML de la carte avec data-language pour suivre l'état de la langue
       const card = `
         <div class="col s12 m6 l4">
           <div class="card large hoverable" data-id="${
             recipe.id
-          }" data-recipe='${JSON.stringify(recipe)}'>
+          }" data-recipe='${JSON.stringify(recipe)}' data-language="fr">
             <div class="card-image waves-effect waves-light">
               <img src="${
                 recipe.imageURL || "https://via.placeholder.com/300x200"
@@ -269,17 +275,17 @@ function afficherRecettes(recipes) {
             <div class="card-action">
               <div class="row" style="margin-bottom: 0;">
                 <div class="col s2 center"> 
-                  <a class="btn-floating waves-effect waves-light teal detail-btn" >
+                  <a class="btn-floating waves-effect waves-light teal detail-btn">
                     <i class="material-icons">info</i>
                   </a>
                 </div>
                 <div class="col s2 center">
-                  <a class="btn-floating waves-effect waves-light id="translate-btn" blue comment-btn"style="margin: 0 4px;">
+                  <a class="btn-floating waves-effect waves-light blue comment-btn" style="margin: 0 4px;">
                     <i class="material-icons">comment</i>
                   </a>
                 </div>
                 <div class="col s2 center">
-                  <a class="btn-floating waves-effect waves-light orange edit-btn"style="margin: 0 8px;">
+                  <a class="btn-floating waves-effect waves-light orange edit-btn" style="margin: 0 8px;">
                     <i class="material-icons">edit</i>
                   </a>
                 </div>
@@ -291,7 +297,9 @@ function afficherRecettes(recipes) {
                   </a>
                 </div>
                 <div class="col s2 center">
-                  <a class="btn-floating waves-effect waves-light grey translate-btn" style="margin: 0 16px;">
+                  <a class="btn-floating waves-effect waves-light grey translate-btn ${
+                    isTranslator ? "" : "disabled"
+                  }" data-recipe-id="${recipe.id}" style="margin: 0 16px;">
                     <i class="material-icons">g_translate</i>
                   </a>
                 </div>
@@ -313,7 +321,7 @@ function afficherRecettes(recipes) {
 }
 
 /**
- * Initialise les écouteurs d'événements pour les interactions avec les cartes (like, supprimer, détails, éditer).
+ * Initialise les écouteurs d'événements pour les interactions avec les cartes (like, supprimer, détails, éditer, traduire).
  */
 function initCardInteractions() {
   console.log("Initialisation des interactions de cartes");
@@ -340,6 +348,12 @@ function initCardInteractions() {
   document.querySelectorAll(".edit-btn").forEach((btn) => {
     btn.removeEventListener("click", handleEditClick);
     btn.addEventListener("click", handleEditClick);
+  });
+
+  // Ajoute les écouteurs pour les boutons de traduction
+  document.querySelectorAll(".translate-btn").forEach((btn) => {
+    btn.removeEventListener("click", handleTranslateClick);
+    btn.addEventListener("click", handleTranslateClick);
   });
 }
 
@@ -606,6 +620,49 @@ async function handleEditClick(e) {
 }
 
 /**
+ * Gère le clic sur le bouton de traduction.
+ * Bascule l'affichage du titre de la recette entre français et anglais pour les traducteurs.
+ *
+ * @param {Event} e Événement de clic.
+ */
+function handleTranslateClick(e) {
+  e.stopPropagation();
+  const btn = e.target.closest(".translate-btn");
+  const card = btn.closest(".card");
+  const recipe = JSON.parse(card.dataset.recipe);
+  const currentLanguage = card.dataset.language;
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  // Vérifie si l'utilisateur est un traducteur
+  if (!user || user.role !== "traducteur") {
+    console.warn(
+      "Accès refusé au bouton de traduction: utilisateur non traducteur",
+      user
+    );
+    M.toast({ html: "Seuls les traducteurs peuvent utiliser cette fonction" });
+    return;
+  }
+
+  // Bascule la langue
+  const newLanguage = currentLanguage === "fr" ? "en" : "fr";
+  card.dataset.language = newLanguage;
+  const titleElement = card.querySelector(".card-title");
+  titleElement.textContent =
+    newLanguage === "fr"
+      ? recipe.nameFR || recipe.name || "Sans titre"
+      : recipe.name || recipe.nameFR || "Sans titre";
+  console.log(
+    `Traduction pour recette ID ${recipe.id}: langue=${newLanguage}, titre=${
+      titleElement.textContent
+    }`
+  );
+
+  // Met à jour l'icône du bouton pour refléter l'état
+  const icon = btn.querySelector("i");
+  icon.textContent = newLanguage === "fr" ? "g_translate" : "translate";
+}
+
+/**
  * Affiche les détails d'une recette dans un modal.
  *
  * @param {Object} recipe Données de la recette.
@@ -619,7 +676,7 @@ function showDetailsModal(recipe) {
         <h5>Ingrédients</h5>
         <ul class="collection">
           ${
-            recipe.ingredients
+            recipe.ingredientsFR
               ?.map(
                 (ing) => `
             <li class="collection-item">${ing.quantity} ${ing.name}</li>
@@ -768,7 +825,7 @@ function showEditModal(recipe) {
     recipe.ingredients
       ?.map((ing) => `${ing.quantity} ${ing.name}`)
       .join("\n") || "";
-  document.getElementById("edit-ingredients").value = ingredientsText;
+  document.getElementById("edit-ingredientsFR").value = ingredientsText;
   document.getElementById("edit-ingredients").value = ingredientsTextEN;
 
   document.getElementById("edit-stepsFR").value =
@@ -834,13 +891,16 @@ document.getElementById("edit-form")?.addEventListener("submit", async (e) => {
     .getElementById("edit-steps")
     .value.split("\n")
     .filter((step) => step.trim());
+
   // Prépare les données du formulaire
   const formData = {
     id: document.getElementById("edit-id").value,
     name: document.getElementById("edit-name").value,
     nameFR: document.getElementById("edit-nameFR").value,
     ingredients: ingredients,
-    stepsFR: steps,
+    ingredientsFR: ingredientsFR,
+    steps: steps,
+    stepsFR: stepsFR,
     imageURL: document.getElementById("edit-imageURL").value,
   };
 
@@ -867,57 +927,17 @@ document.getElementById("edit-form")?.addEventListener("submit", async (e) => {
     alert("Erreur réseau: " + error.message);
   }
 });
-async function translateText(text, targetLang = "fr") {
-  try {
-    const response = await fetch(`${webServerAddress}/translate`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        text: text,
-        sourceLang: "en", // Langue source
-        targetLang: targetLang, // Langue cible
-      }),
-    });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Erreur lors de la traduction :", errorData);
-      throw new Error(errorData.error || "Erreur de traduction");
-    }
-
-    const data = await response.json();
-    return data.translatedText;
-  } catch (error) {
-    console.error("Erreur réseau ou de traduction :", error);
-    throw error;
-  }
+/**
+ * Bascule le texte entre français et anglais pour un élément donné.
+ * Utilisé pour la fonctionnalité de traduction.
+ *
+ * @param {Object} recipe Données de la recette.
+ * @param {string} currentLanguage Langue actuelle ("fr" ou "en").
+ * @returns {string} Texte traduit.
+ */
+function translateText(recipe, currentLanguage) {
+  return currentLanguage === "fr"
+    ? recipe.nameFR || recipe.name || "Sans titre"
+    : recipe.name || recipe.nameFR || "Sans titre";
 }
-document
-  .getElementById("translate-btn")
-  .addEventListener("click", async function () {
-    const modal = document.getElementById("detail-modal");
-    const title = modal.querySelector("h4");
-    const ingredientsList = modal.querySelector("ul.collection");
-    const stepsList = modal.querySelector("ol.collection");
-
-    // Traduire le titre
-    title.textContent = await translateText(title.textContent);
-
-    // Traduire chaque ingrédient
-    const ingredientItems = ingredientsList.querySelectorAll("li");
-    for (const item of ingredientItems) {
-      item.textContent = await translateText(item.textContent);
-    }
-
-    // Traduire chaque étape
-    const stepItems = stepsList.querySelectorAll("li");
-    for (const item of stepItems) {
-      item.textContent = await translateText(item.textContent);
-    }
-
-    const translateBtn = document.getElementById("translate-btn");
-    translateBtn.textContent = "Traduction...";
-    translateBtn.disabled = true;
-  });

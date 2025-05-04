@@ -53,9 +53,21 @@
             "requestedRole": "cuisinier",
             "status": "pending",
             "createdAt": "2025-05-03 21:34:00"
+        },
+        {
+            "id": 6,
+            "userId": "68174b8192be5",
+            "userName": "nabil",
+            "userPrenom": "ibrahim",
+            "userEmail": "nabilIbrahim@gmail.com",
+            "requestedRole": "traducteur",
+            "status": "accepted",
+            "createdAt": "2025-05-04 15:26:40",
+            "processedAt": "2025-05-04 15:26:58"
         }
     ],
     "users": {
-        "68146a641b184": "chef"
+        "68146a641b184": "chef",
+        "68174b8192be5": "traducteur"
     }
 }
