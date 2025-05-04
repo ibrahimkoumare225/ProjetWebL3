@@ -209,7 +209,7 @@ class RecipeController
             }
 
             // Vérifie les champs requis
-            $requiredFields = ['name', 'nameFR', 'ingredients', 'stepsFR'];
+            $requiredFields = ['name', 'nameFR', 'ingredients', 'ingredientsFR','steps','stepsFR'];
             foreach ($requiredFields as $field) {
                 if (empty($input[$field])) {
                     http_response_code(400);
@@ -235,6 +235,8 @@ class RecipeController
                     'role' => $user['role']
                 ],
                 'ingredients' => $input['ingredients'],
+                'ingredientsFR' => $input['ingredientsFR'],
+                'steps' => $input['steps'],
                 'stepsFR' => $input['stepsFR'],
                 'imageURL' => $input['imageURL'] ?? '',
                 'createdAt' => date('Y-m-d H:i:s'),
@@ -330,7 +332,7 @@ class RecipeController
                     }
 
                     // Champs modifiables
-                    $updatableFields = ['name', 'nameFR', 'ingredients', 'stepsFR', 'imageURL'];
+                    $updatableFields = ['name', 'nameFR', 'ingredients','ingredientsFR' ,'steps','stepsFR', 'imageURL'];
                     $hasUpdates = false;
 
                     // Met à jour les champs fournis

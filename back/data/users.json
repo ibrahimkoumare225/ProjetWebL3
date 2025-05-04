@@ -46,5 +46,13 @@
         "mail": "irisbessala11@gmail.com",
         "password": "$2y$10$dPtdVTLh0lJd813ZUZnvvOlK/tc4hLakfr0sM5SQFq.Vu4kQBLkWy",
         "role": "admin"
+    },
+    {
+        "id": "68174b8192be5",
+        "name": "nabil",
+        "prenom": "ibrahim",
+        "mail": "nabilIbrahim@gmail.com",
+        "password": "$2y$12$WpS7aEZ1EwuKrYpDdDpprexac8G8QH4wTK2Aj7k0ZbbVohWKhDayK",
+        "role": "utilisateur"
     }
 ]

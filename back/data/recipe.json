@@ -830,5 +830,40 @@
         "updatedAt": "2025-05-03 11:17:49",
         "likes": 0,
         "likedBy": []
+    },
+    {
+        "id": 17,
+        "name": "Lens",
+        "nameFR": "Lentille",
+        "Author": {
+            "id": "67efeed2002d8",
+            "name": "koumare",
+            "prenom": "ibrahim",
+            "email": "ibrahimkoumare5@gmail.com",
+            "role": "admin"
+        },
+        "ingredients": [
+            {
+                "quantity": "Lens",
+                "name": ""
+            }
+        ],
+        "ingredientsFR": [
+            {
+                "quantity": "Lentille",
+                "name": ""
+            }
+        ],
+        "steps": [
+            "Lens"
+        ],
+        "stepsFR": [
+            "Lens"
+        ],
+        "imageURL": "https://th.bing.com/th/id/R.268116dc38275b56df2d1ef5d04c3ec4?rik=uyKo6Kj3cXfq1Q&riu=http%3a%2f%2fwww.cuisineetsentiments.com%2fimages%2flentilles_9.jpg&ehk=EJwefOi5PZKzeDZWLRMZ%2bYy4Pc0QO6VVH3LaNaGYL8o%3d&risl=&pid=ImgRaw&r=0",
+        "createdAt": "2025-05-04 12:57:40",
+        "updatedAt": "2025-05-04 12:57:40",
+        "likes": 0,
+        "likedBy": []
     }
 ]

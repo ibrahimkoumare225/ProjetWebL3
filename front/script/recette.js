@@ -108,7 +108,9 @@ async function chargerRecettes(limit, query = "") {
   try {
     // Construit l'URL avec ou sans paramètre de recherche
     const url = query
-      ? `${webServerAddress}/recipes/search?q=${encodeURIComponent(query)}&limit=${limit}`
+      ? `${webServerAddress}/recipes/search?q=${encodeURIComponent(
+          query
+        )}&limit=${limit}`
       : `${webServerAddress}/recipes?limit=${limit}`;
     console.log("Requête chargerRecettes:", url);
     const response = await fetch(url, {
@@ -126,7 +128,9 @@ async function chargerRecettes(limit, query = "") {
         return;
       }
       throw new Error(
-        `HTTP error! status: ${response.status}, message: ${errorData.error || "Inconnu"}`
+        `HTTP error! status: ${response.status}, message: ${
+          errorData.error || "Inconnu"
+        }`
       );
     }
 
@@ -162,20 +166,36 @@ function afficherRecettes(recipes) {
   recipes.forEach((recipe, index) => {
     try {
       // Normalise l'ID utilisateur et les likes
-      const userId = currentUser ? String(currentUser.id_user || currentUser.id) : null;
-      const likedBy = Array.isArray(recipe.likedBy) ? recipe.likedBy.map(String) : [];
+      const userId = currentUser
+        ? String(currentUser.id_user || currentUser.id)
+        : null;
+      const likedBy = Array.isArray(recipe.likedBy)
+        ? recipe.likedBy.map(String)
+        : [];
       const likedByUser = userId && likedBy.includes(userId);
-      const likesCount = isNaN(parseInt(recipe.likes)) ? 0 : parseInt(recipe.likes);
+      const likesCount = isNaN(parseInt(recipe.likes))
+        ? 0
+        : parseInt(recipe.likes);
       console.log(
-        `Recette ${index + 1} ID ${recipe.id}: name=${recipe.nameFR || recipe.name}, rawLikes=${recipe.likes}, type=${typeof recipe.likes}, likesCount=${likesCount}, userId=${userId}, likedBy=${JSON.stringify(likedBy)}, likedByUser=${likedByUser}`
+        `Recette ${index + 1} ID ${recipe.id}: name=${
+          recipe.nameFR || recipe.name
+        }, rawLikes=${
+          recipe.likes
+        }, type=${typeof recipe.likes}, likesCount=${likesCount}, userId=${userId}, likedBy=${JSON.stringify(
+          likedBy
+        )}, likedByUser=${likedByUser}`
       );
 
       // Génère le HTML de la carte
       const card = `
         <div class="col s12 m6 l4">
-          <div class="card large hoverable" data-id="${recipe.id}" data-recipe='${JSON.stringify(recipe)}'>
+          <div class="card large hoverable" data-id="${
+            recipe.id
+          }" data-recipe='${JSON.stringify(recipe)}'>
             <div class="card-image waves-effect waves-light">
-              <img src="${recipe.imageURL || "https://via.placeholder.com/300x200"}" 
+              <img src="${
+                recipe.imageURL || "https://via.placeholder.com/300x200"
+              }" 
                    class="activator responsive-img" style="width: 266px; height: 200px; object-fit: cover;">
             </div>
             <div class="card-content">
@@ -184,16 +204,43 @@ function afficherRecettes(recipes) {
               </span>
               <div class="row">
                 <div class="col s4 center">
-                  <p class="flow-text">${recipe.duration || "--"}</p>
+                  <p class="flow-text">
+                    ${
+                      recipe.createdAt
+                        ? new Date(recipe.createdAt).toLocaleDateString(
+                            "fr-FR",
+                            { day: "2-digit" }
+                          )
+                        : "--"
+                    }
+                  </p>
                   <small class="grey-text">JOUR</small>
                 </div>
                 <div class="col s4 center">
-                  <p class="flow-text">${recipe.servings || "--"}</p>
+                  <p class="flow-text">
+                    ${
+                      recipe.createdAt
+                        ? new Date(recipe.createdAt).toLocaleDateString(
+                            "fr-FR",
+                            { month: "long" }
+                          )
+                        : "--"
+                    }
+                  </p>
                   <small class="grey-text">MOIS</small>
                 </div>
                 <div class="col s4 center">
-                  <p class="flow-text">${recipe.difficulty || "--"}</p>
-                  <small class="grey-text">ANNEE</small>
+                  <p class="flow-text">
+                    ${
+                      recipe.createdAt
+                        ? new Date(recipe.createdAt).toLocaleDateString(
+                            "fr-FR",
+                            { year: "numeric" }
+                          )
+                        : "--"
+                    }
+                  </p>
+                  <small class="grey-text">ANNÉE</small>
                 </div>
               </div>
               <div class="divider"></div>
@@ -206,8 +253,14 @@ function afficherRecettes(recipes) {
                   </span>
                 </div>
                 <div class="col s4 right-align">
-                  <a class="waves-effect waves-teal btn-flat heart-btn" data-recipe-id="${recipe.id}" data-likes="${likesCount}" data-liked="${likedByUser ? 'true' : 'false'}">
-                    <i class="material-icons ${likedByUser ? 'red-text' : 'grey-text'}">${likedByUser ? 'favorite' : 'favorite_border'}</i>
+                  <a class="waves-effect waves-teal btn-flat heart-btn" data-recipe-id="${
+                    recipe.id
+                  }" data-likes="${likesCount}" data-liked="${
+        likedByUser ? "true" : "false"
+      }">
+                    <i class="material-icons ${
+                      likedByUser ? "red-text" : "grey-text"
+                    }">${likedByUser ? "favorite" : "favorite_border"}</i>
                     <span class="likes-count">${likesCount}</span>
                   </a>
                 </div>
@@ -215,24 +268,31 @@ function afficherRecettes(recipes) {
             </div>
             <div class="card-action">
               <div class="row" style="margin-bottom: 0;">
-                <div class="col s3 center"> 
-                  <a class="btn-floating waves-effect waves-light teal detail-btn">
+                <div class="col s2 center"> 
+                  <a class="btn-floating waves-effect waves-light teal detail-btn" >
                     <i class="material-icons">info</i>
                   </a>
                 </div>
-                <div class="col s3 center">
-                  <a class="btn-floating waves-effect waves-light blue comment-btn">
+                <div class="col s2 center">
+                  <a class="btn-floating waves-effect waves-light id="translate-btn" blue comment-btn"style="margin: 0 4px;">
                     <i class="material-icons">comment</i>
                   </a>
                 </div>
-                <div class="col s3 center">
-                  <a class="btn-floating waves-effect waves-light orange edit-btn">
+                <div class="col s2 center">
+                  <a class="btn-floating waves-effect waves-light orange edit-btn"style="margin: 0 8px;">
                     <i class="material-icons">edit</i>
                   </a>
                 </div>
-                <div class="col s3 center">
-                  <a class="btn-floating waves-effect waves-light red delete-btn" data-recipe-id="${recipe.id}">
+                <div class="col s2 center">
+                  <a class="btn-floating waves-effect waves-light red delete-btn" data-recipe-id="${
+                    recipe.id
+                  }" style="margin: 0 12px;">
                     <i class="material-icons">delete</i>
+                  </a>
+                </div>
+                <div class="col s2 center">
+                  <a class="btn-floating waves-effect waves-light grey translate-btn" style="margin: 0 16px;">
+                    <i class="material-icons">g_translate</i>
                   </a>
                 </div>
               </div>
@@ -242,7 +302,10 @@ function afficherRecettes(recipes) {
       `;
       container.insertAdjacentHTML("beforeend", card); // Ajoute la carte au conteneur
     } catch (error) {
-      console.error(`Erreur lors du rendu de la recette ID ${recipe.id}:`, error);
+      console.error(
+        `Erreur lors du rendu de la recette ID ${recipe.id}:`,
+        error
+      );
     }
   });
 
@@ -291,7 +354,9 @@ async function handleHeartClick(e) {
   e.stopPropagation();
   const btn = e.target.closest(".heart-btn");
   if (btn.disabled) {
-    console.warn(`Bouton heart-btn déjà en cours de traitement pour recipeId=${btn.dataset.recipeId}`);
+    console.warn(
+      `Bouton heart-btn déjà en cours de traitement pour recipeId=${btn.dataset.recipeId}`
+    );
     return;
   }
   btn.disabled = true; // Désactive le bouton pendant le traitement
@@ -303,12 +368,17 @@ async function handleHeartClick(e) {
   const userId = user ? String(user.id_user || user.id) : null;
 
   console.log(
-    `Clic sur heart-btn: recipeId=${recipeId}, action=${action}, liked=${isLiked}, userId=${userId}, currentLikes=${currentLikes}, localStorage.user=${JSON.stringify(user)}`
+    `Clic sur heart-btn: recipeId=${recipeId}, action=${action}, liked=${isLiked}, userId=${userId}, currentLikes=${currentLikes}, localStorage.user=${JSON.stringify(
+      user
+    )}`
   );
 
   // Vérifie si l'utilisateur est connecté
   if (!user || !userId) {
-    console.warn("Aucun utilisateur connecté pour le like/unlike", { user, userId });
+    console.warn("Aucun utilisateur connecté pour le like/unlike", {
+      user,
+      userId,
+    });
     alert("Veuillez vous connecter pour aimer une recette");
     localStorage.removeItem("user");
     window.location.href = "/connexion.html";
@@ -330,7 +400,8 @@ async function handleHeartClick(e) {
   icon.classList.toggle("red-text", action === "like");
   icon.classList.toggle("grey-text", action !== "like");
   btn.dataset.liked = action === "like" ? "true" : "false";
-  btn.dataset.likes = action === "like" ? currentLikes + 1 : Math.max(0, currentLikes - 1);
+  btn.dataset.likes =
+    action === "like" ? currentLikes + 1 : Math.max(0, currentLikes - 1);
   likesCount.textContent = btn.dataset.likes;
   console.log(
     `Mise à jour UI: recipeId=${recipeId}, action=${action}, likes=${btn.dataset.likes}`
@@ -352,8 +423,13 @@ async function handleHeartClick(e) {
         console.warn("Session invalide, redirection vers connexion.html");
         localStorage.removeItem("user");
         window.location.href = "/connexion.html";
-      } else if (errorData.error === "Action invalide pour l'état actuel" && action === "like") {
-        console.warn(`L'utilisateur a déjà aimé la recette ${recipeId}, tentative de unlike`);
+      } else if (
+        errorData.error === "L'utilisateur a déjà aimé la recette" &&
+        action === "like"
+      ) {
+        console.warn(
+          `L'utilisateur a déjà aimé la recette ${recipeId}, tentative de unlike`
+        );
         // Tente un unlike si l'utilisateur a déjà aimé
         const unlikeResponse = await fetch(`${webServerAddress}/like`, {
           method: "POST",
@@ -363,11 +439,15 @@ async function handleHeartClick(e) {
         });
         if (unlikeResponse.ok) {
           const unlikeResult = await unlikeResponse.json();
-          console.log(`Unlike réussi pour recette: ${recipeId}, likes=${unlikeResult.likes}`);
+          console.log(
+            `Unlike réussi pour recette: ${recipeId}, likes=${unlikeResult.likes}`
+          );
           btn.dataset.likes = unlikeResult.likes;
           likesCount.textContent = unlikeResult.likes;
           btn.dataset.liked = unlikeResult.likedByUser ? "true" : "false";
-          icon.textContent = unlikeResult.likedByUser ? "favorite" : "favorite_border";
+          icon.textContent = unlikeResult.likedByUser
+            ? "favorite"
+            : "favorite_border";
           icon.classList.toggle("red-text", unlikeResult.likedByUser);
           icon.classList.toggle("grey-text", !unlikeResult.likedByUser);
         } else {
@@ -388,7 +468,9 @@ async function handleHeartClick(e) {
     } else {
       // Met à jour l'UI avec les données du serveur
       const result = await response.json();
-      console.log(`Like/unlike réussi pour recette: ${recipeId}, serveur renvoie likes=${result.likes}, likedByUser=${result.likedByUser}`);
+      console.log(
+        `Like/unlike réussi pour recette: ${recipeId}, serveur renvoie likes=${result.likes}, likedByUser=${result.likedByUser}`
+      );
       btn.dataset.likes = result.likes;
       likesCount.textContent = result.likes;
       btn.dataset.liked = result.likedByUser ? "true" : "false";
@@ -397,7 +479,10 @@ async function handleHeartClick(e) {
       icon.classList.toggle("grey-text", !result.likedByUser);
     }
   } catch (error) {
-    console.error(`Erreur réseau lors du like/unlike pour recette ${recipeId}:`, error);
+    console.error(
+      `Erreur réseau lors du like/unlike pour recette ${recipeId}:`,
+      error
+    );
     // Restaure l'UI en cas d'erreur réseau
     icon.textContent = isLiked ? "favorite" : "favorite_border";
     icon.classList.toggle("red-text", isLiked);
@@ -423,7 +508,9 @@ async function handleDeleteClick(e) {
   e.stopPropagation();
   const btn = e.target.closest(".delete-btn");
   if (btn.disabled) {
-    console.warn(`Bouton delete-btn déjà en cours de traitement pour recipeId=${btn.dataset.recipeId}`);
+    console.warn(
+      `Bouton delete-btn déjà en cours de traitement pour recipeId=${btn.dataset.recipeId}`
+    );
     return;
   }
   btn.disabled = true; // Désactive le bouton pendant le traitement
@@ -450,11 +537,16 @@ async function handleDeleteClick(e) {
         console.log(`Suppression réussie pour recette: ${recipeId}`);
         await chargerRecettes(10); // Recharge les recettes
       } else {
-        console.error(`Erreur lors de la suppression: ${JSON.stringify(result)}`);
+        console.error(
+          `Erreur lors de la suppression: ${JSON.stringify(result)}`
+        );
         alert(result.error || "Suppression non autorisée !");
       }
     } catch (error) {
-      console.error(`Erreur réseau lors de la suppression de la recette ${recipeId}:`, error);
+      console.error(
+        `Erreur réseau lors de la suppression de la recette ${recipeId}:`,
+        error
+      );
       alert("Erreur réseau: " + error.message);
     } finally {
       btn.disabled = false; // Réactive le bouton
@@ -491,12 +583,15 @@ async function handleEditClick(e) {
 
   try {
     // Vérifie les autorisations via une requête de test
-    const testResponse = await fetch(`${webServerAddress}/recipes/${recipe.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify({ test: true }),
-    });
+    const testResponse = await fetch(
+      `${webServerAddress}/recipes/${recipe.id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ test: true }),
+      }
+    );
 
     if (testResponse.ok) {
       showEditModal(recipe); // Affiche le modal d'édition
@@ -580,6 +675,18 @@ document.getElementById("add-form")?.addEventListener("submit", async (e) => {
   e.preventDefault();
   console.log("Soumission add-form");
 
+  // Traite les ingrédients FR
+  const ingredientsFR = document
+    .getElementById("add-ingredientsFR")
+    .value.split("\n")
+    .filter((line) => line.trim())
+    .map((line) => {
+      const [quantity, ...nameParts] = line.trim().split(" ");
+      return {
+        quantity: quantity || "",
+        name: nameParts.join(" ") || "",
+      };
+    });
   // Traite les ingrédients
   const ingredients = document
     .getElementById("add-ingredients")
@@ -592,6 +699,11 @@ document.getElementById("add-form")?.addEventListener("submit", async (e) => {
         name: nameParts.join(" ") || "",
       };
     });
+  // Traite les étapes FR
+  const stepsFR = document
+    .getElementById("add-stepsFR")
+    .value.split("\n")
+    .filter((step) => step.trim());
 
   // Traite les étapes
   const steps = document
@@ -603,7 +715,9 @@ document.getElementById("add-form")?.addEventListener("submit", async (e) => {
   const formData = {
     name: document.getElementById("add-name").value,
     nameFR: document.getElementById("add-nameFR").value,
+    ingredientsFR: ingredientsFR,
     ingredients: ingredients,
+    steps: steps,
     stepsFR: steps,
     imageURL: document.getElementById("add-imageURL").value || null,
   };
@@ -647,16 +761,25 @@ function showEditModal(recipe) {
   document.getElementById("edit-nameFR").value = recipe.nameFR;
 
   const ingredientsText =
+    recipe.ingredientsFR
+      ?.map((ing) => `${ing.quantity} ${ing.name}`)
+      .join("\n") || "";
+  const ingredientsTextEN =
     recipe.ingredients
       ?.map((ing) => `${ing.quantity} ${ing.name}`)
       .join("\n") || "";
   document.getElementById("edit-ingredients").value = ingredientsText;
+  document.getElementById("edit-ingredients").value = ingredientsTextEN;
 
-  document.getElementById("edit-steps").value = recipe.stepsFR?.join("\n") || "";
+  document.getElementById("edit-stepsFR").value =
+    recipe.stepsFR?.join("\n") || "";
+  document.getElementById("edit-steps").value = recipe.steps?.join("\n") || "";
   document.getElementById("edit-imageURL").value = recipe.imageURL || "";
 
   // Met à jour les champs Materialize
   M.updateTextFields();
+  M.textareaAutoResize(document.getElementById("edit-ingredientsFR"));
+  M.textareaAutoResize(document.getElementById("edit-stepsFR"));
   M.textareaAutoResize(document.getElementById("edit-ingredients"));
   M.textareaAutoResize(document.getElementById("edit-steps"));
 
@@ -674,6 +797,19 @@ document.getElementById("edit-form")?.addEventListener("submit", async (e) => {
   e.preventDefault();
   console.log("Soumission edit-form");
 
+  // Traite les ingrédients FR
+  const ingredientsFR = document
+    .getElementById("edit-ingredientsFR")
+    .value.split("\n")
+    .filter((line) => line.trim())
+    .map((line) => {
+      const [quantity, ...nameParts] = line.trim().split(" ");
+      return {
+        quantity: quantity || "",
+        name: nameParts.join(" ") || "",
+      };
+    });
+
   // Traite les ingrédients
   const ingredients = document
     .getElementById("edit-ingredients")
@@ -687,12 +823,17 @@ document.getElementById("edit-form")?.addEventListener("submit", async (e) => {
       };
     });
 
+  // Traite les étapes FR
+  const stepsFR = document
+    .getElementById("edit-stepsFR")
+    .value.split("\n")
+    .filter((step) => step.trim());
+
   // Traite les étapes
   const steps = document
     .getElementById("edit-steps")
     .value.split("\n")
     .filter((step) => step.trim());
-
   // Prépare les données du formulaire
   const formData = {
     id: document.getElementById("edit-id").value,
@@ -753,31 +894,30 @@ async function translateText(text, targetLang = "fr") {
     throw error;
   }
 }
-document.getElementById("translate-btn").addEventListener("click", async function () {
-  const modal = document.getElementById("detail-modal");
-  const title = modal.querySelector("h4");
-  const ingredientsList = modal.querySelector("ul.collection");
-  const stepsList = modal.querySelector("ol.collection");
+document
+  .getElementById("translate-btn")
+  .addEventListener("click", async function () {
+    const modal = document.getElementById("detail-modal");
+    const title = modal.querySelector("h4");
+    const ingredientsList = modal.querySelector("ul.collection");
+    const stepsList = modal.querySelector("ol.collection");
 
-  // Traduire le titre
-  title.textContent = await translateText(title.textContent);
+    // Traduire le titre
+    title.textContent = await translateText(title.textContent);
 
-  // Traduire chaque ingrédient
-  const ingredientItems = ingredientsList.querySelectorAll("li");
-  for (const item of ingredientItems) {
-    item.textContent = await translateText(item.textContent);
-  }
+    // Traduire chaque ingrédient
+    const ingredientItems = ingredientsList.querySelectorAll("li");
+    for (const item of ingredientItems) {
+      item.textContent = await translateText(item.textContent);
+    }
 
-  // Traduire chaque étape
-  const stepItems = stepsList.querySelectorAll("li");
-  for (const item of stepItems) {
-    item.textContent = await translateText(item.textContent);
-  }
+    // Traduire chaque étape
+    const stepItems = stepsList.querySelectorAll("li");
+    for (const item of stepItems) {
+      item.textContent = await translateText(item.textContent);
+    }
 
-
-  const translateBtn = document.getElementById("translate-btn");
-translateBtn.textContent = "Traduction...";
-translateBtn.disabled = true;
-
-  
-});
+    const translateBtn = document.getElementById("translate-btn");
+    translateBtn.textContent = "Traduction...";
+    translateBtn.disabled = true;
+  });
