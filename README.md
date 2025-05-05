@@ -94,7 +94,6 @@ Ce projet est une application web permettant la gestion de recettes de cuisine e
 │           │── comment.js        # Ce fichier permet de commenter, modifier, supprimer, voir (un commentaire) des recettes depuis l'interface du site.
 │           │── recette.js        # Ce fichier permet d'ajouter, modifier, supprimer, voir une reccette depuis l’interface du site.
 │           │── role.js           # Ce fichier permet de voir, de demander, accepter ou refuser un rôle depuis l’interface du site.
-│           │── traduction.js     # Ce fichier permet de traduire, complété ou modifier(les traductions d'une recette) une recettte depuis l’interface du site.
 │── instance.html                   # Première page de l'applicatio
 │── inscription.html                # Page d'inscription
 │── connexion.html                  # Page d'authentification
